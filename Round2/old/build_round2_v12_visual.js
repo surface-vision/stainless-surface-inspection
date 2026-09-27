@@ -330,19 +330,17 @@ const DET = [
   const quad = (i, j, head) => { ph(s, qx[i], qy[j], qw, head); RR(s, qx[i], qy[j] + 0.3, qw, qh - 0.3, C.neutral); };
   const so = (i, j, txt) => T(s, [{ text: 'So we: ', options: { bold: true, color: C.accent } }, { text: txt, options: { color: C.ink } }], { x: qx[i] + 0.15, y: qy[j] + qh - 0.36, w: qw - 0.3, h: 0.3, fontSize: 10, valign: 'middle' });
 
-  // Q1: two rings, each beside a real mill-strip image
+  // Q1: trained on clean steel -- final results as two rings
   quad(0, 0, '1  Alarms you can act on');
-  const ring = (x, val, big, img, cap, sub) => {
-    s.addChart(pres.charts.DOUGHNUT, [{ name: big, labels: ['a', 'b'], values: [val, 100 - val] }], {
-      x, y: 1.72, w: 1.3, h: 1.3, holeSize: 70, chartColors: [C.accent, 'E3E3E3'], showLegend: false, showValue: false, showPercent: false, dataBorder: { pt: 0, color: 'FFFFFF' },
+  const ring = (x, val, big, head, sub) => {
+    s.addChart(pres.charts.DOUGHNUT, [{ name: head, labels: ['a', 'b'], values: [val, 100 - val] }], {
+      x, y: 1.74, w: 1.5, h: 1.5, holeSize: 70, chartColors: [C.accent, 'E3E3E3'], showLegend: false, showValue: false, showPercent: false, dataBorder: { pt: 0, color: 'FFFFFF' },
     });
-    T(s, big, { x, y: 2.16, w: 1.3, h: 0.42, fontSize: 16, bold: true, color: C.navy, align: 'center', valign: 'middle' });
-    T(s, sub, { x: x - 0.05, y: 3.05, w: 1.45, h: 0.22, fontSize: 9, color: C.slate, align: 'center' });
-    s.addImage({ path: img, x: x + 1.38, y: 1.76, w: 1.12, h: 1.12 });
-    T(s, cap, { x: x + 1.38, y: 2.92, w: 1.12, h: 0.3, fontSize: 9, bold: true, color: C.accent, align: 'center' });
+    T(s, big, { x, y: 2.26, w: 1.5, h: 0.46, fontSize: 18, bold: true, color: C.navy, align: 'center', valign: 'middle' });
+    T(s, [{ text: head, options: { bold: true, color: C.navy } }, { text: '\n' + sub, options: { color: C.slate } }], { x: x + 1.55, y: 2.02, w: 1.35, h: 0.95, fontSize: 9.5 });
   };
-  ring(0.62, 89.6, '90%', 'img/proof_severstal.png', 'defect: flagged', '258 of 288 caught');
-  ring(3.62, 4.7, '4.7%', 'img/mill_clean.jpg', 'clean: no alarm', '14 of 300 flagged');
+  ring(0.65, 89.6, '90%', 'of defects caught', '258 of 288 defective mill images');
+  ring(3.6, 4.7, '4.7%', 'of clean strip flagged', '14 of 300 clean mill images');
   so(0, 0, 'prove it on JSL\'s own clean and defective strip before any alarm is trusted.');
 
   // Q2: one verdict per coil
@@ -352,9 +350,9 @@ const DET = [
   T(s, 'one coil, both faces: every defect with its type, size and position', { x: 6.95, y: 2.18, w: 4.25, h: 0.2, fontSize: 9, color: C.muted, italic: true });
   s.addShape(pres.shapes.CHEVRON, { x: 11.22, y: 1.87, w: 0.16, h: 0.24, fill: { color: C.accent }, line: { color: C.accent, width: 0 } });
   [['ACCEPT', C.green], ['DOWNGRADE', C.amber], ['HOLD', C.red]].forEach(([t, c], k) => tag(s, 11.47, 1.72 + k * 0.26, t, c, 1.22));
-  T(s, [{ text: 'Limits per grade and finish: ', options: { color: C.slate } }, { text: 'a light scratch passes on 2B tubes, downgrades a BA panel.', options: { color: C.navy, bold: true } }],
-    { x: 6.95, y: 2.5, w: 4.25, h: 0.5, fontSize: 9.5 });
-  photo(s, 'img/photos/lift.jpg', 11.4, 2.58, 1.3, 0.78);
+  T(s, [{ text: 'All defects on a coil roll up into one decision, using limits set per grade and finish. ', options: { color: C.slate } },
+        { text: 'Example: a light scratch can pass on 2B for tubes but downgrade BA for appliance panels.', options: { color: C.navy, bold: true } }],
+    { x: 6.95, y: 2.5, w: 5.7, h: 0.7, fontSize: 9.5 });
   so(1, 0, 'agree accept, downgrade and hold limits per grade and finish with JSL Quality in P0.');
 
   // Q3: image detail sets the hardware bill -- three settings
@@ -373,16 +371,19 @@ const DET = [
   T(s, '1.28 m strip at 250 m/min. Processors scale with pixels; a defect needs 2-3 pixels.', { x: 0.64, y: 5.83, w: 5.8, h: 0.22, fontSize: 9, italic: true, color: C.muted });
   so(0, 1, 'fix the image resolution with JSL first, then size the hardware.');
 
-  // Q4: what the operator actually sees, plus how trust is earned
+  // Q4: trust is earned on the shift floor
   quad(1, 1, '4  Operators act only on alarms they can trust');
-  s.addImage({ path: 'img/demo_result.png', x: 6.9, y: 4.34, w: 2.05, h: 1.63 });
-  [['scan-search', 'Evidence on every alarm'], ['user-check', '4 weeks of shadow mode'], ['refresh-cw', 'Every override reviewed']].forEach(([ic, h], k) => {
-    const y = 4.42 + k * 0.56;
-    badge(s, ic, 9.4, y, 0.42, C.navy);
-    T(s, h, { x: 9.92, y, w: 2.85, h: 0.42, fontSize: 11, bold: true, color: C.navy, valign: 'middle' });
+  [['scan-search', 'Every alarm shows its evidence', 'photo, defect type, severity and position on the coil'],
+   ['user-check', 'Four weeks of shadow mode first', 'it only advises; automatic holds start at ≥ 90% operator agreement'],
+   ['refresh-cw', 'Every override is reviewed', 'weekly with the line and quality; the system improves from it'],
+  ].forEach(([ic, h, d], k) => {
+    const y = 4.36 + k * 0.57;
+    badge(s, ic, 6.92, y + 0.03, 0.44, C.navy);
+    T(s, h, { x: 7.5, y, w: 5.2, h: 0.26, fontSize: 10.5, bold: true, color: C.navy });
+    T(s, d, { x: 7.5, y: y + 0.26, w: 5.2, h: 0.24, fontSize: 9.5, color: C.slate });
   });
   so(1, 1, 'earn trust on the shift floor before the system is allowed to act.');
-  s.addNotes('Four design choices. One: alarms you can act on. On real mill strip it catches 258 of 288 defects and wrongly flags only 14 of 300 clean images; the pilot repeats this on JSL\'s own strip before any alarm is trusted. Two: one verdict per coil. Every defect rolls up into accept, downgrade or hold, with limits agreed per grade and finish with JSL Quality. Three: image detail decides what can be seen and what the hardware costs; full detail at 250 m/min needs about 18 processing units, so resolution is a day-one decision with JSL. Four: trust is earned on the shift floor, with evidence on every alarm, four weeks of shadow mode and a weekly review of every override. Images: a real mill-strip defect our system flagged, and a clean mill-strip image that raised no alarm, both from the held-out test set; the screenshot is the live demo\'s alarm view. Lift photo: Shwun Vounwun3 (CC BY-SA 4.0).');
+  s.addNotes('Four design choices. One: alarms you can act on. On real mill strip it catches 258 of 288 defects and wrongly flags only 14 of 300 clean images; the pilot repeats this on JSL\'s own strip before any alarm is trusted. Two: one verdict per coil. Every defect rolls up into accept, downgrade or hold, with limits agreed per grade and finish with JSL Quality. Three: image detail decides what can be seen and what the hardware costs; full detail at 250 m/min needs about 18 processing units, so resolution is a day-one decision with JSL. Four: trust is earned on the shift floor, with evidence on every alarm, four weeks of shadow mode and a weekly review of every override.');
 }
 
 // ============ SLIDE 5: SOLUTION ============
@@ -574,16 +575,15 @@ const DET = [
   T(s, '◆ EXIT GATE', { x: 6.5, y: 1.7, w: 1.8, h: 0.2, fontSize: 9, bold: true, color: C.muted });
   const P = [
     ['P0', 'Instrument one line', 0, 1.5, 'Optics fixed; Pragati L2 data linked'],
-    ['P1', 'Learn JSL strip', 1.5, 4, 'Clean alarms ≤ 25%, recall ≥ 90%'],
+    ['P1', 'Learn JSL strip (5,000 frames)', 1.5, 4, 'Clean alarms ≤ 25%, recall ≥ 90%'],
     ['P2', 'Shadow mode: advises only', 4, 7, '≥ 90% operator agreement'],
     ['P3', 'Auto-hold on severe defects', 7, 12, 'Holds trusted; downgrade measured'],
     ['P4', 'Second line and grade', 12, 20, 'Fleet decision on measured value'],
   ];
   P.forEach(([c, n, a, b, gate], i) => {
     const y = 1.95 + i * 0.38;
-    icon(s, ['camera', 'layers', 'scan-search', 'shield-check', 'factory'][i], 0.56, y + 0.05, 0.24, 'accent');
-    T(s, c, { x: 0.84, y, w: 0.32, h: 0.34, fontSize: 11, bold: true, color: C.accent, valign: 'middle' });
-    T(s, n, { x: 1.16, y, w: 1.58, h: 0.34, fontSize: 9.5, color: C.ink, valign: 'middle' });
+    T(s, c, { x: 0.58, y, w: 0.35, h: 0.34, fontSize: 11, bold: true, color: C.accent, valign: 'middle' });
+    T(s, n, { x: 0.93, y, w: 1.8, h: 0.34, fontSize: 9.5, color: C.ink, valign: 'middle' });
     R(s, gx, y + 0.07, gw, 0.2, C.neutral);
     R(s, gx + gw * a / 20, y + 0.07, gw * (b - a) / 20, 0.2, i < 3 ? C.accent : C.navy2);
     s.addShape(pres.shapes.DIAMOND, { x: gx + gw * b / 20 - 0.09, y: y + 0.08, w: 0.18, h: 0.18, fill: { color: C.navy }, line: { color: 'FFFFFF', width: 1 } });
@@ -592,23 +592,27 @@ const DET = [
   R(s, gx + gw * 7 / 20 - 0.01, 1.92, 0.025, 1.9, C.red);
   T(s, 'pilot go / no-go', { x: gx + gw * 7 / 20 - 0.65, y: 3.83, w: 1.3, h: 0.2, fontSize: 9, bold: true, color: C.red });
 
-  // pilot scope: the line itself, then what is in and what waits
+  // pilot scope: what is in, what waits
   ph(s, 8.6, 1.35, 4.23, 'Pilot scope: in and out');
-  photo(s, 'img/photos/mill.jpg', 8.6, 1.66, 4.23, 0.72);
-  R(s, 8.6, 2.1, 4.23, 0.28, C.rail, { fill: { color: C.rail, transparency: 20 } });
-  T(s, 'One 300-series cold-rolled line', { x: 8.7, y: 2.1, w: 4.0, h: 0.28, fontSize: 10.5, bold: true, color: C.white, valign: 'middle' });
-  T(s, 'IN THE PILOT', { x: 8.7, y: 2.45, w: 2.0, h: 0.2, fontSize: 9, bold: true, color: C.accent, charSpacing: 1 });
-  T(s, 'LATER', { x: 10.85, y: 2.45, w: 1.9, h: 0.2, fontSize: 9, bold: true, color: C.muted, charSpacing: 1 });
-  [['Both faces, 2B + BA', 'Hot end, caster side'], ['6 defect families', 'Edge cracks'], ['Read-only until P3', 'Other plants']].forEach(([a, b], i) => {
-    const y = 2.68 + i * 0.3;
-    dot(s, 8.72, y + 0.08, 0.1, C.accent);
-    T(s, a, { x: 8.88, y, w: 1.9, h: 0.26, fontSize: 9.5, color: C.ink, valign: 'middle' });
-    dot(s, 10.87, y + 0.08, 0.1, C.grey);
-    T(s, b, { x: 11.03, y, w: 1.8, h: 0.26, fontSize: 9.5, color: C.slate, valign: 'middle' });
+  T(s, 'IN THE PILOT', { x: 8.7, y: 1.72, w: 2.0, h: 0.22, fontSize: 9.5, bold: true, color: C.accent, charSpacing: 1 });
+  T(s, 'LATER', { x: 10.85, y: 1.72, w: 1.9, h: 0.22, fontSize: 9.5, bold: true, color: C.muted, charSpacing: 1 });
+  const scope = [
+    ['One 300-series cold-rolled line, both faces', 'Hot end and caster-side inspection'],
+    ['2B and BA finishes', 'Edge cracks: needs edge cameras'],
+    ['Six defect families, plus unclassified', 'Automatic process correction'],
+    ['Read-only until P3; one write path', 'Other plants: after P4'],
+  ];
+  scope.forEach(([a, b], i) => {
+    const y = 1.98 + i * 0.4;
+    dot(s, 8.72, y + 0.1, 0.1, C.accent);
+    T(s, a, { x: 8.88, y, w: 1.9, h: 0.36, fontSize: 9.5, color: C.ink, valign: 'middle' });
+    dot(s, 10.87, y + 0.1, 0.1, C.grey);
+    T(s, b, { x: 11.03, y, w: 1.8, h: 0.36, fontSize: 9.5, color: C.slate, valign: 'middle' });
   });
-  T(s, [{ text: 'Owner: ', options: { color: C.muted } }, { text: 'JSL Quality', options: { bold: true, color: C.ink } },
+  R(s, 8.7, 3.62, 4.08, 0.01, C.edge);
+  T(s, [{ text: 'Decision owner: ', options: { color: C.muted } }, { text: 'JSL Quality', options: { bold: true, color: C.ink } },
         { text: '   Integration: ', options: { color: C.muted } }, { text: 'Pragati team', options: { bold: true, color: C.ink } }],
-    { x: 8.7, y: 3.64, w: 4.1, h: 0.26, fontSize: 9.5, valign: 'middle' });
+    { x: 8.7, y: 3.66, w: 4.1, h: 0.26, fontSize: 9.5, valign: 'middle' });
 
   // risks: likelihood x impact map with numbered chips, short legend
   ph(s, 0.5, 4.08, 6.06, 'Top risks: where they sit, and when each is retired');
@@ -639,22 +643,21 @@ const DET = [
   // KPIs
   ph(s, 6.77, 4.08, 6.06, 'Pilot KPIs: how JSL will know it works');
   const k = [
-    ['target', '≥ 90%', 'defects flagged', 'now 89.6%'],
-    ['shield-check', '≤ 25%', 'clean strip flagged', 'now 4.7%'],
-    ['scan-line', '100%', 'coils mapped', 'target'],
-    ['clock', '< 0.2 s', 'to the operator', 'target'],
-    ['user-check', '≥ 90%', 'operator agreement', 'in P2'],
-    ['trending-up', '↓', 'downgrade rate', 'in P3'],
+    ['≥ 90%', 'defective strip flagged', 'measured 258 of 288 (89.6%)'],
+    ['≤ 25%', 'clean strip wrongly flagged', 'measured 4.7% on mill strip'],
+    ['100%', 'coils with a defect map', 'design target'],
+    ['< 0.2 s', 'defect to operator screen', 'design target'],
+    ['≥ 90%', 'operator agreement, shadow', 'measured in P2'],
+    ['↓ vs today', 'downgrade rate on the line', 'measured in P3'],
   ];
-  k.forEach(([ic, n, l, m], i) => {
+  k.forEach(([n, l, m], i) => {
     const x = 6.77 + (i % 3) * 2.04, y = 4.44 + Math.floor(i / 3) * 1.0;
     RR(s, x, y, 1.98, 0.93, C.neutral);
-    badge(s, ic, x + 1.5, y + 0.1, 0.38, i < 2 ? C.accent : C.navy2);
-    T(s, n, { x: x + 0.1, y: y + 0.06, w: 1.4, h: 0.4, fontSize: 18, bold: true, color: C.navy, valign: 'middle' });
-    T(s, l, { x: x + 0.1, y: y + 0.48, w: 1.85, h: 0.2, fontSize: 9.5, color: C.ink });
-    T(s, m, { x: x + 0.1, y: y + 0.68, w: 1.85, h: 0.2, fontSize: 9, bold: i < 2, color: i === 0 ? C.amber : (i === 1 ? C.green : C.muted) });
+    T(s, n, { x: x + 0.1, y: y + 0.04, w: 1.8, h: 0.38, fontSize: 18, bold: true, color: C.navy, valign: 'middle' });
+    T(s, l, { x: x + 0.1, y: y + 0.42, w: 1.85, h: 0.22, fontSize: 9, color: C.ink });
+    T(s, m, { x: x + 0.1, y: y + 0.64, w: 1.85, h: 0.22, fontSize: 9, bold: i < 2, color: i === 0 ? C.amber : (i === 1 ? C.green : C.muted) });
   });
-  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. The pilot scope is deliberately narrow: one 300-series cold-rolled line, both faces, 2B and BA finishes, the six defect families plus unclassified defects. The hot end, edge cracks, automatic process correction and other plants wait until the pilot has proved itself. JSL Quality owns every go/no-go; the Pragati team owns integration, because Pragati Phase 2 already brings Level-2 process data at Jajpur. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. Every update must beat the live system on a fixed JSL test set before it ships. Photo: cold-rolling mill, ThyssenKrupp Steel USA (Free Art License), Wikimedia Commons.');
+  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. The pilot scope is deliberately narrow: one 300-series cold-rolled line, both faces, 2B and BA finishes, the six defect families plus unclassified defects. The hot end, edge cracks, automatic process correction and other plants wait until the pilot has proved itself. JSL Quality owns every go/no-go; the Pragati team owns integration, because Pragati Phase 2 already brings Level-2 process data at Jajpur. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. Every update must beat the live system on a fixed JSL test set before it ships.');
 }
 
 // ============ SLIDE 7: IMPACT ============
@@ -676,7 +679,7 @@ const DET = [
     return cl(v.toFixed(1), { align: 'center', bold: true, fontSize: 12, fill: { color: base ? C.navy : f }, color: base ? C.white : c });
   }))));
   table(s, rows, { x: 0.5, y: 2.0, w: 4.35, colW: [1.35, 1.0, 1.0, 1.0], rowH: [0.3, 0.42, 0.42, 0.42] });
-  T(s, [{ text: 'Base case (dark): ', options: { bold: true, color: C.navy } }, { text: '₹6.7 cr a year per line, ~₹43 cr across 2.57 Mt. Non-prime coil sells 10-30% below prime.', options: { color: C.slate } }], { x: 0.5, y: 3.62, w: 4.35, h: 0.62, fontSize: 9.5 });
+  T(s, [{ text: 'Base case (dark): ', options: { bold: true, color: C.navy } }, { text: '₹6.7 cr a year per line; ~₹43 cr across JSL\'s 2.57 Mt. Non-prime coil sells 10-30% below prime, so these discounts are conservative.', options: { color: C.slate } }], { x: 0.5, y: 3.62, w: 4.35, h: 0.62, fontSize: 9.5 });
 
   // value tree: the prize branching into five levers, each with its pilot measure
   ph(s, 5.05, 1.35, 7.78, 'Where the value comes from, and how the pilot measures it');
@@ -698,20 +701,23 @@ const DET = [
     T(s, [{ text: 'measure: ', options: { color: C.muted } }, { text: m, options: { color: C.slate } }], { x: 9.9, y, w: 2.8, h: 0.42, fontSize: 9, valign: 'middle' });
   });
 
-  // beyond P&L: photo tiles
+  // beyond P&L
   ph(s, 0.5, 4.38, 8.4, 'Impact beyond the P&L');
-  [['img/det_scratches.png', 'Coverage', 'every coil, both faces'],
-   ['img/photos/vb_coaches.jpg', 'Customers', 'a defect map per coil'],
-   ['img/photos/mill.jpg', 'Process', 'defect tied to its heat'],
-   ['img/cover_coil.jpg', 'Safety', 'hold before a strip break'],
-   ['img/photos/okp_mill.jpg', 'Sustainability', 'less rework and remelt'],
-   ['img/photos/worker.jpg', 'People', 'inspectors decide, not search'],
-  ].forEach(([img, h, b], i) => {
+  const imp = [
+    ['scan-line', 'Coverage', '100% of both faces, every coil', 'today: spot checks'],
+    ['users', 'Customers', 'Defect map per coil for rail, metro, auto buyers', 'Vande Bharat supplier'],
+    ['wrench', 'Process', 'Defects tied to heat and coil IDs', '6 families, each owned'],
+    ['hard-hat', 'Safety', 'Severe-defect holds prevent strip breaks', 'Ternium\'s business case'],
+    ['leaf', 'Sustainability', 'Less rework and remelt; backs net zero', 'JSL: 1.76 tCO2e/t, FY26'],
+    ['user-check', 'People', 'Inspectors move to decisions', 'HR AI: 95% self-served'],
+  ];
+  imp.forEach(([ic, h, b, proof], i) => {
     const x = 0.5 + i * 1.415;
     RR(s, x, 4.74, 1.35, 1.7, C.neutral);
-    photo(s, img, x + 0.06, 4.8, 1.23, 0.92);
-    T(s, h, { x: x + 0.04, y: 5.76, w: 1.27, h: 0.26, fontSize: 10.5, bold: true, color: C.navy, align: 'center' });
-    T(s, b, { x: x + 0.05, y: 6.02, w: 1.25, h: 0.38, fontSize: 9, color: C.slate, align: 'center' });
+    badge(s, ic, x + 0.43, 4.84, 0.5, C.accent);
+    T(s, h, { x: x + 0.05, y: 5.4, w: 1.25, h: 0.24, fontSize: 10.5, bold: true, color: C.navy, align: 'center' });
+    T(s, b, { x: x + 0.07, y: 5.64, w: 1.21, h: 0.48, fontSize: 9, color: C.slate, align: 'center' });
+    T(s, proof, { x: x + 0.04, y: 6.12, w: 1.27, h: 0.28, fontSize: 9, bold: true, color: C.accent, align: 'center', valign: 'middle' });
   });
 
   // ask
@@ -724,7 +730,7 @@ const DET = [
     { text: 'A metallurgist at 20% for root causes', options: { bullet: true } },
   ], { x: 9.25, y: 4.76, w: 3.5, h: 1.05, fontSize: 10, color: C.white, paraSpaceAfter: 2 });
   T(s, 'In return: the measured downgrade rate, the value captured, and a go / no-go at month 7.', { x: 9.25, y: 5.84, w: 3.5, h: 0.52, fontSize: 9.5, bold: true, color: C.onNavy });
-  s.addNotes('Impact. We size the prize, not the price. At a conservative 1% of volume downgraded at a 10% discount, one 0.4 Mt line puts about INR 6.7 crore a year at stake; across JSL\'s 2.57 Mt it is about INR 43 crore. Non-prime coil typically sells 10-30% below prime, so the discounts are conservative. The value comes through five levers: fewer downgrades, fewer customer claims, less rework, faster root-cause fixes, and premium exposed-finish orders. Each has a measure the pilot tracks, so the fleet decision rests on JSL\'s own numbers rather than our assumptions. Beyond the P&L: coverage, customers, process, safety, sustainability and people. Close on the ask. Proof points for the tiles: JSL supplies Vande Bharat and metro coach steel; defect families map to owners on slide 3; strip-break avoidance is the Ternium business case; JSL emission intensity was 1.76 tCO2e per tonne in FY26; JSL\'s HR AI assistant resolves over 95% of routine queries. Photo credits: coaches, Ravi Dwivedi (CC BY-SA 4.0); mill, ThyssenKrupp Steel USA (FAL); Outokumpu Tornio, Methem (CC BY 3.0); inspector in a pipe, Italsider archive (CC BY-SA 4.0); coil, Methem (public domain).');
+  s.addNotes('Impact. We size the prize, not the price. At a conservative 1% of volume downgraded at a 10% discount, one 0.4 Mt line puts about INR 6.7 crore a year at stake; across JSL\'s 2.57 Mt it is about INR 43 crore. Non-prime coil typically sells 10-30% below prime, so the discounts are conservative. The value comes through five levers: fewer downgrades, fewer customer claims, less rework, faster root-cause fixes, and premium exposed-finish orders. Each has a measure the pilot tracks, so the fleet decision rests on JSL\'s own numbers rather than our assumptions. Beyond the P&L: coverage, customers, process, safety, sustainability and people. Close on the ask.');
 }
 
 pres.writeFile({ fileName: '../out/JSW_Round2_Surface_Defect_Detection.pptx' }).then(f => console.log('wrote', f));

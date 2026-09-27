@@ -98,7 +98,11 @@ interviews/                  who to call, messages, questions, consent; quotes.j
 
 ## Version history
 
-- **v12 (27 Sep), more visuals, less text — current.** Text panels became pictures and diagrams: photo tiles on
+- **v13 (27 Sep), images on slides 4, 7, 8 — current.** Slide 4: real mill-strip images beside the result rings
+  (a flagged defect, a clean strip with no alarm) and the live demo's alarm view for "evidence on every alarm".
+  Slide 7: mill photo heading the pilot scope, icons on the roadmap and KPI tiles, shorter labels. Slide 8: photo
+  tiles for the six impact areas, proof points moved to the speaker notes.
+- **v12 (27 Sep), more visuals, less text.** Text panels became pictures and diagrams: photo tiles on
   slide 2 (mill, coil, stainless lift), photo cards for the precedents and a Vande Bharat coach for the pilot grade
   on slide 3, icon tiles on slide 5, a risk heat-map on slide 7, and a value tree on slide 8. Photos from
   Wikimedia Commons (credits in `build/img/photos/CREDITS.txt` and the speaker notes).

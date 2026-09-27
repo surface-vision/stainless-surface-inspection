@@ -11,3 +11,7 @@ tata_view.jpg   "Tata Steel view 2" - Kharbaan Ghaltaan - CC BY-SA 4.0 (converte
 vb_coaches.jpg  "Vande Bharat Express coaches" - Ravi Dwivedi - CC BY-SA 4.0
                 https://commons.wikimedia.org/wiki/File:Vande_Bharat_Express_coaches.jpg
 ../cover_coil.jpg "Rolled coil in Oulu Jun2009 001" - Methem (Mikko J. Putkonen) - Public domain
+worker.jpg      "Photo ITALSIDER steel center in Taranto, a worker inside a pipe performing a quality control inspection 1963 - Touring Club Italiano 06-5810.01.jpg" - Unknown authorUnknown author - CC BY-SA 4.0
+                https://commons.wikimedia.org/wiki/File:Photo_ITALSIDER_steel_center_in_Taranto,_a_worker_inside_a_pipe_performing_a_quality_control_inspection_1963_-_Touring_Club_Italiano_06-5810.01.jpg
+control.jpg     "LOOKING SOUTH AT THE MAIN CONTROL PANEL FOR BASIC OXYGEN FURNACE No. 1 IN THE BOP SHOP'S No. 1 CONTROL ROOM ON THE OPERATING FLOOR OF THE FURNACE AISLE. - U.S. Steel Duquesne HAER PA,2-DUQU,3B-25.tif" - Stupich, Martin, creator - Public domain
+                https://commons.wikimedia.org/wiki/File:LOOKING_SOUTH_AT_THE_MAIN_CONTROL_PANEL_FOR_BASIC_OXYGEN_FURNACE_No._1_IN_THE_BOP_SHOP%27S_No._1_CONTROL_ROOM_ON_THE_OPERATING_FLOOR_OF_THE_FURNACE_AISLE._-_U.S._Steel_Duquesne_HAER_PA,2-DUQU,3B-25.tif
