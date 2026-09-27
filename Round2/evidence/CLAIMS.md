@@ -154,3 +154,30 @@ Two numbers carried over from the 22 Sep build were changed:
 - **Slide 8 proof lines:** "HR AI: 95% self-served" = JSL's AI assistant resolves >95% of routine HR queries
   (People Matters Infini-T Awards 2026, `docs/research_notes.md` §3d, secondary). "Ternium's business case" =
   strip-break avoidance in the AMETEK/Ternium case study.
+
+## v14 additions (27 Sep) — the software story, back on the slides
+
+The user asked for the software to be described again (reversing the 26 Sep "no model internals" rule).
+Every new figure, and where it comes from:
+
+- **Training split 3,769 / 494 / 768** (train / tune / final test); **1,190 clean** training images;
+  test = 180 lab + 588 mill (288 defective, 300 clean) — `data/joint_xdsafe/manifest.json` — slide 6.
+- **YOLOv8n, ~3 M parameters (3,012,018 for the 6-class head), 10 classes, 320 px input** —
+  `reports/export_summary_320.json`, `reports/demo_model.json` — slide 5.
+- **Up to 200 training passes, early stop after 40 without gain, seed 1337** — `models/yolov8n_joint/args.yaml` — notes only.
+- **4 training runs, best picked on tuning (validation) data** — `reports/demo_seed_selection.json` — slide 6.
+- **Calibration 8% → 3%**: expected calibration error 0.0822 → 0.0331, isotonic, fitted on 1,181 validation
+  detections, scored on 1,637 test detections — `reports/demo_model.json` — slides 5, 6.
+- **12 MB model file** (12.1 MB ONNX) — `reports/demo_model.json`, `site/model/detector.onnx` — slides 5, 6.
+- **37 of 37 detections match** browser runtime vs Python on 12 images; max box gap 0.23 px, max confidence gap
+  0.0024 — `site/verify/parity_report.json` — slides 5, 6.
+- **400 automated tests** — `grep -c "def test_" tests/*.py` (400 on 27 Sep) — slide 6.
+- **~50 ms an image in the browser** — measured in Chrome on the live site 27 Sep: 41-67 ms
+  (`site/verify/click_upload_check.mjs`, `site/verify/page_check.mjs`) — slide 5.
+- **Wide frames split into up to 12 tiles** — `site/js/tiling.js` (`MAX_TILES = 12`) — notes.
+- **Steel check first** — `hf_space/app.py` runs `ood_guard` before the detector; the browser demo has no steel
+  check (the dry run in `stainless_test/README.md` shows it) — slide 5 names it only under the console.
+- **Coil report starting limits**: accept ≤ 2% defective frames with nothing high or critical; hold ≥ 25%, any
+  critical frame, or any inclusion — `reports/coil_report.json` `rules` — slide 4.
+- **Operator console features** (steel check, whole-coil batch, coil verdict with reasons, line-speed simulation,
+  EigenCAM heat map) — `hf_space/README.md`, `hf_space/app.py` — slide 5.

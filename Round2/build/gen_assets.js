@@ -9,7 +9,10 @@ fs.mkdirSync(OUT, { recursive: true });
 const ICONS = ['flame', 'factory', 'droplets', 'layers', 'sparkles', 'truck', 'camera', 'shield-check',
   'scan-search', 'gauge', 'split', 'refresh-cw', 'coins', 'cpu', 'users', 'wrench', 'leaf', 'user-check',
   'scan-line', 'target', 'hard-hat', 'clock', 'microscope', 'brain-circuit', 'archive', 'eye-off',
-  'trending-up', 'ship', 'badge-check', 'lock'];
+  'trending-up', 'ship', 'badge-check', 'lock',
+  // software story (slides 5-7)
+  'database', 'tags', 'git-branch', 'list-checks', 'package', 'monitor', 'code', 'globe', 'sliders-horizontal',
+  'check-check', 'git-compare', 'wifi-off', 'laptop', 'grid-2x2', 'file-check', 'repeat', 'workflow', 'test-tube-diagonal'];
 // 'navy' and 'accent' are the deck's dark and emphasis colours (Jindal Stainless scheme: charcoal and orange)
 const COLOURS = { white: '#FFFFFF', navy: '#2B2B2B', accent: '#D2651F' };
 

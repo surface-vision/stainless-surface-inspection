@@ -1,4 +1,4 @@
-// Round 2 deck (v14, with the software story): Stainless Spark, PS1, AI surface defect detection
+// Round 2 deck (v3, compact): Stainless Spark, PS1, AI surface defect detection
 // Assets first:  node gen_assets.js  and  ../../.venv/bin/python gen_detections.py  and  ../../.venv/bin/python gen_qr.py
 const pptxgen = require('pptxgenjs');
 const fs = require('fs');
@@ -43,8 +43,8 @@ const C = {
   h1: 'FCE5D3', h2: 'F5BE92', h3: 'EC9352', h4: 'C4561A', tint: 'FDEFE4',
   band: 'E4803A', head: 'E4803A', tab: 'B63831', tabOff: 'F2F2F2', rail: '2B2B2B',
 };
-const RAIL = ['PROBLEM  ·  WHY NOW', 'INSIGHTS  ·  OWNERS  ·  PRECEDENT', 'INSIGHTS  ·  DESIGN CHOICES', 'SOLUTION  ·  HOW IT WORKS  ·  SOFTWARE',
-  'SOLUTION  ·  BUILD  ·  PROOF', 'IMPLEMENTATION  ·  ROADMAP  ·  RISK', 'IMPACT  ·  VALUE  ·  ASK'];
+const RAIL = ['PROBLEM  ·  WHY NOW', 'INSIGHTS  ·  OWNERS  ·  PRECEDENT', 'INSIGHTS  ·  DESIGN CHOICES', 'SOLUTION  ·  HOW IT WORKS',
+  'SOLUTION  ·  PROOF', 'IMPLEMENTATION  ·  ROADMAP  ·  RISK', 'IMPACT  ·  VALUE  ·  ASK'];
 let railIdx = 0;
 const F = 'Calibri';
 const SECTIONS = ['Problem', 'Insights', 'Solution', 'Implementation', 'Impact'];
@@ -355,15 +355,6 @@ const DET = [
   T(s, [{ text: 'Limits per grade and finish: ', options: { color: C.slate } }, { text: 'a light scratch passes on 2B tubes, downgrades a BA panel.', options: { color: C.navy, bold: true } }],
     { x: 6.95, y: 2.5, w: 4.25, h: 0.5, fontSize: 9.5 });
   photo(s, 'img/photos/lift.jpg', 11.4, 2.58, 1.3, 0.78);
-  // the starting limits our coil report already applies; JSL tunes them per grade and finish in P0
-  T(s, [{ text: 'Our coil report\'s starting limits ', options: { bold: true, color: C.navy } }, { text: '(downgrade = in between):', options: { color: C.muted } }],
-    { x: 6.95, y: 2.88, w: 4.35, h: 0.18, fontSize: 9, valign: 'middle' });
-  [['ACCEPT', C.green, '≤ 2% of frames defective, nothing high or critical'], ['HOLD', C.red, '≥ 25% defective, any critical frame, or any inclusion']].forEach(([t, c, r], k) => {
-    const y = 3.08 + k * 0.19;
-    RR(s, 6.95, y, 0.72, 0.17, c);
-    T(s, t, { x: 6.95, y, w: 0.72, h: 0.17, fontSize: 9, bold: true, color: C.white, align: 'center', valign: 'middle' });
-    T(s, r, { x: 7.75, y, w: 3.55, h: 0.17, fontSize: 9, color: C.slate, valign: 'middle' });
-  });
   so(1, 0, 'agree accept, downgrade and hold limits per grade and finish with JSL Quality in P0.');
 
   // Q3: image detail sets the hardware bill -- three settings
@@ -385,99 +376,79 @@ const DET = [
   // Q4: what the operator actually sees, plus how trust is earned
   quad(1, 1, '4  Operators act only on alarms they can trust');
   s.addImage({ path: 'img/demo_result.png', x: 6.9, y: 4.34, w: 2.05, h: 1.63 });
-  [['scan-search', 'Evidence on every alarm'], ['sliders-horizontal', 'Confidence that means what it says'], ['user-check', '4 weeks of shadow mode'], ['refresh-cw', 'Every override reviewed']].forEach(([ic, h], k) => {
-    const y = 4.36 + k * 0.42;
-    badge(s, ic, 9.4, y, 0.36, C.navy);
-    T(s, h, { x: 9.86, y, w: 2.9, h: 0.36, fontSize: 10.5, bold: true, color: C.navy, valign: 'middle' });
+  [['scan-search', 'Evidence on every alarm'], ['user-check', '4 weeks of shadow mode'], ['refresh-cw', 'Every override reviewed']].forEach(([ic, h], k) => {
+    const y = 4.42 + k * 0.56;
+    badge(s, ic, 9.4, y, 0.42, C.navy);
+    T(s, h, { x: 9.92, y, w: 2.85, h: 0.42, fontSize: 11, bold: true, color: C.navy, valign: 'middle' });
   });
   so(1, 1, 'earn trust on the shift floor before the system is allowed to act.');
-  s.addNotes('Four design choices. One: alarms you can act on. On real mill strip it catches 258 of 288 defects and wrongly flags only 14 of 300 clean images; the pilot repeats this on JSL\'s own strip before any alarm is trusted. Two: one verdict per coil. Every defect rolls up into accept, downgrade or hold, with limits agreed per grade and finish with JSL Quality. Our coil report already applies starting limits: accept when at most 2% of frames show a defect and nothing is high or critical; hold at 25% or more, on any critical frame, or on any inclusion, which cannot be removed downstream. Three: image detail decides what can be seen and what the hardware costs; full detail at 250 m/min needs about 18 processing units, so resolution is a day-one decision with JSL. Four: trust is earned on the shift floor, with evidence on every alarm, confidence scores calibrated so a stated 80% is right about 8 times in 10, four weeks of shadow mode and a weekly review of every override. Images: a real mill-strip defect our system flagged, and a clean mill-strip image that raised no alarm, both from the held-out test set; the screenshot is the live demo\'s alarm view. Lift photo: Shwun Vounwun3 (CC BY-SA 4.0).');
+  s.addNotes('Four design choices. One: alarms you can act on. On real mill strip it catches 258 of 288 defects and wrongly flags only 14 of 300 clean images; the pilot repeats this on JSL\'s own strip before any alarm is trusted. Two: one verdict per coil. Every defect rolls up into accept, downgrade or hold, with limits agreed per grade and finish with JSL Quality. Three: image detail decides what can be seen and what the hardware costs; full detail at 250 m/min needs about 18 processing units, so resolution is a day-one decision with JSL. Four: trust is earned on the shift floor, with evidence on every alarm, four weeks of shadow mode and a weekly review of every override. Images: a real mill-strip defect our system flagged, and a clean mill-strip image that raised no alarm, both from the held-out test set; the screenshot is the live demo\'s alarm view. Lift photo: Shwun Vounwun3 (CC BY-SA 4.0).');
 }
 
-// ============ SLIDE 5: SOLUTION (how it works, and the software behind it) ============
+// ============ SLIDE 5: SOLUTION ============
 {
   const s = pres.addSlide();
   chrome(s, 'Solution',
     'Detect on the strip, decide at the coil, route to the owner, and learn from every correction',
     'Buy proven cameras, own the software: vendor-grade capture, tuned to JSL\'s grades and wired to JSL\'s process owners.',
-    'BUILT = working in our software today. Stack: Python, PyTorch and Ultralytics YOLOv8 to train; ONNX Runtime Web in the browser; Streamlit console. Code: github.com/surface-vision.');
-  ph(s, 0.5, 1.35, 12.33, 'How it works: six stages from camera to corrective action, and the software we built for each');
+    'BUILT = working in our prototype today, live at surface-vision.github.io.');
+  ph(s, 0.5, 1.35, 12.33, 'How it works: six stages from camera to corrective action');
   const stg = [
-    ['camera', 'Capture', 'Both faces, bright + dark-field light, 0.2 mm detail', 'Reads any photo or frame; tiles wide ones', 'TO BUILD', C.muted],
-    ['shield-check', 'Check', 'Is it usable steel? If not, skip it', 'Steel check first; says why it refuses', 'BUILT', C.green],
-    ['scan-search', 'Detect', 'Find and classify every defect', 'YOLOv8n: 3 M parameters, 10 classes', 'BUILT', C.green],
-    ['gauge', 'Score', 'Confidence, severity 0-100, coil position', 'Calibrated: stated % ≈ real hit rate', 'BUILT', C.green],
-    ['split', 'Decide', 'Accept, downgrade or hold, per grade', 'Coil report: rule limits, with reasons', 'PARTIAL', C.amber],
-    ['refresh-cw', 'Act & learn', 'Alert, hold, work order; operator feedback improves it', 'Next: override log feeds retraining', 'TO BUILD', C.muted],
+    ['camera', 'Capture', 'Both faces, bright + dark-field light, 0.2 mm detail', 'TO BUILD', C.muted],
+    ['shield-check', 'Check', 'Is it usable steel? If not, skip it', 'BUILT', C.green],
+    ['scan-search', 'Detect', 'Find and classify every defect', 'BUILT', C.green],
+    ['gauge', 'Score', 'Confidence, severity 0-100, coil position', 'BUILT', C.green],
+    ['split', 'Decide', 'Accept, downgrade or hold, per grade', 'PARTIAL', C.amber],
+    ['refresh-cw', 'Act & learn', 'Alert, hold, work order; operator feedback improves it', 'TO BUILD', C.muted],
   ];
   const cw = 1.95, cg = 0.126;
-  stg.forEach(([ic, h, b, sw, t, col], i) => {
+  stg.forEach(([ic, h, b, t, col], i) => {
     const x = 0.5 + i * (cw + cg);
-    RR(s, x, 1.72, cw, 1.66, i === 5 ? C.tint : C.neutral);
-    badge(s, ic, x + 0.12, 1.78, 0.44, C.navy);
-    T(s, h, { x: x + 0.64, y: 1.78, w: cw - 0.7, h: 0.44, fontSize: 12, bold: true, color: C.navy, valign: 'middle' });
-    T(s, b, { x: x + 0.12, y: 2.26, w: cw - 0.2, h: 0.4, fontSize: 9, color: C.slate });
-    R(s, x + 0.12, 2.69, cw - 0.24, 0.01, C.edge);
-    icon(s, 'code', x + 0.12, 2.77, 0.16, 'accent');
-    T(s, sw, { x: x + 0.33, y: 2.73, w: cw - 0.4, h: 0.36, fontSize: 9, color: C.navy });
-    tag(s, x + 0.12, 3.12, t, col, 0.9);
-    if (i < 5) s.addShape(pres.shapes.CHEVRON, { x: x + cw + 0.015, y: 2.44, w: 0.1, h: 0.22, fill: { color: C.accent }, line: { color: C.accent, width: 0 } });
+    RR(s, x, 1.72, cw, 1.3, i === 5 ? C.tint : C.neutral);
+    badge(s, ic, x + 0.12, 1.78, 0.46, C.navy);
+    T(s, h, { x: x + 0.66, y: 1.78, w: cw - 0.7, h: 0.46, fontSize: 12, bold: true, color: C.navy, valign: 'middle' });
+    T(s, b, { x: x + 0.12, y: 2.28, w: cw - 0.2, h: 0.44, fontSize: 9, color: C.slate });
+    tag(s, x + 0.12, 2.74, t, col, 0.9);
+    if (i < 5) s.addShape(pres.shapes.CHEVRON, { x: x + cw + 0.015, y: 2.2, w: 0.1, h: 0.22, fill: { color: C.accent }, line: { color: C.accent, width: 0 } });
   });
   // where each stage runs
   const zone = (i0, i1, label, fill) => {
     const x0 = 0.5 + i0 * (cw + cg), x1 = 0.5 + i1 * (cw + cg) + cw;
-    R(s, x0, 3.42, x1 - x0, 0.05, fill);
-    T(s, label, { x: x0, y: 3.48, w: x1 - x0, h: 0.24, fontSize: 9, bold: true, color: fill, align: 'center', valign: 'middle' });
+    R(s, x0, 3.08, x1 - x0, 0.05, fill);
+    T(s, label, { x: x0, y: 3.14, w: x1 - x0, h: 0.24, fontSize: 9, bold: true, color: fill, align: 'center', valign: 'middle' });
   };
   zone(0, 0, 'At the line: cameras, lights', C.muted);
   zone(1, 3, 'Edge server beside the line, runs offline', C.accent);
   zone(4, 4, 'Plant network (IEC 62443)', C.navy2);
   zone(5, 5, 'People: screen, work orders', C.navy);
 
-  // running today: two apps built on one model file
-  ph(s, 0.5, 3.82, 5.0, 'Running today: two apps, one model');
-  RR(s, 0.5, 4.16, 2.45, 1.92, C.neutral);
-  badge(s, 'globe', 0.58, 4.21, 0.36, C.accent);
-  T(s, [{ text: 'Browser demo', options: { bold: true, color: C.navy, fontSize: 10.5 } }, { text: '\nsurface-vision.github.io', options: { bold: true, color: C.accent, fontSize: 9 } }],
-    { x: 1.0, y: 4.19, w: 1.92, h: 0.4, valign: 'middle' });
-  s.addImage({ path: 'img/det_scratches.png', x: 0.6, y: 4.65, w: 0.82, h: 0.82 });
-  T(s, [{ text: 'Upload a strip image, get:\n', options: { bold: true, color: C.navy } },
-        { text: '•  box on the defect\n•  defect type\n•  confidence\n•  severity score', options: { color: C.slate } }],
-    { x: 1.5, y: 4.63, w: 1.43, h: 0.86, fontSize: 9 });
-  T(s, [{ text: '16 samples built in', options: { bold: true, color: C.navy } }, { text: ', including clean mill strip. Or drop your own photo.', options: { color: C.slate } }],
-    { x: 0.6, y: 5.5, w: 2.3, h: 0.3, fontSize: 9 });
-  T(s, '~50 ms an image, nothing uploaded', { x: 0.6, y: 5.82, w: 2.3, h: 0.22, fontSize: 9, bold: true, color: C.accent, valign: 'middle' });
-  RR(s, 3.05, 4.16, 2.45, 1.92, C.neutral);
-  badge(s, 'monitor', 3.13, 4.21, 0.36, C.navy);
-  T(s, [{ text: 'Operator console', options: { bold: true, color: C.navy, fontSize: 10.5 } }, { text: '\nPython app for a line PC', options: { color: C.muted, fontSize: 9 } }],
-    { x: 3.55, y: 4.19, w: 1.92, h: 0.4, valign: 'middle' });
-  [['shield-check', 'Steel check on every frame'], ['layers', 'Whole-coil batch inspection'], ['split', 'Coil verdict, with reasons'],
-   ['gauge', 'Line-speed simulation'], ['scan-search', 'Heat map: why the alarm fired']].forEach(([ic, l], k) => {
-    const y = 4.68 + k * 0.275;
-    icon(s, ic, 3.15, y + 0.03, 0.2, 'accent');
-    T(s, l, { x: 3.43, y, w: 2.04, h: 0.26, fontSize: 9.5, color: C.ink, valign: 'middle' });
-  });
-  RR(s, 0.5, 6.13, 5.0, 0.34, C.tint);
-  icon(s, 'package', 0.58, 6.19, 0.22, 'accent');
-  T(s, [{ text: 'One 12 MB model file runs in both apps. ', options: { bold: true, color: C.navy } }, { text: 'Browser and Python agree on 37 of 37 detections.', options: { color: C.slate } }],
-    { x: 0.88, y: 6.13, w: 4.6, h: 0.34, fontSize: 9, valign: 'middle' });
+  // running today
+  ph(s, 0.5, 3.52, 3.75, 'Running today');
+  RR(s, 0.5, 3.82, 3.75, 2.62, C.neutral);
+  s.addImage({ path: 'img/det_scratches.png', x: 0.62, y: 3.93, w: 2.0, h: 2.0 });
+  T(s, [
+    { text: 'Upload a strip image, get:\n', options: { bold: true, color: C.navy } },
+    { text: '•  box on the defect\n•  defect type\n•  confidence\n•  severity score', options: { color: C.slate } },
+  ], { x: 2.72, y: 3.95, w: 1.5, h: 1.5, fontSize: 9.5 });
+  T(s, [{ text: '16 samples built in', options: { bold: true, color: C.navy } }, { text: ', including clean mill strip. Or drop your own photo.', options: { color: C.slate } }], { x: 2.72, y: 5.3, w: 1.5, h: 0.66, fontSize: 9 });
+  T(s, [{ text: 'surface-vision.github.io', options: { bold: true, color: C.accent } }, { text: '  runs in the browser', options: { color: C.muted } }], { x: 0.62, y: 6.02, w: 3.55, h: 0.3, fontSize: 9.5, valign: 'middle' });
 
-  // what is new, as a list
-  ph(s, 5.62, 3.82, 3.0, 'What JSL gets that others do not');
+  // what is new
+  ph(s, 4.42, 3.52, 4.1, 'What JSL gets that a standard system does not');
   [['target', 'Alarms you can act on', '4.7% false alarms'],
    ['split', 'Root-cause routing', 'a work order per alarm'],
    ['layers', 'One verdict per coil', 'accept · downgrade · hold'],
    ['shield-check', 'JSL owns the system', 'no vendor lock-in'],
   ].forEach(([ic, h, b], i) => {
-    const y = 4.16 + i * 0.58;
-    RR(s, 5.62, y, 3.0, 0.52, C.neutral);
-    badge(s, ic, 5.69, y + 0.07, 0.38, C.accent);
-    T(s, h, { x: 6.16, y: y + 0.04, w: 2.4, h: 0.24, fontSize: 10.5, bold: true, color: C.navy, valign: 'middle' });
-    T(s, b, { x: 6.16, y: y + 0.27, w: 2.4, h: 0.22, fontSize: 9, color: C.slate, valign: 'middle' });
+    const x = 4.42 + (i % 2) * 2.08, y = 3.9 + Math.floor(i / 2) * 1.28;
+    RR(s, x, y, 2.0, 1.2, C.neutral);
+    badge(s, ic, x + 0.72, y + 0.1, 0.56, C.accent);
+    T(s, h, { x: x + 0.05, y: y + 0.68, w: 1.9, h: 0.26, fontSize: 10.5, bold: true, color: C.navy, align: 'center' });
+    T(s, b, { x: x + 0.05, y: y + 0.92, w: 1.9, h: 0.24, fontSize: 9, color: C.slate, align: 'center' });
   });
 
   // build vs buy
-  ph(s, 8.74, 3.82, 4.09, 'Build vs buy');
+  ph(s, 8.7, 3.52, 4.13, 'Build vs buy');
   const crit = ['Cost per line', 'Proven at speed', 'Tuned to JSL grades', 'JSL owns the system'];
   const opts = [
     ['Commercial', 'proven; the vendor owns it', ['r', 'g', 'a', 'r']],
@@ -485,53 +456,33 @@ const DET = [
     ['Hybrid (recommended)', 'vendor cameras, JSL software', ['g', 'a', 'g', 'g']],
   ];
   const cx0 = 10.28, cwid = 0.63;
-  crit.forEach((c, k) => T(s, c, { x: cx0 + k * cwid, y: 4.14, w: cwid - 0.03, h: 0.42, fontSize: 9, bold: true, color: C.slate, align: 'center', valign: 'bottom' }));
+  crit.forEach((c, k) => T(s, c, { x: cx0 + k * cwid, y: 3.86, w: cwid - 0.03, h: 0.42, fontSize: 9, bold: true, color: C.slate, align: 'center', valign: 'bottom' }));
   const colmap = { g: C.green, a: C.amber, r: C.red };
   opts.forEach(([n, cost, sc], j) => {
-    const y = 4.66 + j * 0.47;
-    if (j === 2) RR(s, 8.76, y - 0.05, 4.05, 0.47, C.tint);
+    const y = 4.4 + j * 0.52;
+    if (j === 2) RR(s, 8.72, y - 0.06, 4.09, 0.5, C.tint);
     T(s, n, { x: 8.8, y, w: 1.5, h: 0.2, fontSize: 10, bold: true, color: j === 2 ? C.accent : C.ink });
     T(s, cost, { x: 8.8, y: y + 0.2, w: 1.5, h: 0.2, fontSize: 9, color: C.muted });
     sc.forEach((v, k) => dot(s, cx0 + k * cwid + (cwid - 0.03) / 2 - 0.1, y + 0.08, 0.2, colmap[v]));
   });
   [['strong', C.green], ['partial', C.amber], ['weak', C.red]].forEach(([l, c], k) => {
-    dot(s, 8.82 + k * 0.7, 6.2, 0.14, c);
-    T(s, l, { x: 9.0 + k * 0.7, y: 6.15, w: 0.52, h: 0.24, fontSize: 9, color: C.muted, valign: 'middle' });
+    dot(s, 8.82 + k * 0.85, 5.99, 0.14, c);
+    T(s, l, { x: 9.0 + k * 0.85, y: 5.94, w: 0.65, h: 0.22, fontSize: 9, color: C.muted, valign: 'middle' });
   });
-  T(s, 'Output: hybrid is never weak.', { x: 10.85, y: 6.13, w: 1.98, h: 0.28, fontSize: 9.5, bold: true, color: C.accent, align: 'right', valign: 'middle' });
-  s.addNotes('Solution. Six stages from camera to corrective action, and under each one the software we have already written for it. Capture: the software reads any photo or line-scan frame and cuts wide frames into up to 12 overlapping tiles so small defects keep their detail; the cameras and lights themselves are the plant-side pilot work. Check: a steel check runs before the detector and refuses frames that are not steel, saying why. Detect: a YOLOv8n object detector, about 3 million parameters, trained on 10 defect classes, reading images at 320 pixels. Score: every confidence is calibrated, so a stated 80% is right about 8 times in 10; severity is scored 0-100. Decide: the coil report applies limits on defect rate and severity and gives its reasons; the grade- and finish-specific limits need JSL input. Act and learn: the override log that feeds retraining is next. The strip underneath shows where each stage runs: cameras at the line, an edge server beside it that works offline, the plant network behind IEC 62443 zones, and people on screens and work orders. Running today: two apps on one 12 MB model file. The browser demo at surface-vision.github.io runs the model inside the page with ONNX Runtime Web, about 50 ms an image on a laptop CPU, and uploads nothing. The operator console is a Python (Streamlit) app for a line PC: steel check on every frame, whole-coil batch inspection, a coil verdict with reasons, a line-speed simulation, and a heat map that shows why an alarm fired. We checked that the browser and the Python reference agree: 37 of 37 detections match on 12 test images. What JSL gets that a standard system does not: alarms it can act on, routing to the owning process, one verdict per coil, and ownership of its own system. Build vs buy: commercial systems are proven but closed and vendor-owned; fully in-house is slowest to prove; hybrid is never weak.');
+  T(s, 'Output: hybrid is never weak.', { x: 8.8, y: 6.17, w: 4.0, h: 0.24, fontSize: 10, bold: true, color: C.accent, valign: 'middle' });
+  s.addNotes('Solution. Stages 2 to 4 are built and running today in the browser demo. Stage 5 has coil rules built, but grade- and finish-specific limits need JSL input. Stages 1 and 6 are the plant-side pilot work. The strip underneath shows where each stage runs: cameras at the line, an edge server beside it that works offline, the plant network behind IEC 62443 zones, and people on screens and work orders. What JSL gets that a standard system does not: alarms it can act on, routing to the owning process, one verdict per coil, and ownership of its own system. Build vs buy: commercial systems are proven but closed and vendor-owned; fully in-house is slowest to prove; hybrid is never weak.');
 }
 
-// ============ SLIDE 6: PROOF (how we built it, and what the data says) ============
+// ============ SLIDE 6: PROOF (what the data says) ============
 {
   const s = pres.addSlide();
   chrome(s, 'Solution',
     'It already works on public steel data; the pilot\'s job is to prove it on JSL\'s own strip',
     'Strong on four of six defect families today. Every weak spot is known, and each has a fix in the pilot plan.',
-    'Datasets: NEU-DET (Northeastern Univ.); Severstal steel defects (Kaggle); GC10-DET (Lv et al. 2020, CC BY 4.0). All scores on held-out images the system had never seen. Build figures: our training and test records.');
-
-  // how we built it: seven-step pipeline
-  ph(s, 0.5, 1.35, 12.33, 'How we built it: seven steps from public images to a model that runs in a browser');
-  const bw = (12.33 - 6 * 0.1) / 7;
-  [['database', 'Collect', '~10,100', 'images from three public steel datasets'],
-   ['tags', 'Split', '3,769 · 494 · 768', 'train · tune · final test; the test is never trained on'],
-   ['brain-circuit', 'Train', '1,190 clean', 'defect-free mill images teach it when not to alarm'],
-   ['git-compare', 'Select', '4 runs', 'best picked on tuning data, never on the test'],
-   ['sliders-horizontal', 'Calibrate', '8% → 3%', 'gap between stated and real confidence'],
-   ['package', 'Export', '12 MB', 'one model file; a laptop CPU is enough'],
-   ['check-check', 'Verify', '37 of 37', 'browser matches Python; 400 automated tests'],
-  ].forEach(([ic, h, n, d], i) => {
-    const x = 0.5 + i * (bw + 0.1);
-    RR(s, x, 1.72, bw, 1.0, i === 6 ? C.tint : C.neutral);
-    badge(s, ic, x + 0.08, 1.77, 0.36, C.navy);
-    T(s, `${i + 1}  ${h}`, { x: x + 0.5, y: 1.77, w: bw - 0.54, h: 0.36, fontSize: 10.5, bold: true, color: C.navy, valign: 'middle' });
-    T(s, n, { x: x + 0.1, y: 2.15, w: bw - 0.14, h: 0.24, fontSize: 12, bold: true, color: C.accent, valign: 'middle' });
-    T(s, d, { x: x + 0.1, y: 2.39, w: bw - 0.14, h: 0.32, fontSize: 9, color: C.slate });
-    if (i < 6) s.addShape(pres.shapes.CHEVRON, { x: x + bw + 0.012, y: 2.11, w: 0.076, h: 0.2, fill: { color: C.accent }, line: { color: C.accent, width: 0 } });
-  });
+    'Datasets: NEU-DET (Northeastern Univ.); Severstal steel defects (Kaggle); GC10-DET (Lv et al. 2020, CC BY 4.0). All scores on held-out images the system had never seen.');
 
   // datasets (plus our own stainless photos, when they exist)
-  ph(s, 0.5, 2.84, 6.06, STAINLESS ? 'Tested on three public datasets and our own stainless photos' : 'Tested on three public steel datasets');
+  ph(s, 0.5, 1.35, 6.06, STAINLESS ? 'Tested on three public datasets and our own stainless photos' : 'Tested on three public steel datasets');
   const ds = [
     ['img/det_patches.png', 1.1, 1.1, 'NEU-DET', '1,800 images, 6 types', 'University benchmark, hot-rolled strip'],
     ['img/proof_severstal.png', 1.1, 1.1, 'Severstal', '12,568 real mill frames', 'Production strip from a steel mill'],
@@ -542,74 +493,74 @@ const DET = [
     ds.push([STAINLESS.img, 0, 0, 'Stainless (ours)', `${m.photos} photos, ${m.finishes.length} finish${m.finishes.length === 1 ? '' : 'es'}`,
       `defects flagged ${m.defective_flagged}/${m.defective}; clean flagged ${m.clean_flagged}/${m.clean}`]);
   }
-  const n4 = ds.length === 4, cwd = n4 ? 1.455 : 1.95, gap = n4 ? 0.08 : 0.105, ib = n4 ? 0.62 : 0.84;
-  const dy = Math.max(ib + 0.12, 0.92);
+  const n4 = ds.length === 4, cwd = n4 ? 1.455 : 1.95, gap = n4 ? 0.08 : 0.105, ib = n4 ? 1.27 : 1.75, ih0 = n4 ? 0.98 : 1.18;
   ds.forEach(([img, iw, ih, n, cnt, d], i) => {
-    const x = 0.5 + i * (cwd + gap), y = 3.18;
-    RR(s, x, y, cwd, 1.42, i === 3 ? C.tint : C.neutral);
-    R(s, x + 0.07, y + 0.07, ib, ib, C.white);
-    if (i === 3) s.addImage({ path: img, x: x + 0.07, y: y + 0.07, w: ib, h: ib, sizing: { type: 'cover', w: ib, h: ib } });
+    const x = 0.5 + i * (cwd + gap);
+    RR(s, x, 1.72, cwd, 2.35, i === 3 ? C.tint : C.neutral);
+    R(s, x + 0.09, 1.8, ib, ih0, C.white);
+    if (i === 3) s.addImage({ path: img, x: x + 0.09, y: 1.8, w: ib, h: ih0, sizing: { type: 'cover', w: ib, h: ih0 } });
     else {
-      const k = Math.min(ib / iw, ib / ih);
-      s.addImage({ path: img, x: x + 0.07 + (ib - iw * k) / 2, y: y + 0.07 + (ib - ih * k) / 2, w: iw * k, h: ih * k });
+      const k = Math.min(1, ib / Math.max(iw, 0.01), ih0 / Math.max(ih, 0.01));
+      s.addImage({ path: img, x: x + 0.09 + (ib - iw * k) / 2, y: 1.8 + (ih0 - ih * k) / 2, w: iw * k, h: ih * k });
     }
-    const tx = x + ib + 0.14, tw = cwd - ib - 0.18;
-    T(s, n, { x: tx, y: y + 0.06, w: tw, h: n4 ? 0.34 : 0.24, fontSize: n4 ? 9.5 : 10.5, bold: true, color: i === 3 ? C.accent : C.navy });
-    T(s, n4 ? cnt : cnt.replace(', ', '\n'), { x: tx, y: y + (n4 ? 0.4 : 0.32), w: tw, h: 0.5, fontSize: 9, bold: true, color: C.accent });
-    T(s, d, { x: x + 0.07, y: y + dy, w: cwd - 0.12, h: 1.42 - dy - 0.04, fontSize: 9, color: C.slate });
+    T(s, n, { x: x + 0.09, y: 1.84 + ih0, w: cwd - 0.14, h: 0.26, fontSize: n4 ? 10 : 11, bold: true, color: i === 3 ? C.accent : C.navy });
+    T(s, cnt, { x: x + 0.09, y: 2.1 + ih0, w: cwd - 0.12, h: 0.24, fontSize: 9, bold: true, color: C.accent });
+    T(s, d, { x: x + 0.09, y: 2.35 + ih0, w: cwd - 0.12, h: 0.66, fontSize: 9, color: C.slate });
   });
 
   // per-defect accuracy
-  ph(s, 6.77, 2.84, 6.06, 'How well it finds each defect type (accuracy, held-out images)');
+  ph(s, 6.77, 1.35, 6.06, 'How well it finds each defect type (accuracy, held-out images)');
   const pc = [['Patches', 0.942], ['Inclusion', 0.795], ['Scratches', 0.794], ['Pitted surface', 0.763], ['Rolled-in scale', 0.597], ['Crazing', 0.581]];
   const ax = 8.3, aw = 3.9;
-  R(s, ax + aw * 0.70, 3.17, aw * 0.10, 1.27, C.tint);
-  T(s, 'published range', { x: ax + aw * 0.70 - 0.3, y: 4.44, w: aw * 0.10 + 0.6, h: 0.16, fontSize: 9, color: C.muted, align: 'center' });
+  R(s, ax + aw * 0.70, 1.74, aw * 0.10, 2.2, C.tint);
+  T(s, 'published range', { x: ax + aw * 0.70 - 0.3, y: 3.92, w: aw * 0.10 + 0.6, h: 0.18, fontSize: 9, color: C.muted, align: 'center' });
   pc.forEach(([n, v], i) => {
-    const y = 3.19 + i * 0.205;
-    T(s, n, { x: 6.87, y, w: 1.4, h: 0.2, fontSize: 9.5, color: C.ink, valign: 'middle', bold: v < 0.7 });
-    R(s, ax, y + 0.035, aw * v, 0.13, v >= 0.7 ? C.accent : C.grey);
-    T(s, v.toFixed(2), { x: ax + aw * v + 0.06, y, w: 0.5, h: 0.2, fontSize: 9.5, bold: true, color: v >= 0.7 ? C.ink : C.slate, valign: 'middle' });
+    const y = 1.8 + i * 0.35;
+    T(s, n, { x: 6.87, y, w: 1.4, h: 0.28, fontSize: 10, color: C.ink, valign: 'middle', bold: v < 0.7 });
+    R(s, ax, y + 0.05, aw * v, 0.19, v >= 0.7 ? C.accent : C.grey);
+    T(s, v.toFixed(2), { x: ax + aw * v + 0.06, y, w: 0.5, h: 0.28, fontSize: 10, bold: true, color: v >= 0.7 ? C.ink : C.slate, valign: 'middle' });
   });
 
   // headline results
-  ph(s, 0.5, 4.7, 6.06, 'Headline results');
-  [['target', '178 of 180', 'test images: the right defect type named'],
-   ['scan-search', 'Live', 'anyone can test it now at surface-vision.github.io'],
-  ].forEach(([ic, n, l], i) => {
+  ph(s, 0.5, 4.25, 6.06, 'Headline results');
+  const hr = [
+    ['target', '178 of 180', 'test images: the right defect type named'],
+    ['scan-search', 'Live', 'anyone can test it now at surface-vision.github.io'],
+  ];
+  hr.forEach(([ic, n, l], i) => {
     const x = 0.5 + i * 2.055;
-    RR(s, x, 5.04, 1.95, 1.42, C.neutral);
-    badge(s, ic, x + 0.1, 5.1, 0.38, C.navy);
-    T(s, n, { x: x + 0.56, y: 5.09, w: 1.36, h: 0.4, fontSize: 17, bold: true, color: C.navy, valign: 'middle' });
-    T(s, l, { x: x + 0.12, y: 5.58, w: 1.75, h: 0.8, fontSize: 9.5, color: C.slate });
+    RR(s, x, 4.62, 1.95, 1.8, C.neutral);
+    badge(s, ic, x + 0.12, 4.72, 0.44, C.navy);
+    T(s, n, { x: x + 0.12, y: 5.22, w: 1.8, h: 0.44, fontSize: 20, bold: true, color: C.navy, valign: 'middle' });
+    T(s, l, { x: x + 0.12, y: 5.68, w: 1.75, h: 0.66, fontSize: 9.5, color: C.slate });
   });
   {
     const x = 0.5 + 2 * 2.055;
-    RR(s, x, 5.04, 1.95, 1.42, C.neutral);
-    badge(s, 'archive', x + 0.1, 5.1, 0.38, C.navy);
-    T(s, '~10,100', { x: x + 0.56, y: 5.09, w: 1.36, h: 0.4, fontSize: 17, bold: true, color: C.navy, valign: 'middle' });
+    RR(s, x, 4.62, 1.95, 1.8, C.neutral);
+    badge(s, 'archive', x + 0.12, 4.72, 0.44, C.navy);
+    T(s, '~10,100', { x: x + 0.12, y: 5.22, w: 1.8, h: 0.44, fontSize: 20, bold: true, color: C.navy, valign: 'middle' });
     const parts = [['Lab', 1800, C.h4], ['Mill strip', 6001, C.accent], ['Line-scan', 2294, C.h2]];
     let px = x + 0.12;
-    parts.forEach(([, v, c]) => { const w = 1.7 * v / 10095; R(s, px, 5.6, w, 0.16, c); px += w; });
+    parts.forEach(([, v, c]) => { const w = 1.7 * v / 10095; R(s, px, 5.7, w, 0.18, c); px += w; });
     parts.forEach(([n, v, c], k) => {
-      const ly = 5.84 + k * 0.18;
-      R(s, x + 0.12, ly + 0.04, 0.1, 0.1, c);
-      T(s, `${n} ${v.toLocaleString('en-US')}`, { x: x + 0.28, y: ly, w: 1.6, h: 0.18, fontSize: 9, color: C.slate, valign: 'middle' });
+      const ly = 5.93 + k * 0.155;
+      R(s, x + 0.12, ly + 0.035, 0.1, 0.1, c);
+      T(s, `${n} ${v.toLocaleString('en-US')}`, { x: x + 0.28, y: ly, w: 1.6, h: 0.16, fontSize: 9, color: C.slate, valign: 'middle' });
     });
   }
 
   // weak spots
-  ph(s, 6.77, 4.7, 6.06, 'Known weak spots, and the fix for each');
+  ph(s, 6.77, 4.25, 6.06, 'Known weak spots, and the fix for each');
   table(s, [
     [hd('Weak spot'), hd('Today (0-1)', { align: 'center' }), hd('Fix in the pilot')],
     [cl('Low-contrast texture: crazing, rolled-in scale', { bold: true }), cl('0.58-0.60', { align: 'center', bold: true, color: C.amber }), cl('Angled lighting; JSL labels in P1')],
     [cl('Real mill frames are harder than the lab benchmark', { bold: true }), cl('0.57 vs 0.75', { align: 'center', bold: true, color: C.amber }), cl('Prove it on JSL\'s own strip in P1')],
     [cl('Roll marks and edge cracks: few examples', { bold: true }), cl('0.20', { align: 'center', bold: true, color: C.red }), cl('Edge cameras; targeted labelling with JSL')],
-  ], { x: 6.77, y: 5.04, w: 6.06, colW: [2.75, 1.05, 2.26], rowH: [0.28, 0.38, 0.38, 0.38] });
-  s.addNotes('Build and proof. How we built it, in seven steps. One: we collected about 10,100 images from three public steel datasets, a university benchmark, real production strip from a steel mill, and full-width line-scan frames. Two: we split them into 3,769 training, 494 tuning and 768 final-test images; the test images are never used for training or for any choice. Three: we trained a YOLOv8n detector on lab and mill defects together, plus 1,190 defect-free mill images, which teach it when not to raise an alarm. Four: we trained four times and picked the best run on the tuning images only. Five: we calibrated the confidence so it matches the real hit rate; the gap fell from 8 points to 3. Six: we exported one 12 MB model file that runs on an ordinary laptop CPU. Seven: we verified that the browser version gives the same answers as the Python original, 37 of 37 detections on 12 images, and the code is covered by 400 automated tests. Results: all scored on images the system had never seen. Per defect, four of six families sit at or above the published range; crazing and rolled-in scale are low-contrast textures and are weaker. The honest headline is the second weak spot: on real mill frames the score is 0.57 against 0.75 on the lab benchmark, which is exactly why the pilot starts on JSL\'s own strip before anything is trusted. Roll marks score 0.20 because public data has only a few dozen examples; edge cameras and targeted labelling with JSL fix that.');
+  ], { x: 6.77, y: 4.62, w: 6.06, colW: [2.75, 1.05, 2.26], rowH: [0.3, 0.5, 0.5, 0.5] });
+  s.addNotes('Proof. Three public datasets, about 10,100 images, all scored on images the system had never seen. Per defect, four of six families sit at or above the published range; crazing and rolled-in scale are low-contrast textures and are weaker. The honest headline is the second weak spot: on real mill frames the score is 0.57 against 0.75 on the lab benchmark, which is exactly why the pilot starts on JSL\'s own strip before anything is trusted. Roll marks score 0.20 because public data has only a few dozen examples; edge cameras and targeted labelling with JSL fix that.');
 }
 
-// ============ SLIDE 7: IMPLEMENTATION ============
+// ============ SLIDE 6: IMPLEMENTATION ============
 {
   const s = pres.addSlide();
   chrome(s, 'Implementation',
@@ -618,7 +569,7 @@ const DET = [
     'Pragati: JSL\'s digitalisation programme; Phase 2 brings Level-2 process data at Jajpur. KPI targets to be agreed with JSL Quality in P0.');
   // gantt
   ph(s, 0.5, 1.35, 7.85, 'Stage-gate roadmap (months)');
-  const gx = 2.95, gw = 3.4;
+  const gx = 2.75, gw = 3.55;
   [0, 4, 8, 12, 16, 20].forEach(m => T(s, `m${m}`, { x: gx + gw * m / 20 - 0.2, y: 1.7, w: 0.4, h: 0.2, fontSize: 9, color: C.muted, align: 'center' }));
   T(s, '◆ EXIT GATE', { x: 6.5, y: 1.7, w: 1.8, h: 0.2, fontSize: 9, bold: true, color: C.muted });
   const P = [
@@ -628,30 +579,18 @@ const DET = [
     ['P3', 'Auto-hold on severe defects', 7, 12, 'Holds trusted; downgrade measured'],
     ['P4', 'Second line and grade', 12, 20, 'Fleet decision on measured value'],
   ];
-  const rs = 0.315;
   P.forEach(([c, n, a, b, gate], i) => {
-    const y = 1.95 + i * rs;
-    icon(s, ['camera', 'layers', 'scan-search', 'shield-check', 'factory'][i], 0.56, y + 0.04, 0.22, 'accent');
-    T(s, c, { x: 0.84, y, w: 0.32, h: 0.3, fontSize: 11, bold: true, color: C.accent, valign: 'middle' });
-    T(s, n, { x: 1.16, y, w: 1.78, h: 0.3, fontSize: 9.5, color: C.ink, valign: 'middle' });
-    R(s, gx, y + 0.06, gw, 0.18, C.neutral);
-    R(s, gx + gw * a / 20, y + 0.06, gw * (b - a) / 20, 0.18, i < 3 ? C.accent : C.navy2);
-    s.addShape(pres.shapes.DIAMOND, { x: gx + gw * b / 20 - 0.08, y: y + 0.07, w: 0.16, h: 0.16, fill: { color: C.navy }, line: { color: 'FFFFFF', width: 1 } });
-    T(s, gate, { x: 6.5, y, w: 1.85, h: 0.3, fontSize: 9, color: C.slate, valign: 'middle' });
+    const y = 1.95 + i * 0.38;
+    icon(s, ['camera', 'layers', 'scan-search', 'shield-check', 'factory'][i], 0.56, y + 0.05, 0.24, 'accent');
+    T(s, c, { x: 0.84, y, w: 0.32, h: 0.34, fontSize: 11, bold: true, color: C.accent, valign: 'middle' });
+    T(s, n, { x: 1.16, y, w: 1.58, h: 0.34, fontSize: 9.5, color: C.ink, valign: 'middle' });
+    R(s, gx, y + 0.07, gw, 0.2, C.neutral);
+    R(s, gx + gw * a / 20, y + 0.07, gw * (b - a) / 20, 0.2, i < 3 ? C.accent : C.navy2);
+    s.addShape(pres.shapes.DIAMOND, { x: gx + gw * b / 20 - 0.09, y: y + 0.08, w: 0.18, h: 0.18, fill: { color: C.navy }, line: { color: 'FFFFFF', width: 1 } });
+    T(s, gate, { x: 6.5, y, w: 1.85, h: 0.34, fontSize: 9, color: C.slate, valign: 'middle' });
   });
-  // software track: a retrain-and-release cycle every month from P1, each release gated on a fixed test set
-  {
-    const y = 1.95 + 5 * rs;
-    icon(s, 'code', 0.56, y + 0.04, 0.22, 'accent');
-    T(s, 'SW', { x: 0.84, y, w: 0.32, h: 0.3, fontSize: 11, bold: true, color: C.accent, valign: 'middle' });
-    T(s, 'Monthly retrain + release', { x: 1.16, y, w: 1.78, h: 0.3, fontSize: 9.5, color: C.ink, valign: 'middle' });
-    R(s, gx, y + 0.06, gw, 0.18, C.neutral);
-    R(s, gx + gw * 1.5 / 20, y + 0.06, gw * 18.5 / 20, 0.18, C.h3);
-    for (let mo = 2; mo < 20; mo++) R(s, gx + gw * mo / 20 - 0.006, y + 0.06, 0.012, 0.18, C.white);
-    T(s, 'Ships only if it beats the live model on a fixed JSL test set', { x: 6.5, y, w: 1.85, h: 0.3, fontSize: 9, color: C.slate, valign: 'middle' });
-  }
-  R(s, gx + gw * 7 / 20 - 0.01, 1.92, 0.025, 1.93, C.red);
-  T(s, 'pilot go / no-go', { x: gx + gw * 7 / 20 - 0.65, y: 3.86, w: 1.3, h: 0.2, fontSize: 9, bold: true, color: C.red });
+  R(s, gx + gw * 7 / 20 - 0.01, 1.92, 0.025, 1.9, C.red);
+  T(s, 'pilot go / no-go', { x: gx + gw * 7 / 20 - 0.65, y: 3.83, w: 1.3, h: 0.2, fontSize: 9, bold: true, color: C.red });
 
   // pilot scope: the line itself, then what is in and what waits
   ph(s, 8.6, 1.35, 4.23, 'Pilot scope: in and out');
@@ -715,10 +654,10 @@ const DET = [
     T(s, l, { x: x + 0.1, y: y + 0.48, w: 1.85, h: 0.2, fontSize: 9.5, color: C.ink });
     T(s, m, { x: x + 0.1, y: y + 0.68, w: 1.85, h: 0.2, fontSize: 9, bold: i < 2, color: i === 0 ? C.amber : (i === 1 ? C.green : C.muted) });
   });
-  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. The pilot scope is deliberately narrow: one 300-series cold-rolled line, both faces, 2B and BA finishes, the six defect families plus unclassified defects. The hot end, edge cracks, automatic process correction and other plants wait until the pilot has proved itself. JSL Quality owns every go/no-go; the Pragati team owns integration, because Pragati Phase 2 already brings Level-2 process data at Jajpur. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. The software track runs underneath: from P1 the model is retrained every month on JSL\'s newly labelled strip, and each release ships only if it beats the live model on a fixed JSL test set, the same rule we used to pick the model in the demo. Photo: cold-rolling mill, ThyssenKrupp Steel USA (Free Art License), Wikimedia Commons.');
+  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. The pilot scope is deliberately narrow: one 300-series cold-rolled line, both faces, 2B and BA finishes, the six defect families plus unclassified defects. The hot end, edge cracks, automatic process correction and other plants wait until the pilot has proved itself. JSL Quality owns every go/no-go; the Pragati team owns integration, because Pragati Phase 2 already brings Level-2 process data at Jajpur. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. Every update must beat the live system on a fixed JSL test set before it ships. Photo: cold-rolling mill, ThyssenKrupp Steel USA (Free Art License), Wikimedia Commons.');
 }
 
-// ============ SLIDE 8: IMPACT ============
+// ============ SLIDE 7: IMPACT ============
 {
   const s = pres.addSlide();
   chrome(s, 'Impact',

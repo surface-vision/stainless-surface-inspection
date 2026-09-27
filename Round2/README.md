@@ -98,7 +98,13 @@ interviews/                  who to call, messages, questions, consent; quotes.j
 
 ## Version history
 
-- **v13 (27 Sep), images on slides 4, 7, 8 — current.** Slide 4: real mill-strip images beside the result rings
+- **v14 (27 Sep), the software story — current.** Nothing removed; panels re-laid out to make room.
+  Slide 5: every stage of the ribbon now names the software behind it (tiling, steel check, YOLOv8n detector,
+  calibrated confidence, coil report, override log), plus a "two apps, one model" panel (browser demo and
+  Python operator console) and the software stack in the source line. Slide 6: a seven-step "how we built it"
+  pipeline (collect, split, train, select, calibrate, export, verify). Slide 7: a monthly retrain-and-release
+  track in the roadmap. Slide 4: calibrated confidence as a trust point and the coil report's starting limits.
+- **v13 (27 Sep), images on slides 4, 7, 8.** Slide 4: real mill-strip images beside the result rings
   (a flagged defect, a clean strip with no alarm) and the live demo's alarm view for "evidence on every alarm".
   Slide 7: mill photo heading the pilot scope, icons on the roadmap and KPI tiles, shorter labels. Slide 8: photo
   tiles for the six impact areas, proof points moved to the speaker notes.
