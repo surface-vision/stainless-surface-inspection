@@ -44,7 +44,7 @@ const C = {
   band: 'E4803A', head: 'E4803A', tab: 'B63831', tabOff: 'F2F2F2', rail: '2B2B2B',
 };
 const RAIL = ['PROBLEM  ·  WHY NOW', 'INSIGHTS  ·  OWNERS  ·  PRECEDENT', 'INSIGHTS  ·  DESIGN CHOICES', 'SOLUTION  ·  HOW IT WORKS',
-  'SOLUTION  ·  PROOF', 'IMPLEMENTATION  ·  ROADMAP  ·  RISK', 'IMPACT  ·  VALUE  ·  ASK'];
+  'SOLUTION  ·  PROOF', 'IMPLEMENTATION  ·  ROADMAP  ·  RISK', 'IMPACT  ·  ECONOMICS  ·  ASK'];
 let railIdx = 0;
 const F = 'Calibri';
 const SECTIONS = ['Problem', 'Insights', 'Solution', 'Implementation', 'Impact'];
@@ -128,8 +128,8 @@ const DET = [
   const stats = [
     ['90%', 'of defects caught on real mill\nstrip it had never seen', 24],
     ['4.7%', 'of clean strip wrongly flagged,\nfewer than 1 in 20', 24],
-    ['~₹6.7 cr', 'a year at stake per line, at a\n1% downgrade rate', 22],
-    ['7 months', 'to shadow mode on one line,\ngo / no-go at month 7', 22],
+    ['₹2.5-4.2 cr', 'per line, vs ₹10-29 cr for a\ncommercial system', 21],
+    ['~2.2 years', 'payback on one line at a\n1% downgrade rate', 22],
   ];
   stats.forEach(([n, l, fs], i) => {
     const x = 0.6 + i * 1.92;
@@ -150,7 +150,7 @@ const DET = [
   T(s, 'surface-vision.github.io', { x: 9.6, y: 5.93, w: 2.75, h: 0.3, fontSize: 13, bold: true, color: C.navy, align: 'center' });
   T(s, 'Runs in your browser. Nothing leaves the page.', { x: 9.65, y: 6.24, w: 2.65, h: 0.4, fontSize: 9, color: C.slate, align: 'center' });
   T(s, 'Photo: Methem, Wikimedia Commons (public domain)', { x: 8.75, y: 7.12, w: 4.4, h: 0.25, fontSize: 9, color: C.onNavy, align: 'right' });
-  s.addNotes('Cover. The six images are real output from our system on steel images it had never seen. The QR opens the live demo in the judge\'s browser. Four numbers tell the story: on real mill strip it catches 9 in 10 defects and wrongly flags fewer than 1 in 20 clean images; each line has about INR 6.7 crore a year at stake from downgrades even at a conservative 1%; and one line reaches shadow mode in seven months, with a go/no-go before anything touches the mill.');
+  s.addNotes('Cover. The six images are real output from our system on steel images it had never seen. The QR opens the live demo in the judge\'s browser. Four numbers tell the story: on real mill strip it catches 9 in 10 defects and wrongly flags fewer than 1 in 20 clean images, at a fraction of commercial cost, paying back in about two years on one line.');
 }
 
 // ============ SLIDE 2: PROBLEM ============
@@ -391,7 +391,7 @@ const DET = [
   chrome(s, 'Solution',
     'Detect on the strip, decide at the coil, route to the owner, and learn from every correction',
     'Buy proven cameras, own the software: vendor-grade capture, tuned to JSL\'s grades and wired to JSL\'s process owners.',
-    'BUILT = working in our prototype today, live at surface-vision.github.io.');
+    'BUILT = working in our prototype today, live at surface-vision.github.io. Commercial price range: industry figure, unverified.');
   ph(s, 0.5, 1.35, 12.33, 'How it works: six stages from camera to corrective action');
   const stg = [
     ['camera', 'Capture', 'Both faces, bright + dark-field light, 0.2 mm detail', 'TO BUILD', C.muted],
@@ -452,9 +452,9 @@ const DET = [
   ph(s, 8.7, 3.52, 4.13, 'Build vs buy');
   const crit = ['Cost per line', 'Proven at speed', 'Tuned to JSL grades', 'JSL owns the system'];
   const opts = [
-    ['Commercial', 'proven; the vendor owns it', ['r', 'g', 'a', 'r']],
-    ['Fully in-house', 'JSL owns it; slow to prove', ['g', 'r', 'g', 'g']],
-    ['Hybrid (recommended)', 'vendor cameras, JSL software', ['g', 'a', 'g', 'g']],
+    ['Commercial', 'USD 1-3M (unverified)', ['r', 'g', 'a', 'r']],
+    ['Fully in-house', '₹2-3 cr (est.)', ['g', 'r', 'g', 'g']],
+    ['Hybrid (recommended)', '₹2.5-4.2 cr (est.)', ['g', 'a', 'g', 'g']],
   ];
   const cx0 = 10.28, cwid = 0.63;
   crit.forEach((c, k) => T(s, c, { x: cx0 + k * cwid, y: 3.86, w: cwid - 0.03, h: 0.42, fontSize: 9, bold: true, color: C.slate, align: 'center', valign: 'bottom' }));
@@ -471,7 +471,7 @@ const DET = [
     T(s, l, { x: 9.0 + k * 0.85, y: 5.94, w: 0.65, h: 0.22, fontSize: 9, color: C.muted, valign: 'middle' });
   });
   T(s, 'Output: hybrid is never weak.', { x: 8.8, y: 6.17, w: 4.0, h: 0.24, fontSize: 10, bold: true, color: C.accent, valign: 'middle' });
-  s.addNotes('Solution. Stages 2 to 4 are built and running today in the browser demo. Stage 5 has coil rules built, but grade- and finish-specific limits need JSL input. Stages 1 and 6 are the plant-side pilot work. The strip underneath shows where each stage runs: cameras at the line, an edge server beside it that works offline, the plant network behind IEC 62443 zones, and people on screens and work orders. What JSL gets that a standard system does not: alarms it can act on, routing to the owning process, one verdict per coil, and ownership of its own system. Build vs buy: commercial systems are proven but closed and vendor-owned; fully in-house is slowest to prove; hybrid is never weak.');
+  s.addNotes('Solution. Stages 2 to 4 are built and running today in the browser demo. Stage 5 has coil rules built, but grade- and finish-specific limits need JSL input. Stages 1 and 6 are the plant-side pilot work. The strip underneath shows where each stage runs: cameras at the line, an edge server beside it that works offline, the plant network behind IEC 62443 zones, and people on screens and work orders. What JSL gets that a standard system does not: alarms it can act on, routing to the owning process, one verdict per coil, and ownership of its own system. Build vs buy: commercial systems are proven but cost USD 1-3M per line and are closed; hybrid is never weak.');
 }
 
 // ============ SLIDE 6: PROOF (what the data says) ============
@@ -566,8 +566,8 @@ const DET = [
   const s = pres.addSlide();
   chrome(s, 'Implementation',
     'Seven months to shadow mode on one line, and nothing touches the mill until trust is earned',
-    'Commit one line for seven months. The month-7 go/no-go is decided on JSL\'s own alarm and recall numbers.',
-    'Pragati: JSL\'s digitalisation programme; Phase 2 brings Level-2 process data at Jajpur. KPI targets to be agreed with JSL Quality in P0.');
+    'Commit ₹2.5-4.2 cr and one line for seven months. The month-7 go/no-go is decided on JSL\'s own alarm and recall numbers.',
+    'Costs: team estimates for a 1.3-1.6 m line, both faces, at INR 95.8/USD; vendor quotes replace them in P0. Pragati: JSL digitalisation, Phase 2 brings Level-2 data at Jajpur.');
   // gantt
   ph(s, 0.5, 1.35, 7.85, 'Stage-gate roadmap (months)');
   const gx = 2.75, gw = 3.55;
@@ -578,7 +578,7 @@ const DET = [
     ['P1', 'Learn JSL strip (5,000 frames)', 1.5, 4, 'Clean alarms ≤ 25%, recall ≥ 90%'],
     ['P2', 'Shadow mode: advises only', 4, 7, '≥ 90% operator agreement'],
     ['P3', 'Auto-hold on severe defects', 7, 12, 'Holds trusted; downgrade measured'],
-    ['P4', 'Second line and grade', 12, 20, 'Fleet decision on measured value'],
+    ['P4', 'Second line and grade', 12, 20, 'Fleet decision on real payback'],
   ];
   P.forEach(([c, n, a, b, gate], i) => {
     const y = 1.95 + i * 0.38;
@@ -592,27 +592,21 @@ const DET = [
   R(s, gx + gw * 7 / 20 - 0.01, 1.92, 0.025, 1.9, C.red);
   T(s, 'pilot go / no-go', { x: gx + gw * 7 / 20 - 0.65, y: 3.83, w: 1.3, h: 0.2, fontSize: 9, bold: true, color: C.red });
 
-  // pilot scope: what is in, what waits
-  ph(s, 8.6, 1.35, 4.23, 'Pilot scope: in and out');
-  T(s, 'IN THE PILOT', { x: 8.7, y: 1.72, w: 2.0, h: 0.22, fontSize: 9.5, bold: true, color: C.accent, charSpacing: 1 });
-  T(s, 'LATER', { x: 10.85, y: 1.72, w: 1.9, h: 0.22, fontSize: 9.5, bold: true, color: C.muted, charSpacing: 1 });
-  const scope = [
-    ['One 300-series cold-rolled line, both faces', 'Hot end and caster-side inspection'],
-    ['2B and BA finishes', 'Edge cracks: needs edge cameras'],
-    ['Six defect families, plus unclassified', 'Automatic process correction'],
-    ['Read-only until P3; one write path', 'Other plants: after P4'],
-  ];
-  scope.forEach(([a, b], i) => {
-    const y = 1.98 + i * 0.4;
-    dot(s, 8.72, y + 0.1, 0.1, C.accent);
-    T(s, a, { x: 8.88, y, w: 1.9, h: 0.36, fontSize: 9.5, color: C.ink, valign: 'middle' });
-    dot(s, 10.87, y + 0.1, 0.1, C.grey);
-    T(s, b, { x: 11.03, y, w: 1.8, h: 0.36, fontSize: 9.5, color: C.slate, valign: 'middle' });
+  // cost donut
+  ph(s, 8.6, 1.35, 4.23, 'Cost per line, estimated');
+  const cost = [['Cameras & lighting', 115, '₹0.85-1.45 cr', C.navy], ['Installation & integration', 120, '₹0.9-1.5 cr', C.h4], ['Computing hardware', 60, '₹0.45-0.75 cr', C.h3], ['Labelling JSL strip', 40, '₹0.3-0.5 cr', C.h2]];
+  s.addChart(pres.charts.DOUGHNUT, [{ name: 'Cost', labels: cost.map(c => c[0]), values: cost.map(c => c[1]) }], {
+    x: 8.6, y: 1.7, w: 1.95, h: 1.95, holeSize: 62, chartColors: cost.map(c => c[3]), showLegend: false, showValue: false, showPercent: false, dataBorder: { pt: 1, color: 'FFFFFF' },
   });
-  R(s, 8.7, 3.62, 4.08, 0.01, C.edge);
-  T(s, [{ text: 'Decision owner: ', options: { color: C.muted } }, { text: 'JSL Quality', options: { bold: true, color: C.ink } },
-        { text: '   Integration: ', options: { color: C.muted } }, { text: 'Pragati team', options: { bold: true, color: C.ink } }],
-    { x: 8.7, y: 3.66, w: 4.1, h: 0.26, fontSize: 9.5, valign: 'middle' });
+  T(s, [{ text: '₹2.5-4.2', options: { bold: true, fontSize: 13, color: C.navy } }, { text: '\ncr per line', options: { fontSize: 9, color: C.muted } }], { x: 8.85, y: 2.38, w: 1.45, h: 0.6, align: 'center', valign: 'middle' });
+  cost.forEach(([l, , r, col], i) => {
+    const y = 1.85 + i * 0.4;
+    R(s, 10.65, y + 0.06, 0.16, 0.16, col);
+    T(s, l, { x: 10.88, y: y - 0.02, w: 1.95, h: 0.2, fontSize: 9, color: C.ink });
+    T(s, r, { x: 10.88, y: y + 0.16, w: 1.95, h: 0.2, fontSize: 9, bold: true, color: C.slate });
+  });
+  T(s, 'Running cost ~₹0.5 cr a year', { x: 10.65, y: 3.47, w: 2.15, h: 0.22, fontSize: 9, italic: true, color: C.muted });
+  T(s, [{ text: 'Commercial system: ', options: { color: C.slate } }, { text: '₹10-29 cr per line', options: { bold: true, color: C.ink } }], { x: 8.65, y: 3.72, w: 4.1, h: 0.22, fontSize: 9 });
 
   // risks
   ph(s, 0.5, 4.08, 6.06, 'Top risks, and when each is retired');
@@ -643,16 +637,16 @@ const DET = [
     T(s, l, { x: x + 0.1, y: y + 0.42, w: 1.85, h: 0.22, fontSize: 9, color: C.ink });
     T(s, m, { x: x + 0.1, y: y + 0.64, w: 1.85, h: 0.22, fontSize: 9, bold: i < 2, color: i === 0 ? C.amber : (i === 1 ? C.green : C.muted) });
   });
-  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. The pilot scope is deliberately narrow: one 300-series cold-rolled line, both faces, 2B and BA finishes, the six defect families plus unclassified defects. The hot end, edge cracks, automatic process correction and other plants wait until the pilot has proved itself. JSL Quality owns every go/no-go; the Pragati team owns integration, because Pragati Phase 2 already brings Level-2 process data at Jajpur. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. Every update must beat the live system on a fixed JSL test set before it ships.');
+  s.addNotes('Implementation. Five phases, 20 months, with a hard go/no-go at month 7 after shadow mode. The system never acts on the mill until P3; before that it only reads data and advises. P0 plugs into Project Pragati, JSL\'s own digitalisation programme with Dassault Systemes and Capgemini, whose Phase 2 brings Level-2 process data at Jajpur, so each defect is tied to its heat and coil without a new integration project. Mirror-like BA and 2B finishes are handled the way stainless lines already do it: bright and dark-field light, with deflectometry for BA. The plant network is protected by IEC 62443 zones and the system runs offline. Every update must beat the live system on a fixed JSL test set before it ships. Cost is INR 2.5-4.2 crore per line, against USD 1-3M for a commercial system.');
 }
 
 // ============ SLIDE 7: IMPACT ============
 {
   const s = pres.addSlide();
   chrome(s, 'Impact',
-    'At a conservative 1% downgrade rate, each line has ~₹6.7 cr a year at stake; ~₹43 cr across the fleet',
+    'At a conservative 1% downgrade rate one line pays back in ~2.2 years; the fleet protects ~₹13 cr a year',
     'Recommendation: approve a 7-month pilot on one 300-series cold-rolled line. JSL\'s own downgrade rate decides fleet rollout.',
-    'Inputs: JSL FY26 (INR 167,407/t; 2,565,902 t sold). Base case: a 0.4 Mt line, 1% downgraded at a 10% discount. Value at stake, not a savings forecast: JSL\'s own data sets the real figure.');
+    'Inputs: JSL FY26 (INR 167,407/t; 2,565,902 t). Base: 0.4 Mt line, 30% of loss recovered, ₹3.35 cr capex, ₹0.5 cr/yr run cost, 12% rate. Commercial: USD 2M at INR 95.8.');
   // loss pool heatmap
   ph(s, 0.5, 1.35, 4.35, 'Loss pool per line, ₹ cr a year');
   T(s, '0.4 Mt × downgrade rate × price discount × ₹167,407/t', { x: 0.5, y: 1.7, w: 4.35, h: 0.24, fontSize: 9.5, italic: true, color: C.slate });
@@ -665,18 +659,40 @@ const DET = [
     return cl(v.toFixed(1), { align: 'center', bold: true, fontSize: 12, fill: { color: base ? C.navy : f }, color: base ? C.white : c });
   }))));
   table(s, rows, { x: 0.5, y: 2.0, w: 4.35, colW: [1.35, 1.0, 1.0, 1.0], rowH: [0.3, 0.42, 0.42, 0.42] });
-  T(s, [{ text: 'Base case (dark): ', options: { bold: true, color: C.navy } }, { text: '₹6.7 cr a year per line; ~₹43 cr across JSL\'s 2.57 Mt. Non-prime coil sells 10-30% below prime, so these discounts are conservative.', options: { color: C.slate } }], { x: 0.5, y: 3.62, w: 4.35, h: 0.62, fontSize: 9.5 });
+  T(s, [{ text: 'Base case (dark): ', options: { bold: true, color: C.navy } }, { text: '₹6.7 cr pool, ₹2.0 cr/yr recovered (₹1.5 cr net). Fleet: ₹12.9 cr/yr. Non-prime coil sells 10-30% below prime, so these discounts are conservative.', options: { color: C.slate } }], { x: 0.5, y: 3.62, w: 4.35, h: 0.62, fontSize: 9.5 });
 
-  // value levers: where the value comes from, and how the pilot measures it
-  ph(s, 5.05, 1.35, 7.78, 'Value levers, and how the pilot measures each');
-  table(s, [
-    [hd('Value lever'), hd('How the system creates it'), hd('Measured in the pilot as')],
-    [cl('Fewer downgrades', { bold: true }), cl('defects caught upstream, before more value is added'), cl('downgrade rate by line and grade')],
-    [cl('Fewer customer claims', { bold: true }), cl('a defect map travels with every coil'), cl('claims per 1,000 t shipped')],
-    [cl('Less rework', { bold: true }), cl('no re-pickling or re-grinding of defects found late'), cl('rework tonnes per month')],
-    [cl('Faster root-cause fixes', { bold: true }), cl('each alarm reaches the process that caused it'), cl('hours from defect to corrective action')],
-    [cl('Premium orders', { bold: true }), cl('documented surface quality for rail, appliances, exports'), cl('share of exposed-finish orders')],
-  ], { x: 5.05, y: 1.7, w: 7.78, colW: [1.85, 3.35, 2.58], rowH: [0.3, 0.44, 0.44, 0.44, 0.44, 0.44], fontSize: 9.5 });
+  // cumulative cash per line, five years
+  ph(s, 5.05, 1.35, 3.85, 'Cumulative cash per line, ₹ cr');
+  const cum = [-3.35, -1.84, -0.33, 1.18, 2.69, 4.19];
+  const k = 0.17, zeroY = 1.78 + 4.19 * k, slot = 0.6, bx0 = 5.2;
+  R(s, bx0 - 0.05, zeroY, 3.65, 0.012, C.slate);
+  cum.forEach((v, i) => {
+    const x = bx0 + i * slot + 0.1, h = Math.abs(v) * k;
+    R(s, x, v >= 0 ? zeroY - h : zeroY, 0.38, h, v >= 0 ? C.accent : C.grey);
+    T(s, `Y${i}`, { x: x - 0.06, y: 3.14, w: 0.5, h: 0.18, fontSize: 9, color: C.muted, align: 'center' });
+    T(s, (v > 0 ? '+' : '') + v.toFixed(1), { x: x - 0.06, y: 3.31, w: 0.5, h: 0.18, fontSize: 9, bold: true, color: v >= 0 ? C.accent : C.slate, align: 'center' });
+  });
+  const pbx = bx0 + 2 * slot + 0.29 + 0.2 * slot;
+  s.addShape(pres.shapes.LINE, { x: pbx, y: 1.74, w: 0, h: 1.38, line: { color: C.navy, width: 1, dashType: 'dash' } });
+  T(s, 'pays back ~2.2 yr', { x: pbx - 1.3, y: 1.72, w: 1.25, h: 0.2, fontSize: 9, bold: true, color: C.navy, align: 'right' });
+  T(s, [{ text: '+₹2.1 cr', options: { bold: true, color: C.accent, fontSize: 12 } }, { text: '  5-year NPV per line at 12%', options: { color: C.slate } }], { x: 5.1, y: 3.52, w: 3.8, h: 0.24, fontSize: 9.5, valign: 'middle' });
+  T(s, [{ text: '−₹11.6 cr', options: { bold: true, color: C.ink, fontSize: 12 } }, { text: '  commercial system after 5 years', options: { color: C.slate } }], { x: 5.1, y: 3.76, w: 3.8, h: 0.24, fontSize: 9.5, valign: 'middle' });
+  T(s, [{ text: '≥ 0.11%', options: { bold: true, color: C.accent, fontSize: 12 } }, { text: '  of revenue lost to downgrade = 2-yr payback', options: { color: C.slate } }], { x: 5.1, y: 4.0, w: 3.8, h: 0.24, fontSize: 9.5, valign: 'middle' });
+
+  // tornado
+  ph(s, 9.1, 1.35, 3.73, 'What moves payback (years)');
+  const tor = [['Downgrade rate 0.5-2%', 0.95, 6.64], ['Share recovered 15-45%', 1.33, 6.64], ['Line volume 0.3-0.5 Mt', 1.67, 3.33], ['Capex ₹2.5-4.2 cr', 1.66, 2.78], ['Price discount 10-20%', 0.95, 2.22]];
+  const tx = 10.65, tw = 1.55, tmax = 7;
+  const X = v => tx + tw * v / tmax;
+  tor.forEach(([n, a, b], i) => {
+    const y = 1.8 + i * 0.44;
+    T(s, n, { x: 9.15, y, w: 1.48, h: 0.3, fontSize: 9, color: C.slate, valign: 'middle' });
+    R(s, X(a), y + 0.05, X(2.22) - X(a), 0.2, C.accent);
+    if (b > 2.22) R(s, X(2.22), y + 0.05, X(b) - X(2.22), 0.2, C.grey);
+    T(s, `${a.toFixed(1)}-${b.toFixed(1)}`, { x: X(Math.max(b, 2.22)) + 0.04, y, w: 0.55, h: 0.3, fontSize: 9, bold: true, color: C.ink, valign: 'middle' });
+  });
+  R(s, X(2.22) - 0.01, 1.74, 0.02, 2.25, C.navy);
+  T(s, 'base 2.2 yr', { x: X(2.22) - 0.5, y: 3.99, w: 1.0, h: 0.2, fontSize: 9, bold: true, color: C.navy, align: 'center' });
 
   // beyond P&L
   ph(s, 0.5, 4.38, 8.4, 'Impact beyond the P&L');
@@ -702,12 +718,12 @@ const DET = [
   T(s, 'WHAT WE ASK OF JSL', { x: 9.25, y: 4.46, w: 3.5, h: 0.26, fontSize: 11, bold: true, color: C.onNavy });
   T(s, [
     { text: 'One 300-series cold-rolled line, 7 months', options: { bullet: true } },
-    { text: 'Vendor quotes for cameras and lighting in P0', options: { bullet: true } },
+    { text: '₹2.5-4.2 cr pilot budget', options: { bullet: true } },
     { text: 'Downgrade rate by line and grade', options: { bullet: true } },
     { text: 'A metallurgist at 20% for root causes', options: { bullet: true } },
   ], { x: 9.25, y: 4.76, w: 3.5, h: 1.05, fontSize: 10, color: C.white, paraSpaceAfter: 2 });
-  T(s, 'In return: the measured downgrade rate, the value captured, and a go / no-go at month 7.', { x: 9.25, y: 5.84, w: 3.5, h: 0.52, fontSize: 9.5, bold: true, color: C.onNavy });
-  s.addNotes('Impact. We size the prize, not the price. At a conservative 1% of volume downgraded at a 10% discount, one 0.4 Mt line puts about INR 6.7 crore a year at stake; across JSL\'s 2.57 Mt it is about INR 43 crore. Non-prime coil typically sells 10-30% below prime, so the discounts are conservative. The value comes through five levers: fewer downgrades, fewer customer claims, less rework, faster root-cause fixes, and premium exposed-finish orders. Each has a measure the pilot tracks, so the fleet decision rests on JSL\'s own numbers rather than our assumptions. Beyond the P&L: coverage, customers, process, safety, sustainability and people. Close on the ask.');
+  T(s, 'In return: measured downgrade rate, payback and a go / no-go at month 7.', { x: 9.25, y: 5.84, w: 3.5, h: 0.52, fontSize: 9.5, bold: true, color: C.onNavy });
+  s.addNotes('Impact. At 1% of volume downgraded at a 10% discount, one 0.4 Mt line loses INR 6.7 crore a year; recovering 30%, less INR 0.5 crore run cost, pays back INR 3.35 crore capex in about 2.2 years, against 12.7 years for a commercial system. Our discounts are conservative: non-prime coil typically trades 10-30% below prime. Downgrade rate and recovery share dominate the tornado; neither is public, so both are measured in P2-P3. Beyond the P&L: JSL supplies stainless for Vande Bharat sleeper coaches, Vande Metro and several metros, and those buyers see the surface; a defect map per coil is a sales tool. Less rework and remelting supports JSL\'s target of halving emission intensity by 2035 and net zero by 2050; intensity was 1.76 tCO2e per tonne in FY26. Close on the ask.');
 }
 
 pres.writeFile({ fileName: '../out/JSW_Round2_Surface_Defect_Detection.pptx' }).then(f => console.log('wrote', f));

@@ -98,7 +98,12 @@ interviews/                  who to call, messages, questions, consent; quotes.j
 
 ## Version history
 
-- **v10 (27 Sep), Jindal Stainless scheme — current.** Restyled to match the team's Round 1 slide: orange
+- **v11 (27 Sep), consultants, not a price quote — current.** Cost predictions removed: no per-line capex,
+  bill of materials, payback years, NPV, cash chart or commercial price guesses. The deck sizes the prize
+  (value at stake, from JSL's public numbers) and shows how the pilot measures it: cover shows ~₹6.7 cr a year
+  at stake per line and 7 months to shadow mode; slide 7 has the pilot scope (in / later) and decision owners;
+  slide 8 has five value levers with their pilot measures. `build/econ.py` is kept for Q&A only.
+- **v10 (27 Sep), Jindal Stainless scheme.** Restyled to match the team's Round 1 slide: orange
   header band with the Jindal Stainless and Stainless Spark logos, red active tab, charcoal left rail with a
   rotated section label, orange panel headers, charcoal tables and decision band, orange chart ramp.
   Colours sampled from the Round 1 slide (#E4803A, #B63831, #2B2B2B). Logos: `build/img/logo_jsl.jpg`
