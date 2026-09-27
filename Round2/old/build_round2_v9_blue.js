@@ -33,19 +33,12 @@ const MEMBERS = ['Krishna Kanta Mondal', 'Prathmesh Walimbe'];
 const INSTITUTION = 'IIT Bombay';
 // ---------------------------------------------------------------------------
 
-// Jindal Stainless scheme, sampled from the team's Round 1 slide: orange band and panel headers,
-// red active tab, charcoal rail, tables and decision band. 'navy'/'accent' keep their roles
-// (dark and emphasis); green, amber and red are reserved for status.
 const C = {
-  navy: '2B2B2B', navy2: '5C5C5C', onNavy: 'D6D6D6', accent: 'D2651F',
-  ink: '1A1A1A', slate: '404040', muted: '6E6E6E', neutral: 'F3F3F3', edge: 'D9D9D9',
-  white: 'FFFFFF', green: '2E7D32', amber: 'C99700', red: 'C62828', grey: '9E9E9E',
-  h1: 'FCE5D3', h2: 'F5BE92', h3: 'EC9352', h4: 'C4561A', tint: 'FDEFE4',
-  band: 'E4803A', head: 'E4803A', tab: 'B63831', tabOff: 'F2F2F2', rail: '2B2B2B',
+  navy: '143A5A', navy2: '2B5B80', onNavy: 'BFD2E2', accent: '0086C3',
+  ink: '141C24', slate: '334150', muted: '5F6B78', neutral: 'F1F4F7', edge: 'D5DCE3',
+  white: 'FFFFFF', green: '2E7D32', amber: 'B77900', red: 'C62828', grey: '9AA7B4',
+  h1: 'DCEAF5', h2: 'A9CBE6', h3: '5E9CCB', h4: '1F6FA8', tint: 'E4EEF6',
 };
-const RAIL = ['PROBLEM  ·  WHY NOW', 'INSIGHTS  ·  OWNERS  ·  PRECEDENT', 'INSIGHTS  ·  DESIGN CHOICES', 'SOLUTION  ·  HOW IT WORKS',
-  'SOLUTION  ·  PROOF', 'IMPLEMENTATION  ·  ROADMAP  ·  RISK', 'IMPACT  ·  ECONOMICS  ·  ASK'];
-let railIdx = 0;
 const F = 'Calibri';
 const SECTIONS = ['Problem', 'Insights', 'Solution', 'Implementation', 'Impact'];
 const ICON = (n, c) => `img/icons/${n}-${c || 'navy'}.png`;
@@ -69,33 +62,22 @@ function badge(s, name, x, y, d, fill) {
   s.addImage({ path: ICON(name, 'white'), x: x + p, y: y + p, w: d - 2 * p, h: d - 2 * p });
 }
 function icon(s, name, x, y, d, col) { s.addImage({ path: ICON(name, col), x, y, w: d, h: d }); }
-// orange header band with both logos; used by the cover and every content slide
-function brandBand(s) {
-  R(s, 0, 0, 13.333, 0.86, C.band);
-  s.addImage({ path: 'img/logo_jsl.jpg', x: 0.1, y: 0.08, w: 2.38, h: 0.7 });
-  s.addImage({ path: 'img/logo_spark.png', x: 2.56, y: 0.08, w: 1.36, h: 0.7 });
-}
 function chrome(s, active, title, band, source) {
   s.background = { color: C.white };
-  brandBand(s);
-  const x0 = 4.14, tw = 1.43, gap = 0.06;
+  const x0 = 0.5, tw = 1.62, gap = 0.06;
   SECTIONS.forEach((sec, i) => {
     const on = sec === active;
-    R(s, x0 + i * (tw + gap), 0.2, tw, 0.46, on ? C.tab : C.tabOff);
-    T(s, `${i + 1}  ${sec}`, { x: x0 + i * (tw + gap), y: 0.2, w: tw, h: 0.46, align: 'center', valign: 'middle', fontSize: 10.5, bold: on, color: on ? C.white : C.navy2 });
+    R(s, x0 + i * (tw + gap), 0.22, tw, 0.3, on ? C.navy : C.neutral);
+    T(s, `${i + 1}  ${sec}`, { x: x0 + i * (tw + gap), y: 0.22, w: tw, h: 0.3, align: 'center', valign: 'middle', fontSize: 10, bold: on, color: on ? C.white : C.muted });
   });
-  T(s, [{ text: TEAM ? `Team ${TEAM}` : '', options: { bold: true, fontSize: 11 } }, { text: `\n${INSTITUTION}`, options: { fontSize: 9.5 } }],
-    { x: 11.62, y: 0.16, w: 1.62, h: 0.54, align: 'right', valign: 'middle', color: C.white });
-  T(s, title, { x: 0.5, y: 0.9, w: 12.33, h: 0.42, fontSize: 20, bold: true, color: C.ink, valign: 'middle' });
-  // left rail with the slide's mode, rotated
-  R(s, 0.1, 1.35, 0.3, 5.43, C.rail);
-  T(s, RAIL[railIdx++] || active.toUpperCase(), { x: 0.25 - 5.43 / 2, y: 1.35 + 5.43 / 2 - 0.15, w: 5.43, h: 0.3, rotate: 270, fontSize: 10, bold: true, color: C.white, align: 'center', valign: 'middle', charSpacing: 1 });
-  R(s, 0.1, 6.82, 12.73, 0.46, C.rail);
-  T(s, band, { x: 0.28, y: 6.82, w: 12.4, h: 0.46, fontSize: 12, bold: true, color: C.white, valign: 'middle' });
+  T(s, `STAINLESS SPARK ROUND 2  |  PS1  |  ${TEAM ? `Team ${TEAM}  |  ` : ''}${INSTITUTION}`, { x: 9.0, y: 0.22, w: 3.83, h: 0.3, align: 'right', valign: 'middle', fontSize: 9, color: C.muted });
+  T(s, title, { x: 0.5, y: 0.62, w: 12.33, h: 0.62, fontSize: 20, bold: true, color: C.navy, valign: 'middle' });
+  R(s, 0.5, 6.82, 12.33, 0.46, C.navy);
+  T(s, band, { x: 0.68, y: 6.82, w: 12.0, h: 0.46, fontSize: 12, bold: true, color: C.white, valign: 'middle' });
   if (source) T(s, source, { x: 0.5, y: 6.53, w: 12.33, h: 0.26, fontSize: 9, color: C.muted, valign: 'middle' });
 }
 function ph(s, x, y, w, text) {
-  R(s, x, y, w, 0.3, C.head);
+  R(s, x, y, w, 0.3, C.navy2);
   T(s, text, { x: x + 0.1, y, w: w - 0.2, h: 0.3, fontSize: 11, bold: true, color: C.white, valign: 'middle' });
 }
 function tag(s, x, y, text, col, w) {
@@ -105,7 +87,7 @@ function tag(s, x, y, text, col, w) {
 function table(s, rows, o) {
   s.addTable(rows, Object.assign({ fontFace: F, fontSize: 9.5, color: C.ink, border: { type: 'solid', pt: 0.5, color: C.edge }, margin: [0.03, 0.05, 0.03, 0.05], valign: 'middle' }, o));
 }
-const hd = (t, o) => ({ text: t, options: Object.assign({ bold: true, color: C.white, fill: { color: C.rail } }, o || {}) });
+const hd = (t, o) => ({ text: t, options: Object.assign({ bold: true, color: C.white, fill: { color: C.navy } }, o || {}) });
 const cl = (t, o) => ({ text: t, options: o || {} });
 const DET = [
   ['inclusion', 'Inclusion'], ['crazing', 'Crazing'], ['rolled-in_scale', 'Rolled-in scale'],
@@ -115,15 +97,15 @@ const DET = [
 // ============ SLIDE 1: COVER ============
 {
   const s = pres.addSlide();
-  s.background = { color: C.rail };
-  s.addImage({ path: 'img/cover_coil.jpg', x: 8.55, y: 0.86, w: 4.783, h: 6.64, sizing: { type: 'cover', w: 4.783, h: 6.64 } });
-  R(s, 8.55, 0.86, 4.783, 6.64, C.rail, { fill: { color: C.rail, transparency: 40 } });
-  R(s, 8.55, 0.86, 0.06, 6.64, C.band);
-  brandBand(s);
-  T(s, [{ text: 'ROUND 2  ·  PROBLEM STATEMENT 1', options: { bold: true, fontSize: 12 } }, { text: '\nAI surface defect detection', options: { fontSize: 10.5 } }],
-    { x: 8.3, y: 0.14, w: 4.9, h: 0.6, align: 'right', valign: 'middle', color: C.white });
-  T(s, 'Catch every strip defect where it is born, not where it is shipped', { x: 0.6, y: 1.12, w: 7.7, h: 1.4, fontSize: 34, bold: true, color: C.white });
-  T(s, 'AI surface inspection that finds, grades and routes every stainless strip defect to the process that caused it.', { x: 0.6, y: 2.58, w: 7.5, h: 0.7, fontSize: 15, color: C.onNavy });
+  s.background = { color: C.navy };
+  // photo panel, tinted into the brand
+  s.addImage({ path: 'img/cover_coil.jpg', x: 8.55, y: 0, w: 4.783, h: 7.5, sizing: { type: 'cover', w: 4.783, h: 7.5 } });
+  R(s, 8.55, 0, 4.783, 7.5, C.navy, { fill: { color: C.navy, transparency: 45 } });
+  R(s, 8.55, 0, 0.06, 7.5, C.accent);
+
+  T(s, 'JINDAL STAINLESS  |  STAINLESS SPARK  |  ROUND 2  |  PROBLEM STATEMENT 1', { x: 0.6, y: 0.45, w: 7.8, h: 0.3, fontSize: 11, color: C.onNavy, bold: true, charSpacing: 1 });
+  T(s, 'Catch every strip defect where it is born, not where it is shipped', { x: 0.6, y: 0.95, w: 7.7, h: 1.45, fontSize: 34, bold: true, color: C.white });
+  T(s, 'AI surface inspection that finds, grades and routes every stainless strip defect to the process that caused it.', { x: 0.6, y: 2.5, w: 7.5, h: 0.7, fontSize: 15, color: C.onNavy });
 
   const stats = [
     ['90%', 'of defects caught on real mill\nstrip it had never seen', 24],
@@ -133,15 +115,15 @@ const DET = [
   ];
   stats.forEach(([n, l, fs], i) => {
     const x = 0.6 + i * 1.92;
-    R(s, x, 3.5, 0.05, 1.02, C.band);
-    T(s, n, { x: x + 0.14, y: 3.46, w: 1.75, h: 0.46, fontSize: fs, bold: true, color: C.band, valign: 'bottom' });
-    T(s, l, { x: x + 0.14, y: 3.96, w: 1.78, h: 0.6, fontSize: 9.5, color: C.onNavy });
+    R(s, x, 3.42, 0.05, 1.02, C.accent);
+    T(s, n, { x: x + 0.14, y: 3.38, w: 1.75, h: 0.46, fontSize: fs, bold: true, color: C.white, valign: 'bottom' });
+    T(s, l, { x: x + 0.14, y: 3.88, w: 1.78, h: 0.6, fontSize: 9.5, color: C.onNavy });
   });
 
-  T(s, 'REAL OUTPUT FROM OUR SYSTEM, ON STEEL IMAGES IT HAD NEVER SEEN', { x: 0.6, y: 4.82, w: 7.6, h: 0.25, fontSize: 9.5, bold: true, color: C.onNavy, charSpacing: 1 });
-  DET.forEach(([k], i) => s.addImage({ path: `img/det_${k}.png`, x: 0.6 + i * 1.27, y: 5.12, w: 1.17, h: 1.17 }));
+  T(s, 'REAL OUTPUT FROM OUR SYSTEM, ON STEEL IMAGES IT HAD NEVER SEEN', { x: 0.6, y: 4.78, w: 7.6, h: 0.25, fontSize: 9.5, bold: true, color: C.onNavy, charSpacing: 1 });
+  DET.forEach(([k], i) => s.addImage({ path: `img/det_${k}.png`, x: 0.6 + i * 1.27, y: 5.08, w: 1.17, h: 1.17 }));
 
-  T(s, `${TEAM ? `TEAM  ${TEAM}   |   ` : ''}${MEMBERS.join('  ·  ')}   |   ${INSTITUTION}`, { x: 0.6, y: 6.6, w: 7.8, h: 0.4, fontSize: 12, bold: true, color: C.white, valign: 'middle' });
+  T(s, `${TEAM ? `TEAM  ${TEAM}   |   ` : ''}${MEMBERS.join('  ·  ')}   |   ${INSTITUTION}`, { x: 0.6, y: 6.55, w: 7.8, h: 0.4, fontSize: 12, bold: true, color: C.white, valign: 'middle' });
 
   // live demo card on the photo
   RR(s, 9.55, 4.2, 2.85, 2.55, C.white);
@@ -333,7 +315,7 @@ const DET = [
   quad(0, 0, '1  Alarms you can act on');
   const ring = (x, val, big, head, sub) => {
     s.addChart(pres.charts.DOUGHNUT, [{ name: head, labels: ['a', 'b'], values: [val, 100 - val] }], {
-      x, y: 1.74, w: 1.5, h: 1.5, holeSize: 70, chartColors: [C.accent, 'E3E3E3'], showLegend: false, showValue: false, showPercent: false, dataBorder: { pt: 0, color: 'FFFFFF' },
+      x, y: 1.74, w: 1.5, h: 1.5, holeSize: 70, chartColors: [C.accent, 'DCE3EA'], showLegend: false, showValue: false, showPercent: false, dataBorder: { pt: 0, color: 'FFFFFF' },
     });
     T(s, big, { x, y: 2.26, w: 1.5, h: 0.46, fontSize: 18, bold: true, color: C.navy, align: 'center', valign: 'middle' });
     T(s, [{ text: head, options: { bold: true, color: C.navy } }, { text: '\n' + sub, options: { color: C.slate } }], { x: x + 1.55, y: 2.02, w: 1.35, h: 0.95, fontSize: 9.5 });

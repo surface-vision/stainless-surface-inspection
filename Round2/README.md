@@ -98,7 +98,12 @@ interviews/                  who to call, messages, questions, consent; quotes.j
 
 ## Version history
 
-- **v9 (27 Sep), no model internals — current.** The deck says what the system delivers, never how the
+- **v10 (27 Sep), Jindal Stainless scheme — current.** Restyled to match the team's Round 1 slide: orange
+  header band with the Jindal Stainless and Stainless Spark logos, red active tab, charcoal left rail with a
+  rotated section label, orange panel headers, charcoal tables and decision band, orange chart ramp.
+  Colours sampled from the Round 1 slide (#E4803A, #B63831, #2B2B2B). Logos: `build/img/logo_jsl.jpg`
+  (JSL-Black-1.jpg) and `build/img/logo_spark.png` (cropped from the Round 1 slide; no original file found).
+- **v9 (27 Sep), no model internals.** The deck says what the system delivers, never how the
   model works: no model size, speed per image, calibration, training method or retraining. Slide 4's
   "compact model" panel is now "one verdict per coil" (coil → accept / downgrade / hold), and its trust
   panel shows how trust is earned (evidence, shadow mode, reviewed overrides). Fixed "six different owners".

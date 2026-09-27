@@ -10,7 +10,8 @@ const ICONS = ['flame', 'factory', 'droplets', 'layers', 'sparkles', 'truck', 'c
   'scan-search', 'gauge', 'split', 'refresh-cw', 'coins', 'cpu', 'users', 'wrench', 'leaf', 'user-check',
   'scan-line', 'target', 'hard-hat', 'clock', 'microscope', 'brain-circuit', 'archive', 'eye-off',
   'trending-up', 'ship', 'badge-check', 'lock'];
-const COLOURS = { white: '#FFFFFF', navy: '#143A5A', accent: '#0086C3' };
+// 'navy' and 'accent' are the deck's dark and emphasis colours (Jindal Stainless scheme: charcoal and orange)
+const COLOURS = { white: '#FFFFFF', navy: '#2B2B2B', accent: '#D2651F' };
 
 (async () => {
   for (const name of ICONS) {
