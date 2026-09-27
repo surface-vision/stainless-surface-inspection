@@ -68,6 +68,9 @@ function badge(s, name, x, y, d, fill) {
   const p = d * 0.22;
   s.addImage({ path: ICON(name, 'white'), x: x + p, y: y + p, w: d - 2 * p, h: d - 2 * p });
 }
+function photo(s, pth, x, y, w, h) {
+  s.addImage({ path: pth, x, y, w, h, sizing: { type: 'cover', w, h } });
+}
 function icon(s, name, x, y, d, col) { s.addImage({ path: ICON(name, col), x, y, w: d, h: d }); }
 // orange header band with both logos; used by the cover and every content slide
 function brandBand(s) {
@@ -159,7 +162,7 @@ const DET = [
   chrome(s, 'Problem',
     'A defect born at the caster is paid for at every later stage, but today it is found only at the end',
     'The problem is not that defects exist. They are found late, by sampling, and nobody is told which process caused them.',
-    'Sources: AMETEK/Ternium (2020); ASSDA; IISE; ASTM A240; LME nickel USD 16,402/t at INR 95.8/USD (22 Sep 2026); ISSDA (FY25); DGTR (29 Sep 2025); BIS Steel QCO 2024; JSL.');
+    'Sources: AMETEK/Ternium; ASSDA; IISE; ASTM A240; LME nickel USD 16,402/t at INR 95.8 (22 Sep 2026); ISSDA; DGTR (Sep 2025); BIS QCO 2024. Photos: Wikimedia Commons (notes).');
   ph(s, 0.5, 1.35, 12.33, 'Where stainless surface defects are born, and where they are seen today');
   // value-added wedge (the ribbon compresses when there are quotes to show under it)
   const Q = QUOTES.length > 0;
@@ -195,16 +198,16 @@ const DET = [
     });
   }
 
-  // why stainless
+  // why stainless: three photo tiles, one number each
   ph(s, 0.5, 4.3, 3.95, 'Why it hurts more on stainless');
-  [['gauge', '300 m/min', 'too fast for the eye to see the whole surface'],
-   ['coins', '₹126k-165k', 'of nickel in every tonne of 304, given away on a downgrade'],
-   ['sparkles', 'No repair', 'damage on 2B/BA mill finishes cannot be polished out'],
-  ].forEach(([ic, n, l], i) => {
-    const y = 4.7 + i * 0.58;
-    icon(s, ic, 0.58, y + 0.08, 0.32, 'accent');
-    T(s, n, { x: 0.98, y, w: 1.4, h: 0.5, fontSize: 12, bold: true, color: C.navy, valign: 'middle' });
-    T(s, l, { x: 2.38, y, w: 2.05, h: 0.5, fontSize: 9, color: C.slate, valign: 'middle' });
+  [['img/photos/mill.jpg', '300 m/min', 'too fast for the eye to see'],
+   ['img/cover_coil.jpg', '₹126k-165k', 'of nickel in a tonne of 304'],
+   ['img/photos/lift.jpg', 'No repair', '2B/BA damage can\'t be polished out'],
+  ].forEach(([img, n, l], i) => {
+    const x = 0.5 + i * 1.335;
+    photo(s, img, x, 4.66, 1.28, 0.92);
+    T(s, n, { x, y: 5.6, w: 1.28, h: 0.26, fontSize: i === 1 ? 11 : 12, bold: true, color: C.accent });
+    T(s, l, { x, y: 5.86, w: 1.28, h: 0.56, fontSize: 9, color: C.slate });
   });
 
   // why now: demand trend + three drivers
@@ -247,7 +250,7 @@ const DET = [
     T(s, b, { x: x + 0.07, y: y + 0.25, w: 1.74, h: 0.28, fontSize: 9, color: C.slate });
   });
   T(s, 'Poor quality costs ~15% of sales in manufacturing (IISE).', { x: 9.05, y: 6.23, w: 3.78, h: 0.22, fontSize: 9, color: C.slate, italic: true });
-  s.addNotes('Problem. Walk the ribbon left to right: a sliver born at the caster is only seen at finishing, after hot rolling, annealing, pickling and cold rolling have been paid for. Why stainless hurts more: every tonne of 304 carries INR 126,000-165,000 of nickel, and a 2B or BA mill finish cannot be polished back. Why now: Indian stainless demand grew 84% in five years to 4.8 Mt and is heading to 6.8 Mt by FY30, led by rail and metro coaches; imports hit 1.73 Mt in FY25 and DGTR opened an anti-dumping probe on cold-rolled 300/400 series in September 2025, so quality is the domestic producer\'s moat; BIS certification to IS 6911 has been mandatory for sheet and strip since August 2024; and JSL is adding cold-rolling capacity. The cost-of-quality frame is the output: inspection moves spend from failure to prevention.');
+  s.addNotes('Problem. Walk the ribbon left to right: a sliver born at the caster is only seen at finishing, after hot rolling, annealing, pickling and cold rolling have been paid for. Why stainless hurts more: every tonne of 304 carries INR 126,000-165,000 of nickel, and a 2B or BA mill finish cannot be polished back. Why now: Indian stainless demand grew 84% in five years to 4.8 Mt and is heading to 6.8 Mt by FY30, led by rail and metro coaches; imports hit 1.73 Mt in FY25 and DGTR opened an anti-dumping probe on cold-rolled 300/400 series in September 2025, so quality is the domestic producer\'s moat; BIS certification to IS 6911 has been mandatory for sheet and strip since August 2024; and JSL is adding cold-rolling capacity. The cost-of-quality frame is the output: inspection moves spend from failure to prevention. Photo credits: cold-rolling mill, ThyssenKrupp Steel USA (Free Art License); coil, Methem (public domain); stainless lift interior, Shwun Vounwun3 (CC BY-SA 4.0); all via Wikimedia Commons.');
 }
 
 // ============ SLIDE 3: INSIGHTS I (stainless, owners) ============
@@ -256,7 +259,7 @@ const DET = [
   chrome(s, 'Insights',
     'On stainless the surface is the product, so every defect type must reach the process that caused it',
     'Classify, don\'t just alarm: a typed defect becomes a work order for a named owner. The pilot belongs on 300-series cold-rolled strip.',
-    'Images: held-out test frames, boxes drawn by our system. Sources: Nortal/Outokumpu (2024); Tata Steel; Parsytec (Stainless Steel World); Leão 2021; Steel in Translation 2023. ' + [validatedBy('owners') ? `Owners checked with ${validatedBy('owners').role}.` : 'Owners: team hypothesis.', validatedBy('grades') ? `Grade risks checked with ${validatedBy('grades').role}.` : 'Grade risks: team hypothesis.'].join(' '));
+    'Images: our system on held-out frames. Sources: Nortal/Outokumpu 2024; Tata Steel; Parsytec; Leão 2021; Steel in Translation. Photos: Commons (notes). ' + [validatedBy('owners') ? `Owners checked with ${validatedBy('owners').role}.` : 'Owners: team hypothesis.', validatedBy('grades') ? `Grade risks checked with ${validatedBy('grades').role}.` : 'Grade risks: team hypothesis.'].join(' '));
   ph(s, 0.5, 1.35, 12.33, validatedBy('owners') ? `Six defect families, each traced to the process that caused it (owners checked with ${validatedBy('owners').role})` : 'Six defect families, each traced to the process that caused it (real output from our system)');
   const own = {
     inclusion: ['Caster', 'SMS', 'Tundish level, mould flux'],
@@ -285,16 +288,16 @@ const DET = [
     chx += w + 0.08;
   });
 
-  // precedent: who already does this, and what we copy
+  // precedent: photo cards, one line each
   ph(s, 0.5, 4.78, 5.0, 'Precedent: who already does this, and what we copy');
-  [['Outokumpu', 'Europe\'s #1 stainless maker; AI inspection live at Tornio since 2024, runs offline.', 'offline edge, multi-site'],
-   ['Tata Steel', 'Kalinganagar (WEF Lighthouse) finds cold-rolled surface defects by video analytics.', 'in-house team owns it'],
-   ['Parsytec', 'On stainless lines: 170 µm cameras, bright + dark-field light, a decision per coil.', 'optics, coil decision'],
-  ].forEach(([n, d, copy], i) => {
-    const y = 5.13 + i * 0.44;
-    T(s, n, { x: 0.55, y, w: 1.15, h: 0.42, fontSize: 9.5, bold: true, color: C.navy, valign: 'middle' });
-    T(s, [{ text: d, options: { color: C.slate } }, { text: '  Copy: ', options: { bold: true, color: C.accent } }, { text: copy, options: { color: C.accent } }],
-      { x: 1.72, y, w: 3.75, h: 0.42, fontSize: 9, valign: 'middle' });
+  [['img/photos/okp_mill.jpg', 'Outokumpu', 'AI inspection live since 2024', 'offline, multi-site'],
+   ['img/photos/tata_view.jpg', 'Tata Steel', 'video analytics, cold-rolled strip', 'in-house team owns it'],
+   ['img/proof_gc10.png', 'Parsytec', 'bright + dark-field light on stainless', 'optics spec'],
+  ].forEach(([img, n, what, copy], i) => {
+    const x = 0.5 + i * 1.69;
+    photo(s, img, x, 5.13, 1.62, 0.6);
+    T(s, [{ text: n, options: { bold: true, color: C.navy } }, { text: `  ${what}`, options: { color: C.slate, fontSize: 9 } }], { x, y: 5.76, w: 1.64, h: 0.4, fontSize: 9.5 });
+    T(s, [{ text: 'Copy: ', options: { bold: true, color: C.accent } }, { text: copy, options: { color: C.accent } }], { x, y: 6.16, w: 1.64, h: 0.24, fontSize: 9 });
   });
 
   // grade matrix
@@ -309,13 +312,11 @@ const DET = [
   const rows = [[hd('Grade'), hd('Slivers', { align: 'center' }), hd('Scale', { align: 'center' }), hd('Scratches', { align: 'center' }), hd('Edge cracks', { align: 'center' }), hd('Ridging', { align: 'center' })]];
   g.forEach(r => rows.push([cl(r[0], { bold: true, fill: { color: r[0].startsWith('300') ? C.tint : C.white } })].concat(r.slice(1).map(v => cl(v, { align: 'center', bold: true, fill: { color: lv[v][0] }, color: lv[v][1] })))));
   table(s, rows, { x: 5.75, y: 5.13, w: 5.0, colW: [1.6, 0.68, 0.68, 0.68, 0.68, 0.68], rowH: 0.255 });
-  RR(s, 10.9, 5.13, 1.93, 1.28, C.navy);
-  T(s, [
-    { text: 'OUTPUT\n', options: { bold: true, color: C.onNavy, fontSize: 9 } },
-    { text: '300 series is the pilot grade: ', options: { bold: true, color: C.white } },
-    { text: 'highest exposed-finish risk and the most nickel per tonne.', options: { color: C.onNavy } },
-  ], { x: 11.0, y: 5.18, w: 1.75, h: 1.2, fontSize: 9.5 });
-  s.addNotes('Insights, stainless-specific. The six images are real output from our system on images it had never seen; each family is born at a different stage, so a typed detection goes straight to the right owner as a work order. The owner mapping needs a JSL metallurgist\'s sign-off in P0. Precedent: Outokumpu, Europe\'s largest stainless producer, switched on an AI surface inspection system at Tornio in October 2024, built to run without internet and scale across sites; Tata Steel Kalinganagar, India\'s first WEF Lighthouse, uses video analytics for surface defects on cold-rolled products; Parsytec systems on stainless lines use 170 micron cameras with bright and dark field light and make a decision per coil. We copy the offline edge design, an in-house team that owns the system, and the optics spec. The grade matrix output is the pilot grade: 300 series.');
+  photo(s, 'img/photos/vb_coaches.jpg', 10.9, 5.13, 1.93, 1.28);
+  R(s, 10.9, 5.79, 1.93, 0.62, C.rail, { fill: { color: C.rail, transparency: 15 } });
+  T(s, [{ text: 'Pilot grade: 300 series', options: { bold: true, color: C.white } }, { text: '\nexposed surfaces, most nickel', options: { color: C.onNavy, fontSize: 9 } }],
+    { x: 10.98, y: 5.8, w: 1.8, h: 0.6, fontSize: 10, valign: 'middle' });
+  s.addNotes('Insights, stainless-specific. The six images are real output from our system on images it had never seen; each family is born at a different stage, so a typed detection goes straight to the right owner as a work order. The owner mapping needs a JSL metallurgist\'s sign-off in P0. Precedent: Outokumpu, Europe\'s largest stainless producer, switched on an AI surface inspection system at Tornio in October 2024, built to run without internet and scale across sites; Tata Steel Kalinganagar, India\'s first WEF Lighthouse, uses video analytics for surface defects on cold-rolled products; Parsytec systems on stainless lines use 170 micron cameras with bright and dark field light and make a decision per coil. We copy the offline edge design, an in-house team that owns the system, and the optics spec. The grade matrix output is the pilot grade: 300 series. Photo credits: Outokumpu Tornio mill, Methem (CC BY 3.0); Tata Steel plant, Kharbaan Ghaltaan (CC BY-SA 4.0); Vande Bharat coaches, Ravi Dwivedi (CC BY-SA 4.0); all via Wikimedia Commons. The Vande Bharat photo illustrates a 300-series exposed-surface use; JSL supplies stainless for these coaches.');
 }
 
 // ============ SLIDE 4: INSIGHTS II (our findings) ============
@@ -435,17 +436,16 @@ const DET = [
 
   // what is new
   ph(s, 4.42, 3.52, 4.1, 'What JSL gets that a standard system does not');
-  const inn = [
-    ['target', 'Alarms you can act on', 'only 4.7% of clean strip raises one'],
-    ['split', 'Root-cause routing', 'every alarm becomes a work order for its owner'],
-    ['layers', 'One verdict per coil', 'accept, downgrade or hold, by grade and finish'],
-    ['shield-check', 'JSL owns the system', 'its data and software; no vendor lock-in'],
-  ];
-  inn.forEach(([ic, h, b], i) => {
-    const y = 3.93 + i * 0.62;
-    badge(s, ic, 4.5, y + 0.02, 0.44, C.accent);
-    T(s, h, { x: 5.05, y, w: 3.4, h: 0.26, fontSize: 10.5, bold: true, color: C.navy });
-    T(s, b, { x: 5.05, y: y + 0.26, w: 3.4, h: 0.26, fontSize: 9.5, color: C.slate });
+  [['target', 'Alarms you can act on', '4.7% false alarms'],
+   ['split', 'Root-cause routing', 'a work order per alarm'],
+   ['layers', 'One verdict per coil', 'accept · downgrade · hold'],
+   ['shield-check', 'JSL owns the system', 'no vendor lock-in'],
+  ].forEach(([ic, h, b], i) => {
+    const x = 4.42 + (i % 2) * 2.08, y = 3.9 + Math.floor(i / 2) * 1.28;
+    RR(s, x, y, 2.0, 1.2, C.neutral);
+    badge(s, ic, x + 0.72, y + 0.1, 0.56, C.accent);
+    T(s, h, { x: x + 0.05, y: y + 0.68, w: 1.9, h: 0.26, fontSize: 10.5, bold: true, color: C.navy, align: 'center' });
+    T(s, b, { x: x + 0.05, y: y + 0.92, w: 1.9, h: 0.24, fontSize: 9, color: C.slate, align: 'center' });
   });
 
   // build vs buy
@@ -614,17 +614,31 @@ const DET = [
         { text: '   Integration: ', options: { color: C.muted } }, { text: 'Pragati team', options: { bold: true, color: C.ink } }],
     { x: 8.7, y: 3.66, w: 4.1, h: 0.26, fontSize: 9.5, valign: 'middle' });
 
-  // risks
-  ph(s, 0.5, 4.08, 6.06, 'Top risks, and when each is retired');
-  table(s, [
-    [hd('Risk'), hd('Mitigation'), hd('Retired', { align: 'center' })],
-    [cl('Misses on JSL\'s own strip at first', { bold: true }), cl('Learn from JSL clean and defect images'), cl('P1', { align: 'center', bold: true, color: C.accent })],
-    [cl('Mirror-like BA/2B finish hides defects', { bold: true }), cl('Bright + dark-field light; deflectometry for BA'), cl('P0-P1', { align: 'center', bold: true, color: C.accent })],
-    [cl('Rare defects missed', { bold: true }), cl('Edge cameras; targeted labelling'), cl('P1-P3', { align: 'center', bold: true, color: C.accent })],
-    [cl('Operators ignore alarms', { bold: true }), cl('Evidence on every alarm; shadow mode first'), cl('P2', { align: 'center', bold: true, color: C.accent })],
-    [cl('Plant network, heat and fumes', { bold: true }), cl('IEC 62443 zones, runs offline; sealed enclosures'), cl('P0', { align: 'center', bold: true, color: C.accent })],
-    [cl('Quality slips after an update', { bold: true }), cl('Each update must beat the live system first'), cl('P2+', { align: 'center', bold: true, color: C.accent })],
-  ], { x: 0.5, y: 4.42, w: 6.06, colW: [2.45, 2.91, 0.7], rowH: [0.28, 0.285, 0.285, 0.285, 0.285, 0.285, 0.285], fontSize: 9 });
+  // risks: likelihood x impact map with numbered chips, short legend
+  ph(s, 0.5, 4.08, 6.06, 'Top risks: where they sit, and when each is retired');
+  const gx0 = 0.95, gy0 = 4.5, cs = 0.56;
+  const heat = [[C.h2, C.h3, C.h4], [C.h1, C.h2, C.h3], [C.neutral, C.h1, C.h2]];
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) R(s, gx0 + c * cs, gy0 + r * cs, cs - 0.03, cs - 0.03, heat[r][c]);
+  ['High', 'Med', 'Low'].forEach((l, r) => T(s, l, { x: 0.55, y: gy0 + r * cs + 0.17, w: 0.38, h: 0.2, fontSize: 9, color: C.muted }));
+  ['Low', 'Med', 'High'].forEach((l, c) => T(s, l, { x: gx0 + c * cs, y: gy0 + 3 * cs, w: cs, h: 0.18, fontSize: 9, color: C.muted, align: 'center' }));
+  T(s, 'likelihood ↑   impact →', { x: 0.55, y: gy0 + 3 * cs + 0.18, w: 2.2, h: 0.2, fontSize: 9, italic: true, color: C.muted });
+  const risks = [
+    [1, 'Misses on JSL\'s strip at first', 'P1', 0, 2, 0], [2, 'Mirror-like BA/2B hides defects', 'P0-P1', 1, 2, 0],
+    [3, 'Rare defects missed', 'P1-P3', 0, 1, 0], [4, 'Operators ignore alarms', 'P2', 1, 1, 0],
+    [5, 'Plant network, heat, fumes', 'P0', 2, 1, 0], [6, 'Quality slips after an update', 'P2+', 2, 2, 0],
+  ];
+  risks.forEach(([n, , , r, c]) => {
+    const x = gx0 + c * cs + 0.13, y = gy0 + r * cs + 0.12;
+    dot(s, x, y, 0.28, C.rail);
+    T(s, String(n), { x, y, w: 0.28, h: 0.28, fontSize: 10, bold: true, color: C.white, align: 'center', valign: 'middle' });
+  });
+  risks.forEach(([n, name, ph0], i) => {
+    const y = 4.47 + i * 0.31;
+    dot(s, 2.78, y + 0.03, 0.22, C.rail);
+    T(s, String(n), { x: 2.78, y: y + 0.03, w: 0.22, h: 0.22, fontSize: 9, bold: true, color: C.white, align: 'center', valign: 'middle' });
+    T(s, name, { x: 3.08, y, w: 2.55, h: 0.28, fontSize: 9.5, color: C.ink, valign: 'middle' });
+    tag(s, 5.72, y + 0.04, `retire ${ph0}`, C.accent, 0.78);
+  });
 
   // KPIs
   ph(s, 6.77, 4.08, 6.06, 'Pilot KPIs: how JSL will know it works');
@@ -667,16 +681,25 @@ const DET = [
   table(s, rows, { x: 0.5, y: 2.0, w: 4.35, colW: [1.35, 1.0, 1.0, 1.0], rowH: [0.3, 0.42, 0.42, 0.42] });
   T(s, [{ text: 'Base case (dark): ', options: { bold: true, color: C.navy } }, { text: '₹6.7 cr a year per line; ~₹43 cr across JSL\'s 2.57 Mt. Non-prime coil sells 10-30% below prime, so these discounts are conservative.', options: { color: C.slate } }], { x: 0.5, y: 3.62, w: 4.35, h: 0.62, fontSize: 9.5 });
 
-  // value levers: where the value comes from, and how the pilot measures it
-  ph(s, 5.05, 1.35, 7.78, 'Value levers, and how the pilot measures each');
-  table(s, [
-    [hd('Value lever'), hd('How the system creates it'), hd('Measured in the pilot as')],
-    [cl('Fewer downgrades', { bold: true }), cl('defects caught upstream, before more value is added'), cl('downgrade rate by line and grade')],
-    [cl('Fewer customer claims', { bold: true }), cl('a defect map travels with every coil'), cl('claims per 1,000 t shipped')],
-    [cl('Less rework', { bold: true }), cl('no re-pickling or re-grinding of defects found late'), cl('rework tonnes per month')],
-    [cl('Faster root-cause fixes', { bold: true }), cl('each alarm reaches the process that caused it'), cl('hours from defect to corrective action')],
-    [cl('Premium orders', { bold: true }), cl('documented surface quality for rail, appliances, exports'), cl('share of exposed-finish orders')],
-  ], { x: 5.05, y: 1.7, w: 7.78, colW: [1.85, 3.35, 2.58], rowH: [0.3, 0.44, 0.44, 0.44, 0.44, 0.44], fontSize: 9.5 });
+  // value tree: the prize branching into five levers, each with its pilot measure
+  ph(s, 5.05, 1.35, 7.78, 'Where the value comes from, and how the pilot measures it');
+  RR(s, 5.15, 2.28, 1.55, 1.05, C.accent);
+  T(s, [{ text: '~₹6.7 cr', options: { bold: true, fontSize: 18 } }, { text: '\na year at stake\nper line', options: { fontSize: 9.5 } }],
+    { x: 5.15, y: 2.28, w: 1.55, h: 1.05, align: 'center', valign: 'middle', color: C.white });
+  const lev = [['coins', 'Fewer downgrades', 'downgrade rate by line and grade'], ['users', 'Fewer customer claims', 'claims per 1,000 t shipped'],
+    ['refresh-cw', 'Less rework', 'rework tonnes per month'], ['wrench', 'Faster root-cause fixes', 'hours from defect to fix'],
+    ['trending-up', 'Premium orders', 'share of exposed-finish orders']];
+  const ly0 = 1.72, lstep = 0.48, spineX = 6.95;
+  R(s, 6.7, 2.795, spineX - 6.7, 0.02, C.grey);
+  R(s, spineX, ly0 + 0.2, 0.02, lstep * 4, C.grey);
+  lev.forEach(([ic, n, m], i) => {
+    const y = ly0 + i * lstep;
+    R(s, spineX, y + 0.2, 0.25, 0.02, C.grey);
+    RR(s, 7.2, y, 5.55, 0.42, C.neutral);
+    badge(s, ic, 7.27, y + 0.05, 0.32, C.accent);
+    T(s, n, { x: 7.68, y, w: 2.2, h: 0.42, fontSize: 10.5, bold: true, color: C.navy, valign: 'middle' });
+    T(s, [{ text: 'measure: ', options: { color: C.muted } }, { text: m, options: { color: C.slate } }], { x: 9.9, y, w: 2.8, h: 0.42, fontSize: 9, valign: 'middle' });
+  });
 
   // beyond P&L
   ph(s, 0.5, 4.38, 8.4, 'Impact beyond the P&L');

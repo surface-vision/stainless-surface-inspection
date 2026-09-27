@@ -98,7 +98,11 @@ interviews/                  who to call, messages, questions, consent; quotes.j
 
 ## Version history
 
-- **v11 (27 Sep), consultants, not a price quote — current.** Cost predictions removed: no per-line capex,
+- **v12 (27 Sep), more visuals, less text — current.** Text panels became pictures and diagrams: photo tiles on
+  slide 2 (mill, coil, stainless lift), photo cards for the precedents and a Vande Bharat coach for the pilot grade
+  on slide 3, icon tiles on slide 5, a risk heat-map on slide 7, and a value tree on slide 8. Photos from
+  Wikimedia Commons (credits in `build/img/photos/CREDITS.txt` and the speaker notes).
+- **v11 (27 Sep), consultants, not a price quote.** Cost predictions removed: no per-line capex,
   bill of materials, payback years, NPV, cash chart or commercial price guesses. The deck sizes the prize
   (value at stake, from JSL's public numbers) and shows how the pilot measures it: cover shows ~₹6.7 cr a year
   at stake per line and 7 months to shadow mode; slide 7 has the pilot scope (in / later) and decision owners;
