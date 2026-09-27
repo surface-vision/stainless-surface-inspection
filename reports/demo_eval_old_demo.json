@@ -1,0 +1,20 @@
+{
+ "tag": "old_demo",
+ "weights": "models/yolov8n_neudet/weights/best.pt",
+ "imgsz": 256,
+ "conf": 0.15,
+ "neu_map50": null,
+ "mill_map50": null,
+ "right_type": [
+  177,
+  180
+ ],
+ "clean_flagged": [
+  155,
+  300
+ ],
+ "defect_flagged": [
+  133,
+  288
+ ]
+}

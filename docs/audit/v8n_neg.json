@@ -1,0 +1,29 @@
+{
+  "train_wall_s": 1183.3648371696472,
+  "neudet": {
+    "256": {
+      "mAP50": 0.7507901987121439,
+      "mAP50_95": 0.4040459190352525,
+      "per_class": {
+        "crazing": 0.4958,
+        "inclusion": 0.7965,
+        "patches": 0.9538,
+        "pitted_surface": 0.799,
+        "rolled-in_scale": 0.5866,
+        "scratches": 0.873
+      }
+    },
+    "320": {
+      "mAP50": 0.7179496801455785,
+      "mAP50_95": 0.3852790776526255,
+      "per_class": {
+        "crazing": 0.4053,
+        "inclusion": 0.7927,
+        "patches": 0.932,
+        "pitted_surface": 0.7186,
+        "rolled-in_scale": 0.5997,
+        "scratches": 0.8594
+      }
+    }
+  }
+}

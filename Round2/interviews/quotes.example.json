@@ -1,0 +1,11 @@
+[
+  {
+    "_note": "FORMAT EXAMPLE ONLY - not a real quote. Copy this shape into quotes.json with what people actually said.",
+    "name": "Full Name",
+    "role": "QA engineer, integrated steel plant",
+    "consent": "role",
+    "quote": "Keep it under ~110 characters, in their words, about the problem, not about your project.",
+    "validates": ["owners"],
+    "date": "2026-09-28"
+  }
+]

@@ -1,0 +1,139 @@
+[
+ {
+  "file": "other_clean_01.jpg",
+  "finish": "other",
+  "label": "clean",
+  "defective": false,
+  "flagged": true,
+  "detections": [
+   {
+    "type": "Unclassified defect",
+    "raw": 0.521,
+    "confidence": 0.56,
+    "box": [
+     641,
+     122,
+     1178,
+     518
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.384,
+    "confidence": 0.353,
+    "box": [
+     640,
+     996,
+     1148,
+     1340
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.379,
+    "confidence": 0.333,
+    "box": [
+     1121,
+     606,
+     1427,
+     719
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.189,
+    "confidence": 0.212,
+    "box": [
+     1284,
+     679,
+     1435,
+     721
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.167,
+    "confidence": 0.212,
+    "box": [
+     641,
+     586,
+     1436,
+     792
+    ]
+   },
+   {
+    "type": "Crazing",
+    "raw": 0.161,
+    "confidence": 0.212,
+    "box": [
+     567,
+     127,
+     800,
+     393
+    ]
+   }
+  ]
+ },
+ {
+  "file": "other_scratch_01.jpg",
+  "finish": "other",
+  "label": "scratch",
+  "defective": true,
+  "flagged": true,
+  "detections": [
+   {
+    "type": "Unclassified defect",
+    "raw": 0.677,
+    "confidence": 0.76,
+    "box": [
+     0,
+     631,
+     800,
+     1333
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.245,
+    "confidence": 0.245,
+    "box": [
+     13,
+     1,
+     795,
+     783
+    ]
+   },
+   {
+    "type": "Unclassified defect",
+    "raw": 0.163,
+    "confidence": 0.212,
+    "box": [
+     534,
+     608,
+     1332,
+     1332
+    ]
+   }
+  ]
+ },
+ {
+  "file": "other_scratch_02.jpg",
+  "finish": "other",
+  "label": "scratch",
+  "defective": true,
+  "flagged": true,
+  "detections": [
+   {
+    "type": "Unclassified defect",
+    "raw": 0.372,
+    "confidence": 0.306,
+    "box": [
+     533,
+     543,
+     1331,
+     1306
+    ]
+   }
+  ]
+ }
+]

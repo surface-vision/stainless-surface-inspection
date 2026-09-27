@@ -1,0 +1,8 @@
+{
+ "seed": 3,
+ "epochs": 120,
+ "wall_s": 3910.7,
+ "warm_start": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_joint/warmstart_10cls.pt",
+ "data": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/data/joint_xdsafe/data.yaml",
+ "best": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/demo_seed3/weights/best.pt"
+}

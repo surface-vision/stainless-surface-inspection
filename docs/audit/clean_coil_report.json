@@ -1,0 +1,3217 @@
+{
+  "coil_id": "SEVERSTAL-CLEAN-PROBE",
+  "generated_at": "2026-09-09T14:18:38+05:30",
+  "disposition": "HOLD",
+  "reasons": [
+    "Defect rate 51.7% exceeds the hold limit of 25.0%.",
+    "95th-percentile severity 85.1 reaches the hold limit of 70.0.",
+    "8 frame(s) in the critical severity band (limit 0).",
+    "18 frame(s) contain 'inclusion', a zero-tolerance defect (limit 0) - it cannot be removed downstream."
+  ],
+  "model": {
+    "name": "yolov8n_neudet/best.pt",
+    "weights": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_neudet/weights/best.pt",
+    "device": "mps",
+    "conf_threshold": 0.15,
+    "iou_threshold": 0.45,
+    "imgsz": 256
+  },
+  "rules": {
+    "accept_max_defect_rate": 0.02,
+    "accept_max_severity_p95": 30.0,
+    "accept_forbid_bands": [
+      "high",
+      "critical"
+    ],
+    "hold_min_defect_rate": 0.25,
+    "hold_min_severity_p95": 70.0,
+    "hold_min_critical_frames": 1,
+    "hold_classes": [
+      "inclusion"
+    ],
+    "hold_class_frame_limit": 0
+  },
+  "stats": {
+    "total_frames": 60,
+    "defect_frames": 31,
+    "clean_frames": 29,
+    "defect_rate": 0.5167,
+    "total_detections": 143,
+    "detections_per_frame": 2.383,
+    "class_counts": {
+      "crazing": 0,
+      "inclusion": 35,
+      "patches": 91,
+      "pitted_surface": 1,
+      "rolled-in_scale": 0,
+      "scratches": 16
+    },
+    "class_frame_counts": {
+      "crazing": 0,
+      "inclusion": 18,
+      "patches": 20,
+      "pitted_surface": 1,
+      "rolled-in_scale": 0,
+      "scratches": 8
+    },
+    "band_counts": {
+      "clean": 29,
+      "low": 1,
+      "medium": 7,
+      "high": 15,
+      "critical": 8
+    },
+    "severity": {
+      "mean": 34.21,
+      "max": 88.71,
+      "p95": 85.06
+    },
+    "mean_latency_ms": 9.437,
+    "throughput_fps": 105.97
+  },
+  "worst_frames": [
+    55,
+    5,
+    52,
+    2,
+    54,
+    0
+  ],
+  "explain_note": null,
+  "source_note": null,
+  "order_note": null,
+  "frames": [
+    {
+      "index": 0,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 6,
+      "dominant_class": "patches",
+      "max_confidence": 0.8242,
+      "severity_score": 82.19,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 4,
+        "inclusion": 1,
+        "pitted_surface": 1
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8242,
+          "bbox_xyxy": [
+            1.65,
+            0.04,
+            100.65,
+            85.14
+          ],
+          "area_px": 8424.43,
+          "area_frac": 0.210611,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8173,
+          "bbox_xyxy": [
+            112.37,
+            1.89,
+            200.0,
+            108.4
+          ],
+          "area_px": 9333.08,
+          "area_frac": 0.233327,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6457,
+          "bbox_xyxy": [
+            152.41,
+            128.89,
+            198.77,
+            181.38
+          ],
+          "area_px": 2433.54,
+          "area_frac": 0.060839,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4488,
+          "bbox_xyxy": [
+            2.76,
+            80.74,
+            153.2,
+            199.78
+          ],
+          "area_px": 17908.37,
+          "area_frac": 0.447709,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2057,
+          "bbox_xyxy": [
+            148.79,
+            108.07,
+            175.85,
+            137.45
+          ],
+          "area_px": 795.08,
+          "area_frac": 0.019877,
+          "severity": "medium"
+        },
+        {
+          "class_id": 3,
+          "class_name": "pitted_surface",
+          "confidence": 0.1599,
+          "bbox_xyxy": [
+            3.38,
+            79.85,
+            153.42,
+            199.85
+          ],
+          "area_px": 18004.68,
+          "area_frac": 0.450117,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 1,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 8,
+      "dominant_class": "patches",
+      "max_confidence": 0.7783,
+      "severity_score": 64.51,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 8
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7783,
+          "bbox_xyxy": [
+            155.21,
+            55.87,
+            199.93,
+            109.52
+          ],
+          "area_px": 2398.7,
+          "area_frac": 0.059968,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.409,
+          "bbox_xyxy": [
+            0.01,
+            14.9,
+            19.51,
+            88.62
+          ],
+          "area_px": 1437.37,
+          "area_frac": 0.035934,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3659,
+          "bbox_xyxy": [
+            137.78,
+            131.39,
+            159.48,
+            160.26
+          ],
+          "area_px": 626.41,
+          "area_frac": 0.01566,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2022,
+          "bbox_xyxy": [
+            82.05,
+            176.34,
+            175.08,
+            200.0
+          ],
+          "area_px": 2201.35,
+          "area_frac": 0.055034,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1736,
+          "bbox_xyxy": [
+            2.54,
+            147.7,
+            92.59,
+            199.47
+          ],
+          "area_px": 4661.68,
+          "area_frac": 0.116542,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1696,
+          "bbox_xyxy": [
+            143.63,
+            55.31,
+            199.97,
+            153.65
+          ],
+          "area_px": 5540.6,
+          "area_frac": 0.138515,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1597,
+          "bbox_xyxy": [
+            177.89,
+            113.01,
+            200.0,
+            177.12
+          ],
+          "area_px": 1417.56,
+          "area_frac": 0.035439,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1509,
+          "bbox_xyxy": [
+            38.94,
+            143.26,
+            91.37,
+            188.05
+          ],
+          "area_px": 2348.17,
+          "area_frac": 0.058704,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 2,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 7,
+      "dominant_class": "patches",
+      "max_confidence": 0.701,
+      "severity_score": 84.92,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 5,
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.701,
+          "bbox_xyxy": [
+            4.62,
+            28.12,
+            93.52,
+            105.7
+          ],
+          "area_px": 6896.55,
+          "area_frac": 0.172414,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5188,
+          "bbox_xyxy": [
+            22.07,
+            108.09,
+            198.68,
+            199.97
+          ],
+          "area_px": 16225.58,
+          "area_frac": 0.40564,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5141,
+          "bbox_xyxy": [
+            118.99,
+            49.33,
+            200.0,
+            161.82
+          ],
+          "area_px": 9112.64,
+          "area_frac": 0.227816,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3786,
+          "bbox_xyxy": [
+            21.06,
+            148.73,
+            78.15,
+            200.0
+          ],
+          "area_px": 2926.93,
+          "area_frac": 0.073173,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1781,
+          "bbox_xyxy": [
+            0.0,
+            62.53,
+            120.34,
+            177.7
+          ],
+          "area_px": 13859.9,
+          "area_frac": 0.346498,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1544,
+          "bbox_xyxy": [
+            35.33,
+            21.18,
+            72.02,
+            40.69
+          ],
+          "area_px": 716.14,
+          "area_frac": 0.017903,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1539,
+          "bbox_xyxy": [
+            122.32,
+            151.19,
+            199.01,
+            199.99
+          ],
+          "area_px": 3742.05,
+          "area_frac": 0.093551,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 3,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 8,
+      "dominant_class": "patches",
+      "max_confidence": 0.7756,
+      "severity_score": 76.29,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 7,
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7756,
+          "bbox_xyxy": [
+            16.08,
+            120.09,
+            98.5,
+            184.74
+          ],
+          "area_px": 5328.4,
+          "area_frac": 0.13321,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7349,
+          "bbox_xyxy": [
+            168.93,
+            2.03,
+            199.73,
+            40.07
+          ],
+          "area_px": 1171.9,
+          "area_frac": 0.029298,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5538,
+          "bbox_xyxy": [
+            0.0,
+            82.32,
+            18.06,
+            174.34
+          ],
+          "area_px": 1662.35,
+          "area_frac": 0.041559,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4264,
+          "bbox_xyxy": [
+            165.72,
+            3.72,
+            199.93,
+            75.64
+          ],
+          "area_px": 2459.98,
+          "area_frac": 0.061499,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2388,
+          "bbox_xyxy": [
+            28.52,
+            183.26,
+            72.78,
+            199.92
+          ],
+          "area_px": 737.63,
+          "area_frac": 0.018441,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2076,
+          "bbox_xyxy": [
+            77.58,
+            1.89,
+            124.46,
+            54.36
+          ],
+          "area_px": 2459.69,
+          "area_frac": 0.061492,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2061,
+          "bbox_xyxy": [
+            130.06,
+            0.37,
+            164.81,
+            29.5
+          ],
+          "area_px": 1012.22,
+          "area_frac": 0.025306,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1572,
+          "bbox_xyxy": [
+            102.37,
+            0.01,
+            166.29,
+            21.45
+          ],
+          "area_px": 1370.86,
+          "area_frac": 0.034271,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 4,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 3,
+      "dominant_class": "patches",
+      "max_confidence": 0.6443,
+      "severity_score": 55.08,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 3
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6443,
+          "bbox_xyxy": [
+            136.43,
+            0.0,
+            173.62,
+            80.37
+          ],
+          "area_px": 2989.54,
+          "area_frac": 0.074739,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2648,
+          "bbox_xyxy": [
+            116.24,
+            0.0,
+            139.42,
+            24.85
+          ],
+          "area_px": 575.97,
+          "area_frac": 0.014399,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1548,
+          "bbox_xyxy": [
+            149.55,
+            146.88,
+            199.96,
+            199.14
+          ],
+          "area_px": 2633.94,
+          "area_frac": 0.065849,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 5,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 7,
+      "dominant_class": "patches",
+      "max_confidence": 0.8362,
+      "severity_score": 88.43,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 5,
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8362,
+          "bbox_xyxy": [
+            51.63,
+            0.0,
+            96.15,
+            57.68
+          ],
+          "area_px": 2568.0,
+          "area_frac": 0.0642,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8221,
+          "bbox_xyxy": [
+            9.13,
+            157.56,
+            119.81,
+            199.93
+          ],
+          "area_px": 4689.61,
+          "area_frac": 0.11724,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.6533,
+          "bbox_xyxy": [
+            88.02,
+            67.0,
+            110.01,
+            96.01
+          ],
+          "area_px": 637.98,
+          "area_frac": 0.01595,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.5423,
+          "bbox_xyxy": [
+            24.31,
+            18.49,
+            51.09,
+            54.69
+          ],
+          "area_px": 969.38,
+          "area_frac": 0.024235,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3014,
+          "bbox_xyxy": [
+            75.19,
+            116.48,
+            105.23,
+            144.96
+          ],
+          "area_px": 855.56,
+          "area_frac": 0.021389,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2515,
+          "bbox_xyxy": [
+            0.0,
+            114.04,
+            11.45,
+            159.93
+          ],
+          "area_px": 525.35,
+          "area_frac": 0.013134,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1687,
+          "bbox_xyxy": [
+            0.0,
+            59.72,
+            33.35,
+            89.14
+          ],
+          "area_px": 981.27,
+          "area_frac": 0.024532,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 6,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 7,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a890f04af_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 8,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 9,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 10,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 11,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 12,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 20.822
+    },
+    {
+      "index": 13,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 3,
+      "dominant_class": "patches",
+      "max_confidence": 0.4737,
+      "severity_score": 52.63,
+      "severity_band": "medium",
+      "class_counts": {
+        "patches": 3
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4737,
+          "bbox_xyxy": [
+            12.02,
+            173.82,
+            125.09,
+            199.94
+          ],
+          "area_px": 2953.46,
+          "area_frac": 0.073837,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3179,
+          "bbox_xyxy": [
+            112.46,
+            75.89,
+            158.82,
+            112.66
+          ],
+          "area_px": 1704.78,
+          "area_frac": 0.042619,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1793,
+          "bbox_xyxy": [
+            87.03,
+            172.28,
+            137.02,
+            199.98
+          ],
+          "area_px": 1384.58,
+          "area_frac": 0.034615,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 14,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 5,
+      "dominant_class": "patches",
+      "max_confidence": 0.698,
+      "severity_score": 63.38,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 5
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.698,
+          "bbox_xyxy": [
+            37.1,
+            47.75,
+            67.19,
+            87.43
+          ],
+          "area_px": 1193.66,
+          "area_frac": 0.029842,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6286,
+          "bbox_xyxy": [
+            0.0,
+            0.0,
+            63.17,
+            45.1
+          ],
+          "area_px": 2848.85,
+          "area_frac": 0.071221,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5293,
+          "bbox_xyxy": [
+            0.03,
+            155.88,
+            31.48,
+            199.28
+          ],
+          "area_px": 1365.2,
+          "area_frac": 0.03413,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5004,
+          "bbox_xyxy": [
+            38.71,
+            12.86,
+            75.52,
+            54.59
+          ],
+          "area_px": 1536.14,
+          "area_frac": 0.038404,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1619,
+          "bbox_xyxy": [
+            0.02,
+            186.22,
+            34.4,
+            200.0
+          ],
+          "area_px": 473.61,
+          "area_frac": 0.01184,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 15,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8b83f498_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 2,
+      "dominant_class": "patches",
+      "max_confidence": 0.7747,
+      "severity_score": 49.61,
+      "severity_band": "medium",
+      "class_counts": {
+        "patches": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7747,
+          "bbox_xyxy": [
+            168.37,
+            123.74,
+            199.83,
+            166.84
+          ],
+          "area_px": 1355.85,
+          "area_frac": 0.033896,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1916,
+          "bbox_xyxy": [
+            5.95,
+            9.19,
+            51.21,
+            33.95
+          ],
+          "area_px": 1120.97,
+          "area_frac": 0.028024,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 20.822
+    },
+    {
+      "index": 16,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 17,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 18,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "scratches",
+      "max_confidence": 0.6376,
+      "severity_score": 44.67,
+      "severity_band": "medium",
+      "class_counts": {
+        "scratches": 1
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.6376,
+          "bbox_xyxy": [
+            154.49,
+            74.63,
+            197.88,
+            199.9
+          ],
+          "area_px": 5434.93,
+          "area_frac": 0.135873,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 19,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 9,
+      "dominant_class": "patches",
+      "max_confidence": 0.6184,
+      "severity_score": 79.52,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 6,
+        "scratches": 1,
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6184,
+          "bbox_xyxy": [
+            25.07,
+            153.13,
+            73.14,
+            199.99
+          ],
+          "area_px": 2252.53,
+          "area_frac": 0.056313,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6148,
+          "bbox_xyxy": [
+            63.94,
+            42.67,
+            134.25,
+            199.85
+          ],
+          "area_px": 11051.88,
+          "area_frac": 0.276297,
+          "severity": "medium"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.4533,
+          "bbox_xyxy": [
+            119.28,
+            53.73,
+            163.48,
+            195.54
+          ],
+          "area_px": 6268.04,
+          "area_frac": 0.156701,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2315,
+          "bbox_xyxy": [
+            28.76,
+            19.19,
+            77.23,
+            111.06
+          ],
+          "area_px": 4452.76,
+          "area_frac": 0.111319,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2266,
+          "bbox_xyxy": [
+            0.0,
+            0.0,
+            24.2,
+            102.6
+          ],
+          "area_px": 2482.99,
+          "area_frac": 0.062075,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.196,
+          "bbox_xyxy": [
+            6.99,
+            64.13,
+            43.86,
+            101.68
+          ],
+          "area_px": 1384.6,
+          "area_frac": 0.034615,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1868,
+          "bbox_xyxy": [
+            1.19,
+            38.3,
+            75.91,
+            169.09
+          ],
+          "area_px": 9771.36,
+          "area_frac": 0.244284,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1663,
+          "bbox_xyxy": [
+            0.0,
+            49.09,
+            14.86,
+            103.87
+          ],
+          "area_px": 814.2,
+          "area_frac": 0.020355,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1652,
+          "bbox_xyxy": [
+            59.56,
+            31.89,
+            99.53,
+            81.32
+          ],
+          "area_px": 1975.72,
+          "area_frac": 0.049393,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 20,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 21,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 22,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 23,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8cbcb924_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 24,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "scratches",
+      "max_confidence": 0.2706,
+      "severity_score": 28.96,
+      "severity_band": "low",
+      "class_counts": {
+        "scratches": 1
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.2706,
+          "bbox_xyxy": [
+            86.28,
+            87.95,
+            100.17,
+            199.46
+          ],
+          "area_px": 1548.23,
+          "area_frac": 0.038706,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 25,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 26,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 2,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.4267,
+      "severity_score": 78.39,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.4267,
+          "bbox_xyxy": [
+            39.36,
+            0.0,
+            75.53,
+            73.81
+          ],
+          "area_px": 2669.83,
+          "area_frac": 0.066746,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2003,
+          "bbox_xyxy": [
+            65.39,
+            96.14,
+            79.27,
+            125.03
+          ],
+          "area_px": 400.8,
+          "area_frac": 0.01002,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 27,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 28,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 29,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 7,
+      "dominant_class": "scratches",
+      "max_confidence": 0.3195,
+      "severity_score": 69.29,
+      "severity_band": "high",
+      "class_counts": {
+        "scratches": 5,
+        "patches": 1,
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.3195,
+          "bbox_xyxy": [
+            74.11,
+            100.04,
+            92.46,
+            120.71
+          ],
+          "area_px": 379.22,
+          "area_frac": 0.009481,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2923,
+          "bbox_xyxy": [
+            46.35,
+            63.12,
+            69.89,
+            88.39
+          ],
+          "area_px": 594.78,
+          "area_frac": 0.014869,
+          "severity": "low"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.2621,
+          "bbox_xyxy": [
+            45.27,
+            47.82,
+            69.51,
+            89.03
+          ],
+          "area_px": 998.8,
+          "area_frac": 0.02497,
+          "severity": "low"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.262,
+          "bbox_xyxy": [
+            162.82,
+            157.59,
+            182.04,
+            175.49
+          ],
+          "area_px": 343.94,
+          "area_frac": 0.008598,
+          "severity": "low"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.2433,
+          "bbox_xyxy": [
+            74.87,
+            33.84,
+            96.02,
+            53.79
+          ],
+          "area_px": 421.76,
+          "area_frac": 0.010544,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2095,
+          "bbox_xyxy": [
+            45.49,
+            54.56,
+            69.95,
+            88.53
+          ],
+          "area_px": 831.11,
+          "area_frac": 0.020778,
+          "severity": "medium"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.1655,
+          "bbox_xyxy": [
+            17.98,
+            52.38,
+            28.18,
+            70.5
+          ],
+          "area_px": 184.66,
+          "area_frac": 0.004616,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 30,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.399
+    },
+    {
+      "index": 31,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a8fc850dc_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "scratches",
+      "max_confidence": 0.6862,
+      "severity_score": 47.4,
+      "severity_band": "medium",
+      "class_counts": {
+        "scratches": 1
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.6862,
+          "bbox_xyxy": [
+            39.73,
+            0.0,
+            70.76,
+            198.47
+          ],
+          "area_px": 6159.12,
+          "area_frac": 0.153978,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.399
+    },
+    {
+      "index": 32,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.4124,
+      "severity_score": 60.52,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.4124,
+          "bbox_xyxy": [
+            108.73,
+            160.38,
+            124.73,
+            183.35
+          ],
+          "area_px": 367.34,
+          "area_frac": 0.009183,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 33,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 34,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.3418,
+      "severity_score": 58.11,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3418,
+          "bbox_xyxy": [
+            114.82,
+            105.56,
+            131.1,
+            140.29
+          ],
+          "area_px": 565.21,
+          "area_frac": 0.01413,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 35,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 2,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.3099,
+      "severity_score": 73.54,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3099,
+          "bbox_xyxy": [
+            92.64,
+            133.86,
+            122.46,
+            200.0
+          ],
+          "area_px": 1972.94,
+          "area_frac": 0.049324,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2304,
+          "bbox_xyxy": [
+            33.69,
+            105.85,
+            51.16,
+            145.74
+          ],
+          "area_px": 696.93,
+          "area_frac": 0.017423,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 36,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 37,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 4,
+      "dominant_class": "scratches",
+      "max_confidence": 0.4016,
+      "severity_score": 53.15,
+      "severity_band": "medium",
+      "class_counts": {
+        "scratches": 4
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.4016,
+          "bbox_xyxy": [
+            17.5,
+            22.35,
+            57.03,
+            62.83
+          ],
+          "area_px": 1600.82,
+          "area_frac": 0.04002,
+          "severity": "medium"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.3964,
+          "bbox_xyxy": [
+            72.67,
+            6.3,
+            108.13,
+            47.43
+          ],
+          "area_px": 1458.12,
+          "area_frac": 0.036453,
+          "severity": "medium"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.2836,
+          "bbox_xyxy": [
+            73.94,
+            10.17,
+            94.52,
+            32.23
+          ],
+          "area_px": 453.83,
+          "area_frac": 0.011346,
+          "severity": "low"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.1753,
+          "bbox_xyxy": [
+            35.86,
+            34.21,
+            57.84,
+            62.47
+          ],
+          "area_px": 621.18,
+          "area_frac": 0.015529,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 38,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.3174,
+      "severity_score": 60.98,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3174,
+          "bbox_xyxy": [
+            146.13,
+            6.88,
+            164.2,
+            109.5
+          ],
+          "area_px": 1854.71,
+          "area_frac": 0.046368,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 39,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/a9a69d683_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "scratches",
+      "max_confidence": 0.7336,
+      "severity_score": 53.26,
+      "severity_band": "medium",
+      "class_counts": {
+        "scratches": 1
+      },
+      "detections": [
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.7336,
+          "bbox_xyxy": [
+            5.62,
+            0.2,
+            47.74,
+            200.0
+          ],
+          "area_px": 8416.09,
+          "area_frac": 0.210402,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 3.679
+    },
+    {
+      "index": 40,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 41,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 42,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 43,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 44,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 45,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 46,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 47,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/aa1c7c9cd_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 3.679
+    },
+    {
+      "index": 48,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 3,
+      "dominant_class": "patches",
+      "max_confidence": 0.6861,
+      "severity_score": 57.84,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 3
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6861,
+          "bbox_xyxy": [
+            79.76,
+            21.47,
+            142.86,
+            84.47
+          ],
+          "area_px": 3975.2,
+          "area_frac": 0.09938,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1882,
+          "bbox_xyxy": [
+            148.33,
+            95.21,
+            199.94,
+            155.38
+          ],
+          "area_px": 3105.76,
+          "area_frac": 0.077644,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1684,
+          "bbox_xyxy": [
+            75.09,
+            160.33,
+            140.21,
+            199.97
+          ],
+          "area_px": 2581.12,
+          "area_frac": 0.064528,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 49,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 5,
+      "dominant_class": "patches",
+      "max_confidence": 0.6417,
+      "severity_score": 63.51,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 5
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6417,
+          "bbox_xyxy": [
+            17.41,
+            20.97,
+            81.02,
+            85.43
+          ],
+          "area_px": 4100.77,
+          "area_frac": 0.102519,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5523,
+          "bbox_xyxy": [
+            19.08,
+            166.01,
+            74.67,
+            199.92
+          ],
+          "area_px": 1884.89,
+          "area_frac": 0.047122,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3323,
+          "bbox_xyxy": [
+            155.23,
+            23.56,
+            200.0,
+            60.38
+          ],
+          "area_px": 1648.76,
+          "area_frac": 0.041219,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2742,
+          "bbox_xyxy": [
+            157.18,
+            165.0,
+            200.0,
+            199.83
+          ],
+          "area_px": 1491.35,
+          "area_frac": 0.037284,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2258,
+          "bbox_xyxy": [
+            83.3,
+            0.0,
+            125.17,
+            13.3
+          ],
+          "area_px": 556.86,
+          "area_frac": 0.013922,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 50,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 10,
+      "dominant_class": "patches",
+      "max_confidence": 0.8033,
+      "severity_score": 80.83,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 8,
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8033,
+          "bbox_xyxy": [
+            92.15,
+            20.44,
+            156.02,
+            85.32
+          ],
+          "area_px": 4143.99,
+          "area_frac": 0.1036,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5332,
+          "bbox_xyxy": [
+            95.42,
+            163.64,
+            154.72,
+            199.89
+          ],
+          "area_px": 2150.12,
+          "area_frac": 0.053753,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5099,
+          "bbox_xyxy": [
+            0.06,
+            184.11,
+            14.75,
+            200.0
+          ],
+          "area_px": 233.45,
+          "area_frac": 0.005836,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4794,
+          "bbox_xyxy": [
+            165.24,
+            101.39,
+            199.98,
+            154.85
+          ],
+          "area_px": 1857.59,
+          "area_frac": 0.04644,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3763,
+          "bbox_xyxy": [
+            159.06,
+            0.0,
+            199.77,
+            14.14
+          ],
+          "area_px": 575.71,
+          "area_frac": 0.014393,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3623,
+          "bbox_xyxy": [
+            0.0,
+            183.39,
+            14.6,
+            200.0
+          ],
+          "area_px": 242.41,
+          "area_frac": 0.00606,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.297,
+          "bbox_xyxy": [
+            0.05,
+            43.17,
+            20.71,
+            87.65
+          ],
+          "area_px": 919.1,
+          "area_frac": 0.022977,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2765,
+          "bbox_xyxy": [
+            24.04,
+            0.0,
+            60.36,
+            13.26
+          ],
+          "area_px": 481.81,
+          "area_frac": 0.012045,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1924,
+          "bbox_xyxy": [
+            25.48,
+            101.24,
+            63.8,
+            154.31
+          ],
+          "area_px": 2033.17,
+          "area_frac": 0.050829,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1783,
+          "bbox_xyxy": [
+            0.05,
+            42.77,
+            19.5,
+            86.29
+          ],
+          "area_px": 846.72,
+          "area_frac": 0.021168,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 51,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 8,
+      "dominant_class": "patches",
+      "max_confidence": 0.8143,
+      "severity_score": 81.69,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 5,
+        "inclusion": 3
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.8143,
+          "bbox_xyxy": [
+            36.86,
+            24.46,
+            93.23,
+            85.49
+          ],
+          "area_px": 3440.7,
+          "area_frac": 0.086017,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5396,
+          "bbox_xyxy": [
+            104.19,
+            0.0,
+            138.76,
+            13.71
+          ],
+          "area_px": 473.87,
+          "area_frac": 0.011847,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5149,
+          "bbox_xyxy": [
+            36.28,
+            166.22,
+            89.88,
+            199.83
+          ],
+          "area_px": 1801.79,
+          "area_frac": 0.045045,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3734,
+          "bbox_xyxy": [
+            105.89,
+            104.38,
+            143.93,
+            154.47
+          ],
+          "area_px": 1905.7,
+          "area_frac": 0.047643,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.358,
+          "bbox_xyxy": [
+            174.72,
+            162.42,
+            200.0,
+            198.44
+          ],
+          "area_px": 910.55,
+          "area_frac": 0.022764,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2406,
+          "bbox_xyxy": [
+            174.47,
+            22.64,
+            200.0,
+            42.03
+          ],
+          "area_px": 494.95,
+          "area_frac": 0.012374,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1977,
+          "bbox_xyxy": [
+            103.29,
+            0.0,
+            120.25,
+            11.8
+          ],
+          "area_px": 200.18,
+          "area_frac": 0.005004,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1568,
+          "bbox_xyxy": [
+            0.05,
+            94.0,
+            26.94,
+            116.61
+          ],
+          "area_px": 607.91,
+          "area_frac": 0.015198,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 52,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_4.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 9,
+      "dominant_class": "patches",
+      "max_confidence": 0.7651,
+      "severity_score": 87.71,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 7,
+        "inclusion": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7651,
+          "bbox_xyxy": [
+            113.76,
+            23.53,
+            174.43,
+            84.43
+          ],
+          "area_px": 3694.84,
+          "area_frac": 0.092371,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.6619,
+          "bbox_xyxy": [
+            185.63,
+            116.63,
+            199.98,
+            155.61
+          ],
+          "area_px": 559.21,
+          "area_frac": 0.01398,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5985,
+          "bbox_xyxy": [
+            0.1,
+            171.77,
+            31.07,
+            200.0
+          ],
+          "area_px": 874.42,
+          "area_frac": 0.02186,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5332,
+          "bbox_xyxy": [
+            0.22,
+            31.93,
+            37.17,
+            85.39
+          ],
+          "area_px": 1975.71,
+          "area_frac": 0.049393,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.4734,
+          "bbox_xyxy": [
+            183.24,
+            0.0,
+            199.97,
+            15.81
+          ],
+          "area_px": 264.46,
+          "area_frac": 0.006611,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4443,
+          "bbox_xyxy": [
+            44.77,
+            0.0,
+            79.53,
+            13.49
+          ],
+          "area_px": 468.72,
+          "area_frac": 0.011718,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.322,
+          "bbox_xyxy": [
+            45.15,
+            106.44,
+            78.04,
+            153.94
+          ],
+          "area_px": 1561.74,
+          "area_frac": 0.039044,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2053,
+          "bbox_xyxy": [
+            0.0,
+            60.3,
+            37.49,
+            87.47
+          ],
+          "area_px": 1018.68,
+          "area_frac": 0.025467,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1994,
+          "bbox_xyxy": [
+            114.8,
+            166.04,
+            168.88,
+            199.84
+          ],
+          "area_px": 1828.0,
+          "area_frac": 0.0457,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 53,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_5.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 7,
+      "dominant_class": "patches",
+      "max_confidence": 0.7575,
+      "severity_score": 66.88,
+      "severity_band": "high",
+      "class_counts": {
+        "patches": 5,
+        "scratches": 2
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7575,
+          "bbox_xyxy": [
+            123.6,
+            0.0,
+            158.99,
+            16.72
+          ],
+          "area_px": 591.95,
+          "area_frac": 0.014799,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.7131,
+          "bbox_xyxy": [
+            56.17,
+            23.31,
+            116.22,
+            85.71
+          ],
+          "area_px": 3747.12,
+          "area_frac": 0.093678,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.4319,
+          "bbox_xyxy": [
+            54.07,
+            164.17,
+            109.55,
+            199.83
+          ],
+          "area_px": 1978.4,
+          "area_frac": 0.04946,
+          "severity": "medium"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.3735,
+          "bbox_xyxy": [
+            0.13,
+            93.67,
+            48.59,
+            155.45
+          ],
+          "area_px": 2993.7,
+          "area_frac": 0.074842,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2291,
+          "bbox_xyxy": [
+            125.18,
+            107.09,
+            157.33,
+            156.45
+          ],
+          "area_px": 1587.06,
+          "area_frac": 0.039677,
+          "severity": "low"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.2097,
+          "bbox_xyxy": [
+            0.0,
+            93.17,
+            48.09,
+            155.88
+          ],
+          "area_px": 3015.88,
+          "area_frac": 0.075397,
+          "severity": "low"
+        },
+        {
+          "class_id": 5,
+          "class_name": "scratches",
+          "confidence": 0.157,
+          "bbox_xyxy": [
+            125.11,
+            0.0,
+            158.76,
+            15.15
+          ],
+          "area_px": 509.81,
+          "area_frac": 0.012745,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 54,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_6.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 9,
+      "dominant_class": "patches",
+      "max_confidence": 0.6767,
+      "severity_score": 83.32,
+      "severity_band": "critical",
+      "class_counts": {
+        "patches": 5,
+        "inclusion": 4
+      },
+      "detections": [
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6767,
+          "bbox_xyxy": [
+            0.24,
+            24.02,
+            55.51,
+            85.46
+          ],
+          "area_px": 3395.73,
+          "area_frac": 0.084893,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6708,
+          "bbox_xyxy": [
+            137.17,
+            24.74,
+            195.26,
+            84.09
+          ],
+          "area_px": 3447.57,
+          "area_frac": 0.086189,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.6243,
+          "bbox_xyxy": [
+            0.05,
+            164.22,
+            47.44,
+            200.0
+          ],
+          "area_px": 1695.59,
+          "area_frac": 0.04239,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.5344,
+          "bbox_xyxy": [
+            63.8,
+            0.0,
+            94.72,
+            14.4
+          ],
+          "area_px": 445.19,
+          "area_frac": 0.01113,
+          "severity": "medium"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3874,
+          "bbox_xyxy": [
+            137.73,
+            167.26,
+            190.65,
+            199.83
+          ],
+          "area_px": 1723.71,
+          "area_frac": 0.043093,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2591,
+          "bbox_xyxy": [
+            4.66,
+            34.85,
+            57.84,
+            86.54
+          ],
+          "area_px": 2749.01,
+          "area_frac": 0.068725,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1891,
+          "bbox_xyxy": [
+            62.76,
+            0.0,
+            93.44,
+            15.52
+          ],
+          "area_px": 476.06,
+          "area_frac": 0.011901,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1844,
+          "bbox_xyxy": [
+            16.5,
+            59.76,
+            58.81,
+            86.53
+          ],
+          "area_px": 1132.48,
+          "area_frac": 0.028312,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1697,
+          "bbox_xyxy": [
+            63.69,
+            103.78,
+            105.4,
+            158.39
+          ],
+          "area_px": 2277.85,
+          "area_frac": 0.056946,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 55,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab081e95e_7.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 9,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.4019,
+      "severity_score": 88.71,
+      "severity_band": "critical",
+      "class_counts": {
+        "inclusion": 6,
+        "patches": 3
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.4019,
+          "bbox_xyxy": [
+            105.8,
+            40.42,
+            138.18,
+            86.69
+          ],
+          "area_px": 1498.24,
+          "area_frac": 0.037456,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3739,
+          "bbox_xyxy": [
+            141.83,
+            0.01,
+            184.62,
+            13.57
+          ],
+          "area_px": 580.31,
+          "area_frac": 0.014508,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3645,
+          "bbox_xyxy": [
+            73.21,
+            164.11,
+            131.71,
+            199.9
+          ],
+          "area_px": 2093.75,
+          "area_frac": 0.052344,
+          "severity": "high"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3623,
+          "bbox_xyxy": [
+            144.9,
+            93.22,
+            200.0,
+            159.27
+          ],
+          "area_px": 3639.27,
+          "area_frac": 0.090982,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.3504,
+          "bbox_xyxy": [
+            2.27,
+            0.0,
+            41.63,
+            15.1
+          ],
+          "area_px": 594.18,
+          "area_frac": 0.014855,
+          "severity": "low"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.3418,
+          "bbox_xyxy": [
+            140.23,
+            0.0,
+            161.81,
+            15.08
+          ],
+          "area_px": 325.31,
+          "area_frac": 0.008133,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.1634,
+          "bbox_xyxy": [
+            142.3,
+            92.51,
+            200.0,
+            200.0
+          ],
+          "area_px": 6202.14,
+          "area_frac": 0.155053,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1568,
+          "bbox_xyxy": [
+            95.46,
+            180.1,
+            134.2,
+            199.99
+          ],
+          "area_px": 770.38,
+          "area_frac": 0.019259,
+          "severity": "medium"
+        },
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.152,
+          "bbox_xyxy": [
+            78.57,
+            26.52,
+            133.98,
+            79.34
+          ],
+          "area_px": 2927.43,
+          "area_frac": 0.073186,
+          "severity": "high"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 56,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab573218d_0.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 2,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.2854,
+      "severity_score": 65.59,
+      "severity_band": "high",
+      "class_counts": {
+        "inclusion": 1,
+        "patches": 1
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.2854,
+          "bbox_xyxy": [
+            33.22,
+            111.96,
+            62.24,
+            168.77
+          ],
+          "area_px": 1648.92,
+          "area_frac": 0.041223,
+          "severity": "high"
+        },
+        {
+          "class_id": 2,
+          "class_name": "patches",
+          "confidence": 0.192,
+          "bbox_xyxy": [
+            66.18,
+            41.88,
+            103.36,
+            83.96
+          ],
+          "area_px": 1564.2,
+          "area_frac": 0.039105,
+          "severity": "low"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 57,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab573218d_1.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "DEFECT",
+      "defect_count": 1,
+      "dominant_class": "inclusion",
+      "max_confidence": 0.1625,
+      "severity_score": 51.73,
+      "severity_band": "medium",
+      "class_counts": {
+        "inclusion": 1
+      },
+      "detections": [
+        {
+          "class_id": 1,
+          "class_name": "inclusion",
+          "confidence": 0.1625,
+          "bbox_xyxy": [
+            95.36,
+            6.56,
+            116.52,
+            57.73
+          ],
+          "area_px": 1082.61,
+          "area_frac": 0.027065,
+          "severity": "medium"
+        }
+      ],
+      "total_ms": 9.982
+    },
+    {
+      "index": 58,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab573218d_2.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 9.982
+    },
+    {
+      "index": 59,
+      "source": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/clean_coil/ab573218d_3.jpg",
+      "image_size": [
+        200,
+        200
+      ],
+      "verdict": "PASS",
+      "defect_count": 0,
+      "dominant_class": null,
+      "max_confidence": 0.0,
+      "severity_score": 0.0,
+      "severity_band": "clean",
+      "class_counts": {},
+      "detections": [],
+      "total_ms": 9.982
+    }
+  ],
+  "elapsed_s": 0.834
+}

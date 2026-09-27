@@ -1,0 +1,134 @@
+{
+  "0.15": {
+    "gt_boxes": 446,
+    "both": 291,
+    "n_only": 26,
+    "s_only": 46,
+    "neither": 83,
+    "recall_n": 0.7107623318385651,
+    "recall_s": 0.7556053811659192,
+    "recall_oracle_union": 0.8139013452914798,
+    "per_class": {
+      "crazing": {
+        "gt": 79,
+        "both": 24,
+        "n_only": 4,
+        "s_only": 19,
+        "neither": 32,
+        "recall_n": 0.35443037974683544,
+        "oracle_union": 0.5949367088607594
+      },
+      "inclusion": {
+        "gt": 89,
+        "both": 62,
+        "n_only": 4,
+        "s_only": 10,
+        "neither": 13,
+        "recall_n": 0.7415730337078652,
+        "oracle_union": 0.8539325842696629
+      },
+      "patches": {
+        "gt": 99,
+        "both": 82,
+        "n_only": 6,
+        "s_only": 4,
+        "neither": 7,
+        "recall_n": 0.8888888888888888,
+        "oracle_union": 0.9292929292929293
+      },
+      "pitted_surface": {
+        "gt": 46,
+        "both": 33,
+        "n_only": 1,
+        "s_only": 0,
+        "neither": 12,
+        "recall_n": 0.7391304347826086,
+        "oracle_union": 0.7391304347826086
+      },
+      "rolled-in_scale": {
+        "gt": 69,
+        "both": 40,
+        "n_only": 5,
+        "s_only": 9,
+        "neither": 15,
+        "recall_n": 0.6521739130434783,
+        "oracle_union": 0.782608695652174
+      },
+      "scratches": {
+        "gt": 64,
+        "both": 50,
+        "n_only": 6,
+        "s_only": 4,
+        "neither": 4,
+        "recall_n": 0.875,
+        "oracle_union": 0.9375
+      }
+    }
+  },
+  "0.25": {
+    "gt_boxes": 446,
+    "both": 257,
+    "n_only": 21,
+    "s_only": 50,
+    "neither": 118,
+    "recall_n": 0.6233183856502242,
+    "recall_s": 0.6883408071748879,
+    "recall_oracle_union": 0.7354260089686099,
+    "per_class": {
+      "crazing": {
+        "gt": 79,
+        "both": 10,
+        "n_only": 1,
+        "s_only": 21,
+        "neither": 47,
+        "recall_n": 0.13924050632911392,
+        "oracle_union": 0.4050632911392405
+      },
+      "inclusion": {
+        "gt": 89,
+        "both": 59,
+        "n_only": 3,
+        "s_only": 8,
+        "neither": 19,
+        "recall_n": 0.6966292134831461,
+        "oracle_union": 0.7865168539325843
+      },
+      "patches": {
+        "gt": 99,
+        "both": 78,
+        "n_only": 5,
+        "s_only": 6,
+        "neither": 10,
+        "recall_n": 0.8383838383838383,
+        "oracle_union": 0.898989898989899
+      },
+      "pitted_surface": {
+        "gt": 46,
+        "both": 30,
+        "n_only": 2,
+        "s_only": 2,
+        "neither": 12,
+        "recall_n": 0.6956521739130435,
+        "oracle_union": 0.7391304347826086
+      },
+      "rolled-in_scale": {
+        "gt": 69,
+        "both": 32,
+        "n_only": 3,
+        "s_only": 10,
+        "neither": 24,
+        "recall_n": 0.5072463768115942,
+        "oracle_union": 0.6521739130434783
+      },
+      "scratches": {
+        "gt": 64,
+        "both": 48,
+        "n_only": 7,
+        "s_only": 3,
+        "neither": 6,
+        "recall_n": 0.859375,
+        "oracle_union": 0.90625
+      }
+    }
+  }
+}

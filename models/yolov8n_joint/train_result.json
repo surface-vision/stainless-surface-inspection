@@ -1,0 +1,9 @@
+{
+  "run_dir": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_joint",
+  "weights": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_joint/weights/best.pt",
+  "elapsed_s": 9266.53772475,
+  "epochs_requested": 200,
+  "imgsz": 320,
+  "batch": 32,
+  "device": "mps"
+}

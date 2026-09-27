@@ -1,0 +1,109 @@
+{
+  "n_predictions": 790,
+  "ECE": 0.1418,
+  "overall_mean_conf": 0.334,
+  "overall_precision": 0.476,
+  "bins": [
+    {
+      "bin": "[0.05,0.15)",
+      "n": 309,
+      "mean_conf": 0.086,
+      "empirical_precision": 0.191,
+      "gap": -0.105
+    },
+    {
+      "bin": "[0.15,0.25)",
+      "n": 116,
+      "mean_conf": 0.195,
+      "empirical_precision": 0.336,
+      "gap": -0.141
+    },
+    {
+      "bin": "[0.25,0.35)",
+      "n": 62,
+      "mean_conf": 0.301,
+      "empirical_precision": 0.387,
+      "gap": -0.086
+    },
+    {
+      "bin": "[0.35,0.45)",
+      "n": 40,
+      "mean_conf": 0.401,
+      "empirical_precision": 0.575,
+      "gap": -0.174
+    },
+    {
+      "bin": "[0.45,0.55)",
+      "n": 48,
+      "mean_conf": 0.502,
+      "empirical_precision": 0.667,
+      "gap": -0.164
+    },
+    {
+      "bin": "[0.55,0.65)",
+      "n": 69,
+      "mean_conf": 0.599,
+      "empirical_precision": 0.841,
+      "gap": -0.242
+    },
+    {
+      "bin": "[0.65,0.75)",
+      "n": 55,
+      "mean_conf": 0.697,
+      "empirical_precision": 0.927,
+      "gap": -0.231
+    },
+    {
+      "bin": "[0.75,0.85)",
+      "n": 50,
+      "mean_conf": 0.801,
+      "empirical_precision": 0.98,
+      "gap": -0.179
+    },
+    {
+      "bin": "[0.85,1.00)",
+      "n": 41,
+      "mean_conf": 0.885,
+      "empirical_precision": 1.0,
+      "gap": -0.115
+    }
+  ],
+  "per_class": {
+    "crazing": {
+      "n": 181,
+      "mean_conf": 0.133,
+      "precision": 0.326,
+      "gap": -0.193
+    },
+    "inclusion": {
+      "n": 136,
+      "mean_conf": 0.395,
+      "precision": 0.559,
+      "gap": -0.163
+    },
+    "patches": {
+      "n": 133,
+      "mean_conf": 0.534,
+      "precision": 0.684,
+      "gap": -0.15
+    },
+    "pitted_surface": {
+      "n": 73,
+      "mean_conf": 0.371,
+      "precision": 0.493,
+      "gap": -0.122
+    },
+    "rolled-in_scale": {
+      "n": 148,
+      "mean_conf": 0.247,
+      "precision": 0.378,
+      "gap": -0.132
+    },
+    "scratches": {
+      "n": 119,
+      "mean_conf": 0.432,
+      "precision": 0.487,
+      "gap": -0.055
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-09-13",
+  "purpose": "Numbers quoted on the 2-slide executive summary that are not already a key in reports/",
+  "image_level_at_shipped_threshold": {
+    "weights": "resolve_weights() default (yolov8n_neudet/best.pt)",
+    "split": "test",
+    "n_images": 180,
+    "conf": 0.15,
+    "imgsz": 256,
+    "frames_flagged": 180,
+    "top_detection_type_correct": 177,
+    "accuracy_pct": 98.3,
+    "note": "reports/evaluation.json image_level.accuracy is 0.9889 at conf 0.05; this is the same measurement at the shipped conf 0.15",
+    "command": "DefectDetector(resolve_weights(), conf=0.15, imgsz=256).predict(p) for p in data/neu-det/test/images; compare max-confidence detection class to the filename class"
+  },
+  "live_demo": {
+    "url": "https://surface-vision.github.io",
+    "http_status_2026_09_13": 200
+  }
+}

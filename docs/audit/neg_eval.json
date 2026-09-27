@@ -1,0 +1,82 @@
+[
+  {
+    "tag": "baseline",
+    "weights": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_neudet/weights/best.pt",
+    "n_clean_crops": 3200,
+    "n_clean_frames": 400,
+    "n_defect_crops": 388,
+    "AUC": 0.632998550257732,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.65125,
+        "clean_frame_FA": 0.9825,
+        "defect_crop_recall": 0.8711340206185567
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.515625,
+        "clean_frame_FA": 0.94,
+        "defect_crop_recall": 0.7319587628865979
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.411875,
+        "clean_frame_FA": 0.885,
+        "defect_crop_recall": 0.5824742268041238
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.274375,
+        "clean_frame_FA": 0.8,
+        "defect_crop_recall": 0.43556701030927836
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.149375,
+        "clean_frame_FA": 0.5575,
+        "defect_crop_recall": 0.19329896907216496
+      }
+    ]
+  },
+  {
+    "tag": "with_severstal_negatives",
+    "weights": "/private/tmp/claude-501/-Users-prathmeshwalimbe-Downloads-JSW-PS1/f88a3d3d-c8be-40c8-8600-132f500095d3/scratchpad/audit_runs/v8n_neg/weights/best.pt",
+    "n_clean_crops": 3200,
+    "n_clean_frames": 400,
+    "n_defect_crops": 388,
+    "AUC": 0.5834181701030928,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.0196875,
+        "clean_frame_FA": 0.1125,
+        "defect_crop_recall": 0.1056701030927835
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.0084375,
+        "clean_frame_FA": 0.0575,
+        "defect_crop_recall": 0.05670103092783505
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.005625,
+        "clean_frame_FA": 0.04,
+        "defect_crop_recall": 0.04639175257731959
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.0034375,
+        "clean_frame_FA": 0.0275,
+        "defect_crop_recall": 0.02577319587628866
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.000625,
+        "clean_frame_FA": 0.005,
+        "defect_crop_recall": 0.002577319587628866
+      }
+    ]
+  }
+]

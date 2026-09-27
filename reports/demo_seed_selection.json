@@ -1,0 +1,107 @@
+{
+ "chosen_on_val": {
+  "tag": "joint_seed1337",
+  "imgsz": 320,
+  "weights": "models/yolov8n_joint/weights/best.pt"
+ },
+ "val_map50": {
+  "joint_seed1337": {
+   "256": 0.6818484653085817,
+   "320": 0.69867446395847
+  },
+  "seed1": {
+   "256": 0.6718953927907096,
+   "320": 0.6726902850001218
+  },
+  "seed2": {
+   "256": 0.6592990459142088,
+   "320": 0.6662256821165011
+  },
+  "seed3": {
+   "256": 0.6626393719759843,
+   "320": 0.6465821247333189
+  }
+ },
+ "test": {
+  "joint_seed1337": {
+   "tag": "joint_seed1337",
+   "weights": "models/yolov8n_joint/weights/best.pt",
+   "imgsz": 320,
+   "conf": 0.15,
+   "neu_map50": 0.7453708027256472,
+   "mill_map50": 0.5656493470289615,
+   "right_type": [
+    178,
+    180
+   ],
+   "clean_flagged": [
+    14,
+    300
+   ],
+   "defect_flagged": [
+    258,
+    288
+   ]
+  },
+  "seed1": {
+   "tag": "seed1",
+   "weights": "models/demo_seed1/weights/best.pt",
+   "imgsz": 320,
+   "conf": 0.15,
+   "neu_map50": 0.7412008048006701,
+   "mill_map50": 0.49418013373679603,
+   "right_type": [
+    177,
+    180
+   ],
+   "clean_flagged": [
+    43,
+    300
+   ],
+   "defect_flagged": [
+    258,
+    288
+   ]
+  },
+  "seed2": {
+   "tag": "seed2",
+   "weights": "models/demo_seed2/weights/best.pt",
+   "imgsz": 320,
+   "conf": 0.15,
+   "neu_map50": 0.7562443961035085,
+   "mill_map50": 0.5504446630504705,
+   "right_type": [
+    177,
+    180
+   ],
+   "clean_flagged": [
+    24,
+    300
+   ],
+   "defect_flagged": [
+    256,
+    288
+   ]
+  },
+  "seed3": {
+   "tag": "seed3",
+   "weights": "models/demo_seed3/weights/best.pt",
+   "imgsz": 256,
+   "conf": 0.15,
+   "neu_map50": 0.7356701317284787,
+   "mill_map50": 0.4843434354565188,
+   "right_type": [
+    174,
+    180
+   ],
+   "clean_flagged": [
+    52,
+    300
+   ],
+   "defect_flagged": [
+    257,
+    288
+   ]
+  }
+ }
+}

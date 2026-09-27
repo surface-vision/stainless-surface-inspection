@@ -1,0 +1,12 @@
+{
+  "model": "yolov8n.pt",
+  "name": "yolov8n_gc10_640",
+  "dataset": "GC10-DET (data/gc10-det, sequence-disjoint re-split)",
+  "epochs_requested": 70,
+  "imgsz": 640,
+  "batch": 16,
+  "device": "mps",
+  "seed": 1337,
+  "train_wall_seconds": 5657.2,
+  "weights": "/Users/prathmeshwalimbe/Downloads/JSW-PS1/models/yolov8n_gc10_640/weights/best.pt"
+}

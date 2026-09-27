@@ -1,0 +1,53 @@
+# Streamlit configuration for the Jindal Stainless surface inspection console.
+#
+# The theme is a dark industrial palette: near-black steel greys, safety amber as
+# the accent, and a categorical chart ramp whose entries are the six defect-class
+# colours from src/inference.py CLASS_COLORS, in class-index order. Keeping the
+# chart ramp aligned with the annotation colours means a class reads the same in a
+# bounding box, a legend chip and a bar chart.
+
+[theme]
+base = "dark"
+primaryColor = "#F5A524"
+backgroundColor = "#0C0F13"
+secondaryBackgroundColor = "#151A21"
+textColor = "#E4E8EE"
+borderColor = "#232A33"
+linkColor = "#F5A524"
+linkUnderline = false
+codeBackgroundColor = "#0F141A"
+font = "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+headingFont = "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+codeFont = "'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace"
+baseFontSize = 15
+baseRadius = "small"
+buttonRadius = "small"
+showWidgetBorder = true
+showSidebarBorder = true
+dataframeHeaderBackgroundColor = "#11161C"
+metricValueFontSize = "1.9rem"
+chartCategoricalColors = [
+    "#FF8200",  # crazing
+    "#DC1E2D",  # inclusion
+    "#3796FF",  # patches
+    "#AA50DC",  # pitted_surface
+    "#F0BE00",  # rolled-in_scale
+    "#00C8A0",  # scratches
+]
+
+[theme.sidebar]
+backgroundColor = "#0A0D10"
+secondaryBackgroundColor = "#141920"
+borderColor = "#232A33"
+
+[server]
+headless = true
+maxUploadSize = 400
+enableXsrfProtection = true
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "viewer"
+showErrorDetails = "full"

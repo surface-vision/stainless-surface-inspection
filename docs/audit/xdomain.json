@@ -1,0 +1,100 @@
+[
+  {
+    "conf": 0.15,
+    "clean": {
+      "frames": 400,
+      "crops": 3200,
+      "crop_FA_rate": 0.5465625,
+      "crops_flagged": 1749,
+      "frame_FA_rate": 0.9575,
+      "frames_flagged": 383,
+      "boxes_per_crop": 1.9553125,
+      "boxes_total": 6257,
+      "class_hist": {
+        "rolled-in_scale": 365,
+        "patches": 2113,
+        "inclusion": 2651,
+        "scratches": 654,
+        "pitted_surface": 443,
+        "crazing": 31
+      },
+      "mean_conf": 0.3429730663893797,
+      "p90_conf": 0.6176379680633546
+    },
+    "defect": {
+      "frames": 400,
+      "crops": 3200,
+      "defect_crops": 1079,
+      "defect_crops_flagged": 781,
+      "class_agnostic_crop_recall": 0.7238183503243745,
+      "frames_with_any_flag_on_a_defect_crop": 339,
+      "frame_recall": 0.8475,
+      "all_crop_flag_rate": 0.5621875
+    }
+  },
+  {
+    "conf": 0.25,
+    "clean": {
+      "frames": 400,
+      "crops": 3200,
+      "crop_FA_rate": 0.4434375,
+      "crops_flagged": 1419,
+      "frame_FA_rate": 0.895,
+      "frames_flagged": 358,
+      "boxes_per_crop": 1.193125,
+      "boxes_total": 3818,
+      "class_hist": {
+        "rolled-in_scale": 185,
+        "patches": 1379,
+        "inclusion": 1510,
+        "pitted_surface": 268,
+        "crazing": 4,
+        "scratches": 472
+      },
+      "mean_conf": 0.43823145086413096,
+      "p90_conf": 0.6818044304847718
+    },
+    "defect": {
+      "frames": 400,
+      "crops": 3200,
+      "defect_crops": 1079,
+      "defect_crops_flagged": 629,
+      "class_agnostic_crop_recall": 0.5829471733086191,
+      "frames_with_any_flag_on_a_defect_crop": 294,
+      "frame_recall": 0.735,
+      "all_crop_flag_rate": 0.42125
+    }
+  },
+  {
+    "conf": 0.4,
+    "clean": {
+      "frames": 400,
+      "crops": 3200,
+      "crop_FA_rate": 0.2834375,
+      "crops_flagged": 907,
+      "frame_FA_rate": 0.7975,
+      "frames_flagged": 319,
+      "boxes_per_crop": 0.5740625,
+      "boxes_total": 1837,
+      "class_hist": {
+        "patches": 805,
+        "rolled-in_scale": 72,
+        "scratches": 297,
+        "inclusion": 637,
+        "pitted_surface": 26
+      },
+      "mean_conf": 0.5713937211990616,
+      "p90_conf": 0.7587109088897706
+    },
+    "defect": {
+      "frames": 400,
+      "crops": 3200,
+      "defect_crops": 1079,
+      "defect_crops_flagged": 448,
+      "class_agnostic_crop_recall": 0.4151992585727525,
+      "frames_with_any_flag_on_a_defect_crop": 236,
+      "frame_recall": 0.59,
+      "all_crop_flag_rate": 0.2178125
+    }
+  }
+]

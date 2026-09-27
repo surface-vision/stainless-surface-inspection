@@ -1,0 +1,20 @@
+{
+ "tag": "joint_seed1337",
+ "weights": "models/yolov8n_joint/weights/best.pt",
+ "imgsz": 320,
+ "conf": 0.15,
+ "neu_map50": 0.7453708027256472,
+ "mill_map50": 0.5656493470289615,
+ "right_type": [
+  178,
+  180
+ ],
+ "clean_flagged": [
+  14,
+  300
+ ],
+ "defect_flagged": [
+  258,
+  288
+ ]
+}

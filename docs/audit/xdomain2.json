@@ -1,0 +1,298 @@
+{
+  "200": {
+    "n_clean_crops": 2000,
+    "n_clean_frames": 250,
+    "n_defect_crops": 691,
+    "AUC_defect_vs_clean_crop": 0.6277250361794501,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.661,
+        "clean_frame_FA": 0.984,
+        "defect_crop_recall": 0.8813314037626628
+      },
+      {
+        "conf": 0.1,
+        "clean_crop_FA": 0.5775,
+        "clean_frame_FA": 0.964,
+        "defect_crop_recall": 0.808972503617945
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.528,
+        "clean_frame_FA": 0.952,
+        "defect_crop_recall": 0.7192474674384949
+      },
+      {
+        "conf": 0.2,
+        "clean_crop_FA": 0.4755,
+        "clean_frame_FA": 0.928,
+        "defect_crop_recall": 0.6439942112879884
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.4275,
+        "clean_frame_FA": 0.9,
+        "defect_crop_recall": 0.5832127351664255
+      },
+      {
+        "conf": 0.3,
+        "clean_crop_FA": 0.366,
+        "clean_frame_FA": 0.876,
+        "defect_crop_recall": 0.5123010130246021
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.2675,
+        "clean_frame_FA": 0.792,
+        "defect_crop_recall": 0.4037626628075253
+      },
+      {
+        "conf": 0.5,
+        "clean_crop_FA": 0.212,
+        "clean_frame_FA": 0.72,
+        "defect_crop_recall": 0.29667149059334297
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.141,
+        "clean_frame_FA": 0.564,
+        "defect_crop_recall": 0.17945007235890015
+      },
+      {
+        "conf": 0.7,
+        "clean_crop_FA": 0.079,
+        "clean_frame_FA": 0.36,
+        "defect_crop_recall": 0.0824891461649783
+      },
+      {
+        "conf": 0.8,
+        "clean_crop_FA": 0.0205,
+        "clean_frame_FA": 0.14,
+        "defect_crop_recall": 0.013024602026049204
+      }
+    ]
+  },
+  "256": {
+    "n_clean_crops": 1500,
+    "n_clean_frames": 250,
+    "n_defect_crops": 587,
+    "AUC_defect_vs_clean_crop": 0.6357461669505963,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.7666666666666667,
+        "clean_frame_FA": 0.996,
+        "defect_crop_recall": 0.9369676320272572
+      },
+      {
+        "conf": 0.1,
+        "clean_crop_FA": 0.698,
+        "clean_frame_FA": 0.976,
+        "defect_crop_recall": 0.889267461669506
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.6246666666666667,
+        "clean_frame_FA": 0.952,
+        "defect_crop_recall": 0.8211243611584327
+      },
+      {
+        "conf": 0.2,
+        "clean_crop_FA": 0.5686666666666667,
+        "clean_frame_FA": 0.936,
+        "defect_crop_recall": 0.7614991482112436
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.5146666666666667,
+        "clean_frame_FA": 0.92,
+        "defect_crop_recall": 0.6899488926746167
+      },
+      {
+        "conf": 0.3,
+        "clean_crop_FA": 0.426,
+        "clean_frame_FA": 0.9,
+        "defect_crop_recall": 0.637137989778535
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.322,
+        "clean_frame_FA": 0.836,
+        "defect_crop_recall": 0.5212947189097104
+      },
+      {
+        "conf": 0.5,
+        "clean_crop_FA": 0.244,
+        "clean_frame_FA": 0.74,
+        "defect_crop_recall": 0.38671209540034074
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.17666666666666667,
+        "clean_frame_FA": 0.62,
+        "defect_crop_recall": 0.272572402044293
+      },
+      {
+        "conf": 0.7,
+        "clean_crop_FA": 0.09666666666666666,
+        "clean_frame_FA": 0.392,
+        "defect_crop_recall": 0.11073253833049404
+      },
+      {
+        "conf": 0.8,
+        "clean_crop_FA": 0.026,
+        "clean_frame_FA": 0.116,
+        "defect_crop_recall": 0.027257240204429302
+      }
+    ]
+  },
+  "400": {
+    "n_clean_crops": 1500,
+    "n_clean_frames": 250,
+    "n_defect_crops": 587,
+    "AUC_defect_vs_clean_crop": 0.6357461669505963,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.7666666666666667,
+        "clean_frame_FA": 0.996,
+        "defect_crop_recall": 0.9369676320272572
+      },
+      {
+        "conf": 0.1,
+        "clean_crop_FA": 0.698,
+        "clean_frame_FA": 0.976,
+        "defect_crop_recall": 0.889267461669506
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.6246666666666667,
+        "clean_frame_FA": 0.952,
+        "defect_crop_recall": 0.8211243611584327
+      },
+      {
+        "conf": 0.2,
+        "clean_crop_FA": 0.5686666666666667,
+        "clean_frame_FA": 0.936,
+        "defect_crop_recall": 0.7614991482112436
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.5146666666666667,
+        "clean_frame_FA": 0.92,
+        "defect_crop_recall": 0.6899488926746167
+      },
+      {
+        "conf": 0.3,
+        "clean_crop_FA": 0.426,
+        "clean_frame_FA": 0.9,
+        "defect_crop_recall": 0.637137989778535
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.322,
+        "clean_frame_FA": 0.836,
+        "defect_crop_recall": 0.5212947189097104
+      },
+      {
+        "conf": 0.5,
+        "clean_crop_FA": 0.244,
+        "clean_frame_FA": 0.74,
+        "defect_crop_recall": 0.38671209540034074
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.17666666666666667,
+        "clean_frame_FA": 0.62,
+        "defect_crop_recall": 0.272572402044293
+      },
+      {
+        "conf": 0.7,
+        "clean_crop_FA": 0.09666666666666666,
+        "clean_frame_FA": 0.392,
+        "defect_crop_recall": 0.11073253833049404
+      },
+      {
+        "conf": 0.8,
+        "clean_crop_FA": 0.026,
+        "clean_frame_FA": 0.116,
+        "defect_crop_recall": 0.027257240204429302
+      }
+    ]
+  },
+  "800": {
+    "n_clean_crops": 1500,
+    "n_clean_frames": 250,
+    "n_defect_crops": 587,
+    "AUC_defect_vs_clean_crop": 0.6357461669505963,
+    "sweep": [
+      {
+        "conf": 0.05,
+        "clean_crop_FA": 0.7666666666666667,
+        "clean_frame_FA": 0.996,
+        "defect_crop_recall": 0.9369676320272572
+      },
+      {
+        "conf": 0.1,
+        "clean_crop_FA": 0.698,
+        "clean_frame_FA": 0.976,
+        "defect_crop_recall": 0.889267461669506
+      },
+      {
+        "conf": 0.15,
+        "clean_crop_FA": 0.6246666666666667,
+        "clean_frame_FA": 0.952,
+        "defect_crop_recall": 0.8211243611584327
+      },
+      {
+        "conf": 0.2,
+        "clean_crop_FA": 0.5686666666666667,
+        "clean_frame_FA": 0.936,
+        "defect_crop_recall": 0.7614991482112436
+      },
+      {
+        "conf": 0.25,
+        "clean_crop_FA": 0.5146666666666667,
+        "clean_frame_FA": 0.92,
+        "defect_crop_recall": 0.6899488926746167
+      },
+      {
+        "conf": 0.3,
+        "clean_crop_FA": 0.426,
+        "clean_frame_FA": 0.9,
+        "defect_crop_recall": 0.637137989778535
+      },
+      {
+        "conf": 0.4,
+        "clean_crop_FA": 0.322,
+        "clean_frame_FA": 0.836,
+        "defect_crop_recall": 0.5212947189097104
+      },
+      {
+        "conf": 0.5,
+        "clean_crop_FA": 0.244,
+        "clean_frame_FA": 0.74,
+        "defect_crop_recall": 0.38671209540034074
+      },
+      {
+        "conf": 0.6,
+        "clean_crop_FA": 0.17666666666666667,
+        "clean_frame_FA": 0.62,
+        "defect_crop_recall": 0.272572402044293
+      },
+      {
+        "conf": 0.7,
+        "clean_crop_FA": 0.09666666666666666,
+        "clean_frame_FA": 0.392,
+        "defect_crop_recall": 0.11073253833049404
+      },
+      {
+        "conf": 0.8,
+        "clean_crop_FA": 0.026,
+        "clean_frame_FA": 0.116,
+        "defect_crop_recall": 0.027257240204429302
+      }
+    ]
+  }
+}

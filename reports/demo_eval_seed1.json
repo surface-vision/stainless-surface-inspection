@@ -1,0 +1,20 @@
+{
+ "tag": "seed1",
+ "weights": "models/demo_seed1/weights/best.pt",
+ "imgsz": 320,
+ "conf": 0.15,
+ "neu_map50": 0.7412008048006701,
+ "mill_map50": 0.49418013373679603,
+ "right_type": [
+  177,
+  180
+ ],
+ "clean_flagged": [
+  43,
+  300
+ ],
+ "defect_flagged": [
+  258,
+  288
+ ]
+}

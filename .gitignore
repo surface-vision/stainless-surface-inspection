@@ -1,0 +1,27 @@
+# Environments and dependencies
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+.DS_Store
+
+# Datasets and large generated artefacts (re-creatable; too big for git)
+data/
+export/
+runs/
+yolov8n.pt
+models/**/weights/
+models/**/*.pt
+*.onnx
+*.mlpackage/
+
+# Separate repositories with their own remotes
+site/
+hf_space/
+
+# Local tool state
+.vscode/
+.streamlit/secrets.toml
+
+# Temporary build folders
+**/_tmp/

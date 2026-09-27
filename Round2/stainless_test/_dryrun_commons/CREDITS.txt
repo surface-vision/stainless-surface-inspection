@@ -1,0 +1,4 @@
+Dry-run images only, not used in the deck.
+other_scratch_01.jpg: File:Dark grey stainless steel heavily scratched worn seamless metal surface texture.jpg (CC0) https://commons.wikimedia.org/wiki/File:Dark_grey_stainless_steel_heavily_scratched_worn_seamless_metal_surface_texture.jpg
+other_scratch_02.jpg: File:Dark grey stainless steel heavily scratched worn indented top edge metal surface texture.jpg (CC0) https://commons.wikimedia.org/wiki/File:Dark_grey_stainless_steel_heavily_scratched_worn_indented_top_edge_metal_surface_texture.jpg
+other_clean_01.jpg: File:White dishcloth on a stainless steel kitchen sink 1.jpg (CC0) https://commons.wikimedia.org/wiki/File:White_dishcloth_on_a_stainless_steel_kitchen_sink_1.jpg

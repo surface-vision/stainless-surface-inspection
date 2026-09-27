@@ -1,0 +1,30 @@
+{
+ "photos": 3,
+ "finishes": [
+  "other"
+ ],
+ "clean": 1,
+ "clean_flagged": 1,
+ "defective": 2,
+ "defective_flagged": 2,
+ "by_finish": {
+  "other": {
+   "photos": 3,
+   "clean": 1,
+   "clean_flagged": 1,
+   "defective": 2,
+   "defective_flagged": 2
+  }
+ },
+ "types_reported": {
+  "Unclassified defect": 9,
+  "Crazing": 1
+ },
+ "settings": {
+  "model": "models/yolov8n_joint/weights/best.pt",
+  "imgsz": 320,
+  "conf": 0.15,
+  "tile_px": 800,
+  "greyscale": true
+ }
+}

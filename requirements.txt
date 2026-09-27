@@ -1,0 +1,47 @@
+# Jindal Stainless surface-defect detection -- pinned runtime environment.
+#
+# Python 3.11.15. Versions are the ones this system was built and measured
+# against; only packages the project imports directly are listed, so the tree
+# below is the dependency surface a reviewer has to trust. Everything else in
+# `pip freeze` arrives transitively.
+#
+#     python3.11 -m venv .venv
+#     .venv/bin/pip install -r requirements.txt
+#
+# Platform note: torch resolves to the Metal (MPS) build on Apple silicon and to
+# the CPU build elsewhere. For an NVIDIA line PC, install torch/torchvision from
+# the CUDA index first, then run this file.
+
+# --- model and tensor stack ---------------------------------------------------
+torch==2.14.0
+torchvision==0.29.0
+ultralytics==8.4.144            # YOLOv8 training, validation and export
+
+# --- imaging and numerics -----------------------------------------------------
+numpy==2.3.5
+opencv-python-headless==5.0.0.93  # ultralytics additionally pulls opencv-python
+pillow==12.3.0                  # console upload decode: EXIF, palette, 16-bit
+PyYAML==6.0.3                   # reading a run's args.yaml back
+
+# --- evaluation and reporting -------------------------------------------------
+pandas==3.0.5
+scikit-learn==1.9.0             # image-level confusion matrix and F1
+matplotlib==3.11.1              # evaluation and benchmark figures (Agg backend)
+plotly==7.0.0                   # interactive charts in the operator console
+
+# --- operator console ---------------------------------------------------------
+streamlit==1.63.0
+
+# --- explainability -----------------------------------------------------------
+grad-cam==1.5.7                 # imported as pytorch_grad_cam (EigenCAM)
+
+# --- deployment export --------------------------------------------------------
+# onnxslim and coremltools are not imported by name; ultralytics calls them for
+# `simplify=True` and `format="coreml"` in src/export_model.py.
+onnx==1.22.0
+onnxruntime==1.29.0
+onnxslim==0.1.96
+coremltools==9.0                # Apple silicon only; the export is optional
+
+# --- tests --------------------------------------------------------------------
+pytest==9.1.1
